@@ -1,0 +1,339 @@
+%
+% OSU Thesis and Dissertation LaTeX File
+%
+% Master file: master.tex
+%
+% This is the file that links all of the parts of the MS thesis or
+% PhD dissertation together and invokes the OSU official document
+% style.
+%
+% The OSU Astronomy Department has modified the Graduate School's
+% LaTeX templates to allow use of AASTeX-style markup, making for
+% easy conversion of journal papers into the proper dissertation style.
+% It also provides access to the AASTeX table formats, so that you 
+% don't have to retype all of your tables (this is a good thing).
+%
+% It also fixes some bugs in the Graduate School's style files.  These
+% could be real bugs or could simply be a different reference version
+% of TeX, we're not sure.
+%
+% Based on modifications made by Andrew Stephens and Rick Pogge.
+%
+% Annotations below describe how to use this.  There are some examples
+% of the various pages in this directory, see especially:
+%
+%	title_srh.tex   - title page template for the Senior Honors thesis
+%	title_ms.tex    - title page template for the MS thesis
+%	title_phd.tex   - title page template for the PhD dissertation
+%	abstract.tex    - abstract template
+%	dedication.tex  - dedication template
+%	acknowledge.tex - acknowledgements template
+%	vita.tex        - Vita template
+%       biblio.tex      - Bibliography template
+%
+% To process, type
+%
+%    latex master.tex
+% 
+% repeating this until all warnings about references and cross-references
+% are resolved (usually 3-4 times).
+%
+% To process the dissertation text for conversion to PDF (using either
+% Adobe Distiller or ps2pdf):
+%
+%    dvips -t letter -Ppdf -o master.ps master.dvi
+%
+% The Graduate School requires that all dissertations and theses produced
+% after Autumn Quarter 2002 be submitted electronically as PDF files.
+%
+% The ``dotex'' script has been provided to handle all of the basic
+% dirty work of processing the .tex file into .ps
+%	
+% Modification History: 
+%   2002 January 1 - hooks for thesis (MS) and dissertation (PhD) following
+%                    the 2001/2002 Graduate School Handbook [rwp]
+%   2002 May 28 - hooks for pdf conversion and bookmarks following the
+%                 new Graduate School e-submission requirements [rwp]
+%
+%   2004 Jun 18 - Of course some of the rules changed, this tries to
+%                 accommodate them.  Who thinks these things up? [rwp]
+%
+%   2013 May 14 - Been a while, but some rules changed again, mostly minor
+%                 but pay particular attention to the order of chapters,
+%                 bibliography, and appendices. [rwp]
+%
+%   2014 Jul 9  - Routine check against graduate school rules, and
+%                 additions to documentclass options (oneside, hidelinks)
+%                 to address issues for electronic dissertations [rwp]
+%
+%   2016 May 30 - Added the amsmath and tocloft packages. The latter allows
+%                 printing the LoF and LoT with the words "Figure" or "Table"
+%                 before each number, respetively. [rwp]
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Formatting Information: don't touch unless you have to...
+
+% *** LOAD PACKAGES IN THIS ORDER... ***
+%
+% If you take it upon yourself to change the order, *bad* things *WILL* 
+% happen.  Wicked bad spooky voodoo kinds of things.  Trust us...
+%
+
+% The documentclass options in [] setup formatting parameters that
+% address grad school and electronic dissertation formatting requirements.
+% 
+%    12pt = body text base font size is 12pt
+%    fleqn = left side alignment of displayed math equations
+%    oneside = avoids rogue blank pages that sometimes get created
+%              between parts or chapters because book default is 2-sided
+%    hidelinks = removes the ugly "blue boxes" around active hyperlinks
+%
+
+\documentclass[12pt,fleqn,oneside,hidelinks]{book}
+\usepackage{aaspp4}	% For compatibility with aastex'isms
+\usepackage{epsfig}	% for importing Encapsulated PostScript figures
+% JCZ 150319 !!! commented this out to try out my bibliography appraoch, using mktex
+%\usepackage{biblatex}	% Bibliography style
+%\usepackage{deluxetable}
+%\usepackage{mnras}
+\usepackage{natbib}
+\bibliographystyle{mnras}
+%\usepackage{natbib,amsmath,multirow,tabularx}
+%\usepackage{bk12e}	% A modified bk12.sty to work with LaTeX2e
+\usepackage{osuthesis}	% OSU thesis format
+\usepackage{lscape}	% support for embedded landscape pages (e.g., tables)
+\usepackage{graphicx}   % support for includegraphics et al.
+\usepackage{amsmath}
+\usepackage[titles]{tocloft}        % ToC, LoF, LoF typesetting
+\renewcommand{\cftfigfont}{Figure } % add "Figure " before numbers in the LoF
+\renewcommand{\cfttabfont}{Table }  % add "Table " before numbers in the LoT
+\renewcommand{\cftchapleader}{\cftdotfill{4}}
+%\usepackage{refcheck}	% Uncomment to check references, usually unnecessary
+
+% User's \usepackage imports:
+% \usepackage{amssymb}
+\usepackage{color}
+% \usepackage{lscape}
+\usepackage{subfiles}
+\usepackage{ragged2e}
+
+% Any new commands we need - this file contains all the current
+% AASTeX markup so you don't have to import it yourself.
+
+% \input{newcommands.tex}
+
+% Put your custom macro definitions here (DO NOT HACK newcommands.tex)
+% These are just examples.  Please be sparing, as the more macros you define, 
+% the higher the risk of weird formatting errors later.
+% for bam
+
+% Uncomment \normalmargins below to produce a draft copy of the
+% dissertation with "normal" 1-inch margins rather than the
+% Grad School's "big" margins.
+
+%\normalmargins
+
+%
+% THIS \usepackage MUST ALWAYS BE ***LAST***
+%
+% The \usepackage[]{} line below is required to ensure that the document
+% you generate satisfies the Grad School's electronic submission rules.  
+% It provides for the correct translation into PDF when you run the 
+% PostScript output from dvips through the Acrobat distiller or ps2pdf
+% to create the required PDF version.
+%
+
+% \usepackage[ps2pdf,bookmarks=true,breaklinks=true]{hyperref}
+\usepackage[bookmarks=true,breaklinks=true]{hyperref}
+\hypersetup{draft} % turns off citation links
+
+%%
+%% *** DON'T TOUCH THESE!!! ***
+%%
+%% These are the required margins.  They must be defined here, as some of
+%% the packages you loaded above with \usepackage will try to change them
+%% (sweet, huh?).  Do not mess with these or your thesis/dissertation will
+%% be unacceptable to the Graduate School (and you don't need that...)
+%%
+
+\setlength{\topmargin}{0.00in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{0.55in}
+\setlength{\evensidemargin}{0.55in}
+\setlength{\textwidth}{6.0in}  %% avoids overrun in PS/PDF generation
+\setlength{\textheight}{8.5in}
+\setlength{\footskip}{0.4in}
+\setlength{\parskip}{0.15in}
+\setlength{\parindent}{5ex}
+
+% Some bibliography punctuations that are required.  These affect the
+% appearance of \citep, \citet, and associated citation macros.  It's
+% all fairly arcane, so just leave it alone, OK? 
+% JCZ 150319 !!! commented this out too
+\bibpunct[,]{(}{)}{;}{a}{}{,}
+
+% All done, now you may begin the document
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Front Matter
+%
+% In Order:
+%	Title Page (in required format, see title_ms.tex/_phd/_srh)
+%	Abstract (see abstract.tex)
+%	Dedication (see dedication.tex)
+%	Acknowledgements (see acknowledge.tex)
+%	Vita (see vita.tex)
+%	Table of Contents
+%	List of Tables
+%	List of Figures
+%
+% Pages in this section are given lower-case roman numerals (ii, iii, etc.)
+%
+
+% Title page in required Grad School Format.  
+% Use title_ms.tex, title_phd.tex, or title_srh.tex as required.
+
+\thispagestyle{empty} % no page number on first page
+
+% \input{title_phd.tex}  % PhD Dissertation
+%\input{title_ms.tex}   % MS Thesis
+%\input{title_srh.tex}  % Senior Honors Thesis
+
+% \input{title.tex}
+\subfile{title.tex}
+
+% Abstract.  Begins on page 2
+
+% \clearpage
+% \vspace*{1cm}
+% \setcounter{page}{2}
+
+% \input{abstract.tex}
+
+% Dedication
+
+% \input{dedication.tex}
+
+% Acknowledgements
+
+% \input{acknowledge.tex}
+
+% Vita
+
+% \input{vita.tex}
+
+%% Note: we need to force the table of contents, tables, and figures
+%% to single space, or as close as we can get.  Beware the {}'s and
+%% make sure they close (hint: don't mess with this section)
+%% 
+%% You can get true single spacing if you replace \singlespace
+%% with this below:
+%%   \singlespace\setlength{\parskip}{0.24cm}
+%% However, singlespace might be too tight for the Grad School.
+%% Check with them for acceptance before commiting.
+
+% {\singlespace
+
+% Table of Contents
+
+% \tableofcontents
+
+% List of Tables
+
+% \newpage
+% \addcontentsline{toc}{chapter}{List of Tables}
+% \listoftables
+
+% List of Figures
+
+% \newpage
+% \addcontentsline{toc}{chapter}{List of Figures}
+% \listoffigures
+
+% } %% end of \singlespace
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Body of the dissertation/thesis
+%
+%  All pages given arabic numbers, starting at 1
+%
+
+\vfill
+\pagebreak
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
+
+% Each chapter of the dissertation is in a separate file, given in order
+% below.  These are chosen to illustrate various formatting issues, so
+% please read the comments in chapter1.tex thru chapter3.tex before
+% proceeding with your own dissertation.
+
+%
+% Graduate school rules were revised in 2013 to accept 1.5 spacing
+% instead of double spacing for long dissertations, even though double
+% spacing is "preferred."  If you get grief from the graduate school
+% during document investigation, comment out {\onehalfspace below to
+% get double spacing, but beware, everything will break...
+%
+
+%{\onehalfspace  % acceptable, but make \doublespace if needed
+{
+\doublespace
+\justifying
+\subfile{intro.tex}
+% \input{chapter1.tex}
+% \input{chapter5.tex}
+% \input{chapter2.tex}
+% \input{chapter3.tex}
+% \input{chapter4.tex}
+%\input{chapter5.tex}
+%\input{chapter6.tex}
+% \input{chapter7.tex}
+
+
+
+%-----------------------------------
+%
+% The Bibliography
+%
+% The dissertation/thesis style requires a global bibliography - you
+% cannot have a bibliography chapter-by-chapter.  This is the main
+% departure from AASTeX style that causes the most grief...
+%
+% The bibliography comes immediately after the last chapter but
+% *BEFORE* the first of any appendices.  See the 00README file
+% for how to format appendices if you use them.
+%
+
+% JCZ 070319
+% trying to put in bibliography command instead of biblio.tex
+% \input{biblio.tex}
+\bibliography{main}
+%\begin{thebibliography}                                                                                                    
+%\end{thebibliography}
+
+%-----------------------------------
+%
+% Appendices begin here, and must come *after* the bibliography.
+% The \appendix macro changes Chapter->Appendix and Numbered->Letters
+% 
+
+%\appendix
+%\input{app2.tex}
+%\input{app3.tex}
+%\input{app4.tex}
+%\input{app5.tex}
+%\input{app6.tex}
+
+
+}  % end of the onehalfspace / doublespace
+
+% all done!
+
+\end{document}

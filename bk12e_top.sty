@@ -1,0 +1,268 @@
+% BOOK STANDARD DOCUMENT STYLE -- Released 14 Jan 1992
+%   for LaTeX version 2.09 - Copyright (C) 1992 by Leslie Lamport
+% Modified to work under LaTeX 2e by Andrew Stephens (2001)
+%
+% Further modifications by R. Pogge for the official Astronomy Dept.
+% LaTeX dissertation & thesis macros - 2001 and 2002.
+%
+% NOTE: If the grad school changes things like header formatting rules
+%       the changes to HERE
+%
+
+\lineskip 1pt
+\normallineskip 1pt
+\def\baselinestretch{1}
+
+\def\@normalsize{\@setsize\normalsize{14.5pt}\xiipt\@xiipt
+\abovedisplayskip 12\p@ plus3\p@ minus7\p@
+\belowdisplayskip \abovedisplayskip
+\abovedisplayshortskip  \z@ plus3\p@
+\belowdisplayshortskip  6.5\p@ plus3.5\p@ minus3\p@
+\let\@listi\@listI}
+
+\def\small{\@setsize\small{13.6pt}\xipt\@xipt
+\abovedisplayskip 11\p@ plus3\p@ minus6\p@
+\belowdisplayskip \abovedisplayskip
+\abovedisplayshortskip  \z@ plus3\p@
+\belowdisplayshortskip  6.5\p@ plus3.5\p@ minus3\p@
+\def\@listi{\leftmargin\leftmargini
+\parsep 4.5\p@ plus2\p@ minus\p@
+            \itemsep \parsep
+            \topsep 9\p@ plus3\p@ minus5\p@}}
+
+\def\footnotesize{\@setsize\footnotesize{12pt}\xpt\@xpt
+\abovedisplayskip 10\p@ plus2\p@ minus5\p@
+\belowdisplayskip \abovedisplayskip
+\abovedisplayshortskip  \z@ plus3\p@
+\belowdisplayshortskip  6\p@ plus3\p@ minus3\p@
+\def\@listi{\leftmargin\leftmargini
+\topsep 6\p@ plus2\p@ minus2\p@\parsep 3\p@ plus2\p@ minus\p@
+\itemsep \parsep}}
+
+\def\scriptsize{\@setsize\scriptsize{9.5pt}\viiipt\@viiipt}
+\def\tiny{\@setsize\tiny{7pt}\vipt\@vipt}
+\def\large{\@setsize\large{18pt}\xivpt\@xivpt}
+\def\Large{\@setsize\Large{22pt}\xviipt\@xviipt}
+\def\LARGE{\@setsize\LARGE{25pt}\xxpt\@xxpt}
+\def\huge{\@setsize\huge{30pt}\xxvpt\@xxvpt}
+\let\Huge=\huge
+
+\normalsize
+
+\oddsidemargin .25in
+\evensidemargin 1.25in
+
+\marginparwidth 1in
+\marginparsep 7pt
+
+\topmargin .73in
+
+\headheight 12pt
+\headsep .275in
+\topskip = 12pt
+
+\footskip 30pt
+
+\textheight = 36\baselineskip
+\advance\textheight by \topskip
+\textwidth 5in
+
+\columnsep 10pt
+\columnseprule 0pt
+
+\footnotesep 8.4pt
+
+\skip\footins 10.8pt plus 4pt minus 2pt
+
+\floatsep 14pt plus 2pt minus 4pt
+
+\textfloatsep 20pt plus 2pt minus 4pt
+
+\intextsep 14pt plus 4pt minus 4pt
+
+%\@maxsep 20pt
+
+\dblfloatsep 14pt plus 2pt minus 4pt
+
+\dbltextfloatsep 20pt plus 2pt minus 4pt
+
+%\@dblmaxsep 20pt
+
+\@fptop 0pt plus 1fil
+
+\@fpsep 10pt plus 2fil
+\@fpbot 0pt plus 1fil
+
+\@dblfptop 0pt plus 1fil
+
+\@dblfpsep 10pt plus 2fil% Space between floats on float page.
+\@dblfpbot 0pt plus 1fil
+
+\marginparpush 7pt
+
+\parskip 0pt plus 1pt
+
+\parindent 1.5em
+
+\partopsep 3pt plus 2pt minus 2pt
+
+\@lowpenalty   51
+\@medpenalty  151
+\@highpenalty 301
+
+\@beginparpenalty -\@lowpenalty
+
+\@endparpenalty   -\@lowpenalty
+
+\@itempenalty     -\@lowpenalty
+
+\def\@makechapterhead#1{% Heading for \chapter command
+  \vspace*{0.625in}% Space at top of text page.
+\centerline{
+    \ifnum \c@secnumdepth >\m@ne
+      \Large\sc \@chapapp{} \thechapter}
+      \par
+      \vskip 20\p@ \fi
+	\begin{center}
+        {\Large \sc #1}\par
+        \end{center}
+    \nobreak
+    \vskip 0\p@% Space between title and text.
+}
+
+\def\@makeschapterhead#1{% Heading for \chapter* command
+  \newpage  %%rwp
+%  {\parindent \z@ \raggedright
+    \vbox to 1.0truein {}
+    \begin{center}
+     {\large \sc #1}\par
+    \end{center}
+    \nobreak
+    \vskip 0\p@ % Space between title and text
+}
+
+\def\chapter{\clearpage
+   \thispagestyle{plain}%
+   \global\@topnum\z@
+   \@afterindenttrue	% Indent first paragraph
+%  \@afterindentfalse	% Suppresses indent in first paragraph
+   \secdef\@chapter\@schapter
+}
+
+
+\def\@chapter[#1]#2{
+   \ifnum \c@secnumdepth >\m@ne
+     \refstepcounter{chapter}%
+     \typeout{\@chapapp\space\thechapter.}%
+     \addcontentsline{toc}{chapter}{\@chapapp\space\protect\numberline{\thechapter}#1}
+   \else
+     \addcontentsline{toc}{chapter}{#1}
+   \fi
+   \chaptermark{#1}%
+%   \addtocontents{lof}%
+%       {\protect\addvspace{10\p@}}% Adds between-chapter space
+%   \addtocontents{lot}%
+%       {\protect\addvspace{10\p@}}% to lists of figs & tables.
+   \if@twocolumn
+    \@topnewpage[\@makechapterhead{#2}]%
+   \else 
+     \@makechapterhead{#2}%
+     \@afterheading
+   \fi
+}
+
+\def\@schapter#1{
+   \if@twocolumn 
+      \@topnewpage[\@makeschapterhead{#1}]%
+   \else 
+      \@makeschapterhead{#1}%
+      \@afterheading
+   \fi
+}
+ 
+% \@startsection {NAME}{LEVEL}{INDENT}{BEFORESKIP}{AFTERSKIP}{STYLE} [ALTHEADING]{HEADING}
+%    NAME       : e.g., 'subsection'
+%    LEVEL      : a number, denoting depth of section -- e.g.,
+%                 chapter=1, section = 2, etc.  A section number will be
+%                 printed if and only if LEVEL < or = the value of the
+%                 secnumdepth counter.
+%    INDENT     : Indentation of heading from left margin
+%    BEFORESKIP : Absolute value = skip to leave above the heading.  
+%                 If negative, then paragraph indent of text following 
+%                 heading is suppressed.
+%    AFTERSKIP  : if positive, then skip to leave below heading,
+%                       else - skip to leave to right of run-in heading.
+%    STYLE      : commands to set style
+%  If '*' missing, then increments the counter.  If it is present, then
+%  there should be no [ALTHEADING] argument.  A sectioning command
+%  is normally defined to \@startsection + its first six arguments.
+
+\def\section{\@startsection {section}{1}{\z@}
+	{2.5ex}{2ex}{\reset@font\large\sc}}
+%	{2.5ex plus-1ex minus-.2ex}{2.3ex plus.2ex}{\reset@font\large\sc}}
+
+\def\subsection{\@startsection{subsection}{2}{\z@}
+	{2ex}{1.5ex}{\reset@font\large\sc}}
+%	{2.25ex plus-1ex minus-.2ex}{1.5ex plus.2ex}{\reset@font\large\sc}}
+
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}
+	{2ex}{1.5ex}{\reset@font\normalsize\sc}}
+%	{2.25ex plus-1ex minus-.2ex}{1.5ex plus.2ex}{\reset@font\normalsize\sc}}
+
+\def\paragraph{\@startsection{paragraph}{4}{\z@}
+	{3.25ex plus1ex minus.2ex}{-1em}{\reset@font\normalsize\bf}}
+
+\def\subparagraph{\@startsection{subparagraph}{4}{\parindent}
+	{3.25ex plus1ex minus.2ex}{-1em}{\reset@font\normalsize\bf}}
+
+\def\chaptermark#1{}
+
+\setcounter{secnumdepth}{2}
+
+\def\appendix{\par
+  \setcounter{chapter}{0}%
+  \setcounter{section}{0}%
+  \def\@chapapp{\appendixname}%
+  \def\thechapter{\Alph{chapter}}}
+
+\leftmargini 2.5em
+\leftmarginii 2.2em
+\leftmarginiii 1.87em
+\leftmarginiv 1.7em
+\leftmarginv 1em
+\leftmarginvi 1em
+
+\leftmargin\leftmargini
+\labelsep .5em
+\labelwidth\leftmargini\advance\labelwidth-\labelsep
+
+\def\@listI{\leftmargin\leftmargini \parsep 5\p@ plus2.5\p@ minus\p@
+\topsep 10\p@ plus4\p@ minus6\p@
+\itemsep 5\p@ plus2.5\p@ minus\p@}
+
+\let\@listi\@listI
+\@listi
+
+\def\@listii{\leftmargin\leftmarginii
+   \labelwidth\leftmarginii\advance\labelwidth-\labelsep
+   \topsep 5\p@ plus2.5\p@ minus\p@
+   \parsep 2.5\p@ plus\p@ minus\p@
+   \itemsep \parsep}
+
+\def\@listiii{\leftmargin\leftmarginiii
+    \labelwidth\leftmarginiii\advance\labelwidth-\labelsep
+    \topsep 2.5\p@ plus\p@ minus\p@
+    \parsep \z@ \partopsep \p@ plus\z@ minus\p@
+    \itemsep \topsep}
+
+\def\@listiv{\leftmargin\leftmarginiv
+     \labelwidth\leftmarginiv\advance\labelwidth-\labelsep}
+
+\def\@listv{\leftmargin\leftmarginv
+     \labelwidth\leftmarginv\advance\labelwidth-\labelsep}
+
+\def\@listvi{\leftmargin\leftmarginvi
+     \labelwidth\leftmarginvi\advance\labelwidth-\labelsep}
+
+\endinput
+
