@@ -97,8 +97,41 @@
 %\usepackage{biblatex}	% Bibliography style
 %\usepackage{deluxetable}
 %\usepackage{mnras}
-\usepackage{natbib}
-\bibliographystyle{mnras}
+% \usepackage{natbib}
+\usepackage[
+	style=authoryear-comp,
+	natbib=true,
+	backend=bibtex,
+	maxcitenames=3,
+	maxbibnames=8,
+	giveninits=true,
+	uniquename=init,
+	autocite=inline,
+	isbn=false,
+	doi=false,
+	eprint=false
+]{biblatex}
+% \bibliography{main}
+\addbibresource{main.bib}
+% \addbibresource{wat.bib}
+\renewcommand*\finalnamedelim{\addspace\&\space}
+\renewcommand*\nameyeardelim{\addspace}
+\AtBeginBibliography{\renewcommand*\finalnamedelim{\addcomma\space}}
+\DeclareFieldFormat{journaltitle}{#1}
+\DeclareFieldFormat{pages}{#1}
+\DeclareNameAlias{sortname}{family-given}
+\DeclareBibliographyDriver{article}{%
+	\printnames{author}%
+	\addcomma\addspace%
+	\printfield{year}%
+	\addcomma\addspace%
+	\printfield{journaltitle}%
+	\addcomma\addspace%
+	\printfield{volume}%
+	\addcomma\addspace%
+	\printfield{pages}%
+}
+
 %\usepackage{natbib,amsmath,multirow,tabularx}
 %\usepackage{bk12e}	% A modified bk12.sty to work with LaTeX2e
 \usepackage{osuthesis}	% OSU thesis format
@@ -117,11 +150,15 @@
 % \usepackage{lscape}
 \usepackage{subfiles}
 \usepackage{ragged2e}
+\usepackage{tabularx}
+\usepackage{bm}
+\usepackage[toc, page]{appendix}
 
 % Any new commands we need - this file contains all the current
 % AASTeX markup so you don't have to import it yourself.
 
 % \input{newcommands.tex}
+\input{commands.tex}
 
 % Put your custom macro definitions here (DO NOT HACK newcommands.tex)
 % These are just examples.  Please be sparing, as the more macros you define, 
@@ -146,7 +183,13 @@
 
 % \usepackage[ps2pdf,bookmarks=true,breaklinks=true]{hyperref}
 \usepackage[bookmarks=true,breaklinks=true]{hyperref}
-\hypersetup{draft} % turns off citation links
+% \hypersetup{draft} % turns off citation links
+\hypersetup{
+	colorlinks = true,
+	linkcolor = blue,
+	citecolor = blue,
+	urlcolor = blue
+}
 
 %%
 %% *** DON'T TOUCH THESE!!! ***
@@ -172,7 +215,7 @@
 % appearance of \citep, \citet, and associated citation macros.  It's
 % all fairly arcane, so just leave it alone, OK? 
 % JCZ 150319 !!! commented this out too
-\bibpunct[,]{(}{)}{;}{a}{}{,}
+% \bibpunct[,]{(}{)}{;}{a}{}{,}
 
 % All done, now you may begin the document
 
@@ -204,8 +247,8 @@
 %\input{title_ms.tex}   % MS Thesis
 %\input{title_srh.tex}  % Senior Honors Thesis
 
-% \input{title.tex}
-\subfile{title.tex}
+\input{title.tex}
+% \subfile{title.tex}
 
 % Abstract.  Begins on page 2
 
@@ -287,6 +330,7 @@
 \doublespace
 \justifying
 \subfile{intro.tex}
+\subfile{chapter4/main.tex}
 % \input{chapter1.tex}
 % \input{chapter5.tex}
 % \input{chapter2.tex}
@@ -314,9 +358,12 @@
 % JCZ 070319
 % trying to put in bibliography command instead of biblio.tex
 % \input{biblio.tex}
-\bibliography{main}
-%\begin{thebibliography}                                                                                                    
-%\end{thebibliography}
+% \bibliography{main}
+% \begin{thebibliography}
+\printbibliography
+% \bibliography{main}
+% \bibliographystyle{mnras}
+% \end{thebibliography}
 
 %-----------------------------------
 %
@@ -324,7 +371,9 @@
 % The \appendix macro changes Chapter->Appendix and Numbered->Letters
 % 
 
-%\appendix
+\appendix
+\input{chapter4/likelihood.tex}
+\input{chapter4/yield_outflow_degeneracy.tex}
 %\input{app2.tex}
 %\input{app3.tex}
 %\input{app4.tex}

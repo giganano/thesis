@@ -1,9 +1,14 @@
 
 main.pdf
+main-blx.bib
 *.aux
 *.bbl
 *.blg
 *.log
 *.out
+*.xml
 *.sublime-project
 *.sublime-workspace
+
+
+

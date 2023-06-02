@@ -13,9 +13,11 @@ all: main.pdf
 .PHONY: clean
 clean:
 	@ rm -f *.aux
+	@ rm -f main-blx.bib
 	@ rm -f *.bbl
 	@ rm -f *.blg
 	@ rm -f *.log
 	@ rm -f *.out
+	@ rm -f main.run.xml
 	@ rm -f main.pdf
 
