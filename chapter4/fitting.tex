@@ -1,6 +1,6 @@
 
 \section{The Fitting Method}
-\label{sec:fitting}
+\label{dga:sec:fitting}
 
 Our fitting method uses the abundances of an ensemble of stars, incorporating
 age measurements as additional data where available, and without any binning,
@@ -15,7 +15,7 @@ L(\{\theta\} | \script{D}) = \frac{
 }{
 	L(\script{D})
 },
-\label{eq:bayes}
+\label{dga:eq:bayes}
 \end{equation}
 where~$L(\{\theta\})$ is the likelihood of the parameters themselves (known as
 the~\textit{prior}) and~$L(\script{D})$ is the likelihood of the data (known as
@@ -31,11 +31,11 @@ is a constant, and therefore~$L(\{\theta\} | \script{D}) \approx
 L(\script{D} | \{\theta\})$; we retain this convention here unless otherwise
 stated.
 \par
-As mentioned in~\S~\ref{sec:intro}, the sampling of stars from an underlying
+As mentioned in~\S~\ref{dga:sec:intro}, the sampling of stars from an underlying
 evolutionary track in abundance space proceeds according to an IPPP
 \citep[e.g.,][]{Press2007}.
 Due to its detailed nature, we reserve a full derivation of our likelihood
-function for Appendix~\ref{sec:likelihood} and provide qualitative discussion
+function for Appendix~\ref{dga:sec:likelihood} and provide qualitative discussion
 of its form here.
 Though our use case in the present paper is in the context of one-zone GCE
 models, our derivation assumes only that the chief prediction of the model is
@@ -60,7 +60,7 @@ the likelihood function is given by
 \frac{-1}{2}\Delta_{ij}C_i^{-1}\Delta_{ij}^T
 \right)
 \right),
-\label{eq:likelihood}
+\label{dga:eq:likelihood}
 \end{equation}
 where~$\Delta_{ij} = \script{D}_i - \script{M}_j$ is the vector difference
 between the~$i$th datum and the~$j$th point on the predicted track,~$C_i^{-1}$
@@ -74,28 +74,28 @@ opposing case where the normalization does impact the predicted abundances,
 one additional term subtracting the sum of the weights is required (see
 discussion below).
 \par
-Equation~\refp{eq:likelihood} arises from marginalizing the likelihood of
+Equation~\refp{dga:eq:likelihood} arises from marginalizing the likelihood of
 observing each datum over the entire evolutionary track and has the more
 general form of
 \begin{subequations}\begin{align}
 \ln L(\script{D} | \{\theta\}) &= \sum_i^N \left(
 \int_\script{M} L(\script{D}_i | \script{M}) d\script{M}
 \right)
-\label{eq:likelihood_general_int}
+\label{dga:eq:likelihood_general_int}
 \\
 &\approx \sum_i^N \ln \left(
 \sum_j^K L(\script{D}_i | \script{M}_j)\right).
-\label{eq:likelihood_general}
+\label{dga:eq:likelihood_general}
 \end{align}\end{subequations}
-Equation~\refp{eq:likelihood_general} follows from equation
-\refp{eq:likelihood_general_int} when the track is densely sampled by the
-numerical integrator (see discussion below), and equation~\refp{eq:likelihood}
+Equation~\refp{dga:eq:likelihood_general} follows from equation
+\refp{dga:eq:likelihood_general_int} when the track is densely sampled by the
+numerical integrator (see discussion below), and equation~\refp{dga:eq:likelihood}
 follows thereafter when the likelihood $L(\script{D}_i | \script{M}_j)$ of
 observing the~$i$'th datum given the~$j$th point on the evolutionary track is
 given by a weighted~$e^{-\chi^2/2}$ expression.
 Mathematically, the requirement for this marginalization arises naturally from
 the application of statistical likelihood and an IPPP to an evolutionary track
-(see Appendix~\ref{sec:likelihood}).
+(see Appendix~\ref{dga:sec:likelihood}).
 Qualitatively, this requirement is due to observational uncertainties -- there
 is no way of knowing which point on the evolutionary track the
 datum~$\script{D}_i$ is truly associated with, and the only way to properly
@@ -112,7 +112,7 @@ scale as their product:
 \begin{equation}
 w_j \propto \script{S}(\script{M}_j | \{\theta\})
 \dot{M}_\star(\script{M}_j | \{\theta\}).
-\label{eq:weights}
+\label{dga:eq:weights}
 \end{equation}
 Whether or not the weights require an overall normalization is related to the
 parametrization of the GCE model -- in particular, if the normalization of the
@@ -125,19 +125,19 @@ temperature, etc.
 \par
 The marginalization over the track and the weighted likelihood are of the
 utmost importance to ensure accurate best-fit parameters.
-In our tests against mock samples (see~\S~\ref{sec:mocks} below), we are unable
+In our tests against mock samples (see~\S~\ref{dga:sec:mocks} below), we are unable
 to recover the known evolutionary parameters of input models with discrepancies
 at the many-$\sigma$ level if either are neglected.
 While these details always remain a part of the likelihood function, equation
-\refp{eq:likelihood} can change in form slightly if any one of a handful of
+\refp{dga:eq:likelihood} can change in form slightly if any one of a handful of
 conditions are not met.
 We discuss these conditions and the necessary modifications below, referring to
-Appendix~\ref{sec:likelihood} for mathematical justification.
+Appendix~\ref{dga:sec:likelihood} for mathematical justification.
 \par
 \textit{The model track is infinitely thin.}
 In the absence of measurement uncertainties, all of the data would fall
 perfectly on a line in the observed space.
-As discussed in the beginning of~\S~\ref{sec:onezone}, the fundamental
+As discussed in the beginning of~\S~\ref{dga:sec:onezone}, the fundamental
 assumption of one-zone GCE models is instantaneous mixing of the various
 nuclear species throughout the star forming reservoir.
 Consequently, the ISM is chemically homogeneous and the model predicts a single
@@ -157,7 +157,7 @@ L(\script{D} | \{\theta\}) &= \prod_i^N L(\script{D}_i | \script{M})
 L(\script{D}_i | \script{M}).
 \end{align}\end{subequations}
 This condition plays an integral role in giving rise to the functional form of
-equation~\refp{eq:likelihood}, and if violated, the likelihood function will
+equation~\refp{dga:eq:likelihood}, and if violated, the likelihood function will
 also have a fundamentally different form.
 \par
 \textit{The observational uncertainties are described by a multivariate
@@ -165,7 +165,7 @@ Gaussian.}
 If this condition fails, the weighted~$\chi^2 = \Delta_{ij}C_i^{-1}\Delta_{ij}^T$
 expression is no longer an accurate parametrization of~$L(\script{D}_i |
 \script{M}_j)$ and it should be replaced with the more general form of
-equation~\refp{eq:likelihood_general}.
+equation~\refp{dga:eq:likelihood_general}.
 In these cases, a common alternative would be to replace~$e^{-\chi^2 / 2}$ with
 some kernel density estimate of the uncertainty at the point~$\script{M}_j$
 while retaining the weight~$w_j$, but this substitution is only necessary for
@@ -176,10 +176,10 @@ multivariate Gaussian.
 That is, the spacing between the points on the track~\script{M}~is small
 compared to the observational uncertainties in the data.
 This assumption can be relaxed at the expense of including an additional
-correction factor~$\beta_{ij}$ given by equation~\refp{eq:corrective_beta}
+correction factor~$\beta_{ij}$ given by equation~\refp{dga:eq:corrective_beta}
 that integrates the likelihood between each pair of adjacent
 points~$\script{M}_j$ and~$\script{M}_{j + 1}$ along the track (see discussion
-in Appendix~\ref{sec:likelihood}).
+in Appendix~\ref{dga:sec:likelihood}).
 If computing the evolutionary track is sufficiently expensive, relaxing the
 number of points and including this correction factor may be the more
 computationally efficient option.
@@ -191,13 +191,13 @@ As mentioned above, the model-predicted SFH and the selection function of the
 survey determine the weights to attach to each point~$\script{M}_j$ along the
 track, and if the normalization of the SFH does not impact the abundance
 evolution, then it must not impact the inferred likelihood either.
-In our detailed derivation of equation~\refp{eq:likelihood}, we find that the
+In our detailed derivation of equation~\refp{dga:eq:likelihood}, we find that the
 proper manner in which to assign the weights is to normalize then such that
-they add up to 1 (see Appendix~\ref{sec:likelihood}).
+they add up to 1 (see Appendix~\ref{dga:sec:likelihood}).
 Some GCE models, however, are parametrized such that the normalization of the
 SFH~\textit{does} impact the abundance evolution.
 One such example would be if the SFE timescale~$\tau_\star$ (see equation
-\ref{eq:taustar} and discussion in~\S~\ref{sec:onezone}) depends on the gas
+\ref{dga:eq:taustar} and discussion in~\S~\ref{dga:sec:onezone}) depends on the gas
 supply~$M_\text{g}$ in order to implement some version of a non-linear
 Kennicutt-Schmidt relation\footnote{
 	$\dot{\Sigma}_\star \propto \Sigma_\text{g}^N \implies \tau_\star \propto
@@ -209,8 +209,8 @@ Kennicutt-Schmidt relation\footnote{
 } where the normalization of the SFH and size of the galaxy are taken into
 account.
 In these cases, the likelihood function is given by
-equation~\refp{eq:corrective_beta} where the weights remain un-normalized and
-their sum must be subtracted from equation~\refp{eq:likelihood}.
+equation~\refp{dga:eq:corrective_beta} where the weights remain un-normalized and
+their sum must be subtracted from equation~\refp{dga:eq:likelihood}.
 This requirement can be qualitatively understood as a penalty for models that
 predict data in regions of the observed space where there are none -- a term
 which encourages parsimony, rewarding parameter choices which explain the data
@@ -218,7 +218,7 @@ in as few predicted instances as possible.
 This penalty is still included in models which normalize the weights, with the
 tracks that extend too far in abundance space instead having a higher
 \textit{fractional} weight from data at large~$\chi^2$, lowering the total
-likelihood (see discussion near the end of Appendix~\ref{sec:likelihood}).
+likelihood (see discussion near the end of Appendix~\ref{dga:sec:likelihood}).
 
 % fig 1
 \begin{figure*}
@@ -246,10 +246,10 @@ sample.
 Uncertainties at various ages are marked by the error bars at the top and
 bottom of each panel.
 }
-\label{fig:fiducial_mock}
+\label{dga:fig:fiducial_mock}
 \end{figure*}
 
-We demonstrate the accuracy of our likelihood function in~\S~\ref{sec:mocks}
+We demonstrate the accuracy of our likelihood function in~\S~\ref{dga:sec:mocks}
 below by means of tests against mock data samples.
 Although our likelihood function does not include a direct fit to the
 stellar distributions in age and abundances, weighting the inferred likelihood

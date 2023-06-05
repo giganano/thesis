@@ -5,10 +5,10 @@
 % \setcounter{figure}{0}
 
 \section{Derivation of the Likelihood Function}
-\label{sec:likelihood}
+\label{dga:sec:likelihood}
 
 Here we provide a detailed derivation of our likelihood function (Eq.
-\ref{eq:likelihood}).
+\ref{dga:eq:likelihood}).
 In its most general form, the problem at hand is to treat some set of data as a
 stochasitc sample from an evolutionary track in some observed space.
 This assumption implies that all of the data would fall perfectly on some
@@ -21,7 +21,7 @@ isochrones, indicating that our likelihood function should be easily extensible
 to these models as well.
 We however phrase our discussion here under the assumption that the observed
 quantities are the abundances and ages of stars and that the underlying
-framework is a one-zone GCE model (see discussion in~\S~\ref{sec:onezone}).
+framework is a one-zone GCE model (see discussion in~\S~\ref{dga:sec:onezone}).
 \par
 First, we define the key variables:
 \begin{itemize}
@@ -51,7 +51,7 @@ First, we define the key variables:
 	parameters.
 	These values impact the detailed form of the track~\script{M}~and otherwise
 	affect the inferred best-fit values only if there is an assumed prior
-	$L(\{\theta\})$ (see equation~\ref{eq:bayes}).
+	$L(\{\theta\})$ (see equation~\ref{dga:eq:bayes}).
 
 \end{itemize}
 \par
@@ -85,7 +85,7 @@ $\lambda$ describes the predicted~\textit{observed} distribution of stars in
 chemical space and should therefore incorporate any selection effects in the
 data.
 It can be expressed as the product of the selection function~\script{S}~(see
-discussion in~\S~\ref{sec:fitting}) and the~\textit{intrinsic}
+discussion in~\S~\ref{dga:sec:fitting}) and the~\textit{intrinsic}
 distribution~$\Lambda$ according to
 \begin{equation}
 \lambda(\script{M}_j | \{\theta\}) = \script{S}(\script{M}_j | \{\theta\})
@@ -116,7 +116,7 @@ expression for~$\ln L$:
 \int_\script{M} L(\script{D}_i | \script{M})\lambda(\script{M} | \{\theta\})
 d\script{M}
 \right).
-\label{eq:lnL_with_integral}
+\label{dga:eq:lnL_with_integral}
 \end{equation}
 The next step is to assess the likelihood~$L(\script{D}_i | \script{M})$ of
 observing each datum given the predicted track.
@@ -124,7 +124,7 @@ The line integral within the summation indicates that the most general solution
 is to marginalize the likelihood over the entire evolutionary track.
 In fact, we find in our tests against mock samples that this marginalizaion is necessary to
 ensure that the inferred best-fit parameters are accurate (see discussion
-in~\S~\ref{sec:mocks:recovered}).
+in~\S~\ref{dga:sec:mocks:recovered}).
 This requirement arises due to observational uncertainties -- there is no way
 of knowing~\textit{a priori} which point on the track any individual datum is
 truly associated with.
@@ -145,13 +145,13 @@ associated with the datum~$\script{D}_i$ (shown by the dotted red contours),
 the finite length of the line segment becomes an important correction.
 Additional vector quantities that appear in our derivation are also noted.
 }
-\label{fig:marginalization}
+\label{dga:fig:marginalization}
 \end{figure}
 
 In practice, the track may be complicated in shape and is generally not known
 as a smooth and continuous function, instead in some piece-wise linear
 approximation computed by a numerical code.
-We visualize a hypothetical track and datum in Fig.~\ref{fig:marginalization}
+We visualize a hypothetical track and datum in Fig.~\ref{dga:fig:marginalization}
 where we have deliberately exaggerated the spacing between two adjacent
 points~$\script{M}_j$ and~$\script{M}_{j + 1}$ for illustrative purposes.
 In principle, the likelihood of observing some datum~$\script{D}_i$ varies
@@ -160,7 +160,7 @@ To properly take this variation into account, we must integrate along the
 length of the line segment:
 \begin{equation}
 L(\script{D}_i | \script{M}_j) = \int_0^1 L(\script{D}_i | \script{M}_j, q) dq,
-\label{eq:l_int_q}
+\label{dga:eq:l_int_q}
 \end{equation}
 where~$q$ is a dimensionless parameter defined to be 0 at the point
 $\script{M}_j$ and 1 at the point~$\script{M}_{j + 1}$ according to
@@ -176,14 +176,14 @@ of its covariance matrix~$C_i$ as
 L(\script{D}_i | \script{M}_j, q) &=
 \frac{1}{\sqrt{2\pi \det{(C_i)}}}
 \exp\left(\frac{-1}{2} d_{ij}(q) C_i^{-1} d_{ij}^T(q)\right)
-\label{eq:l_di_mj_q}
+\label{dga:eq:l_di_mj_q}
 \\
 d_{ij} &= \script{D}_i - A(q)
 \\
 &= \script{D}_i - \script{M}_j - q(\script{M}_{j + 1} - \script{M}_j)
 \\
 &= \Delta_{ij} - q\Delta \script{M}_j,
-\label{eq:delta_minus_qmj}
+\label{dga:eq:delta_minus_qmj}
 \end{align}\end{subequations}
 where~$d_{ij}$ is the vector difference between~$\script{D}_i$ and the
 point along the track~$A(q)$ in the observed space.
@@ -191,16 +191,16 @@ For notational convenience, we have introduced the variable
 $\Delta_{ij} = \script{D}_i - \script{M}_j$ as the vector difference between
 the~$i$th datum and the~$j$th point sampled on the track.
 We clarify our notation that the subscripts~$i$ and~$ij$ in equation
-\refp{eq:l_di_mj_q} above do not refer to rows and columns of matrices, but
+\refp{dga:eq:l_di_mj_q} above do not refer to rows and columns of matrices, but
 rather to the~$i$th datum and the~$j$th point on the model track.
 If a multivariate Gaussian is not an accurate description of the measurement
-uncertainties in any one datum, then equation~\refp{eq:l_di_mj_q} must
+uncertainties in any one datum, then equation~\refp{dga:eq:l_di_mj_q} must
 be replaced with some alternative characterization of the likelihood of
 observation, such a kernel density estimate evaluated at the point~$A(q)$.
 We however continue our derivation under the assumption of multivariate
 Gaussian uncertainties.
 \par
-Before evaluating equation~\refp{eq:l_int_q}, we first compute the square
+Before evaluating equation~\refp{dga:eq:l_int_q}, we first compute the square
 $d_{ij}(q)C_i^{-1}d_{ij}^T(q)$ and isolate the terms that depend on~$q$:
 \begin{subequations}\begin{align}
 \begin{split}
@@ -209,15 +209,15 @@ d_{ij}(q) C_i^{-1} d_{ij}(q)^T &= \Delta_{ij} C_i^{-1} \Delta_{ij}^T -
 \\
 &\qquad q^2\Delta \script{M}_j C_i^{-1} \Delta \script{M}_j^T
 \end{split}
-\label{eq:chisquared}
+\label{dga:eq:chisquared}
 \\
 &= \Delta_{ij} C_i^{-1} \Delta_{ij}^T - 2bq + aq^2,
 \end{align}\end{subequations}
 where we have introduced the substitutions
 $a = \Delta\script{M}_j C_i^{-1} \Delta\script{M}_j^T$ and
 $b = \Delta_{ij} C_i^{-1} \Delta\script{M}_j^T$.
-Plugging this expression into the exponential in equation~\refp{eq:l_di_mj_q}
-and integrating from~$q = 0$ to~$1$ according to equation~\refp{eq:l_int_q}
+Plugging this expression into the exponential in equation~\refp{dga:eq:l_di_mj_q}
+and integrating from~$q = 0$ to~$1$ according to equation~\refp{dga:eq:l_int_q}
 yields the following expression for~$L(\script{D}_i | \script{M}_j)$:
 \begin{subequations}\begin{align}
 \begin{split}
@@ -243,7 +243,7 @@ by
 \beta_{ij} = \sqrt{\frac{\pi}{2a}} \exp\left(\frac{b^2}{2a}\right)
 \left[\erf\left(\frac{a - b}{\sqrt{2a}}\right) - \erf\left(\frac{b}{\sqrt{2a}}
 \right)\right],
-\label{eq:corrective_beta}
+\label{dga:eq:corrective_beta}
 \end{equation}
 such that~$L(\script{D}_i | \script{M}_j)$ can be expressed as
 \begin{equation}
@@ -269,7 +269,7 @@ at which the track is sampled:
 \right).
 \end{split}\end{equation}
 Although we have exaggerated the spacing between points for illustrative
-purposes, Fig.~\ref{fig:marginalization} indicates that
+purposes, Fig.~\ref{dga:fig:marginalization} indicates that
 $q\Delta\script{M}_j \ll \Delta_{ij}$ in the opposing case in which
 $\Delta\script{M}_j$ is small compared to the measurement uncertainties.
 As a consequence,~$\beta_{ij} \approx 1$ and this corrective term can be safely
@@ -300,7 +300,7 @@ The following likelihood function then arises:
 \sum_i^N \ln \left(\sum_j^K
 \beta_{ij} w_j \exp\left(\frac{-1}{2}\Delta_{ij} C_i^{-1} \Delta_{ij}^T\right)
 \right) - \sum_j^K w_j,
-\label{eq:lnL_minus_weights}
+\label{dga:eq:lnL_minus_weights}
 \end{equation}
 where we have omitted the term~$\sum \ln \left(\sqrt{2\pi \det{(C_i)}}\right)$
 because it is a constant that can safely be neglected in the interest of
@@ -324,7 +324,7 @@ normalization defined relative to the intensity function according to
 \\
 \int_\script{M} \rho(\script{M} | \{\theta\}) d\script{M} &= 1.
 \end{align}\end{subequations}
-Plugging~$\rho$ into equation~\refp{eq:lnL_with_integral} and pulling
+Plugging~$\rho$ into equation~\refp{dga:eq:lnL_with_integral} and pulling
 $N_\lambda$ out of the natural logarithm yields the following expression:
 \begin{equation}\begin{split}
 \ln L(\script{D} | \{\theta\}) &= -N_\lambda + N \ln N_\lambda +
@@ -363,29 +363,29 @@ abundances:
 \begin{subequations}\begin{align}
 \ln L(\script{D} | \{\theta\}) &\propto \sum_i^N \ln \left( \sum_j^K \beta_{ij}
 w_j \exp\left(\frac{-1}{2}\Delta_{ij} C_i^{-1} \Delta_{ij}^T\right) \right)
-\label{eq:lnL_fracweight}
+\label{dga:eq:lnL_fracweight}
 \\
 \sum_j^K w_j &= 1,
-\label{eq:lnL_fracweightsum}
+\label{dga:eq:lnL_fracweightsum}
 \end{align}\end{subequations}
 where the second expression arises from the requirement that the line integral
 of the un-normalized density~$\rho$ along the track equal 1.
 \par
 In summary, when inferring best-fit parameters for one-zone GCE models in which
 the normalization of the SFH is irrelevant to the evolution of the abundances,
-authors should adopt equations~\refp{eq:lnL_fracweight} and
-\refp{eq:lnL_fracweightsum}.
+authors should adopt equations~\refp{dga:eq:lnL_fracweight} and
+\refp{dga:eq:lnL_fracweightsum}.
 If the model is instead parametrized in such a manner that the normalization
 does indeed impact the abundance evolution, then authors should adopt
-equation~\refp{eq:lnL_minus_weights}.
+equation~\refp{dga:eq:lnL_minus_weights}.
 Such models can arise, e.g., when the mass-loading factor~$\eta$ grows with the
 stellar mass to mimic the deepending of the potential
 well~\citep[e.g.,][]{Conroy2022}.
 In either case, the corrective term~$\beta_{ij}$ given by equation
-\refp{eq:corrective_beta} is approximately 1 and can be safely neglected when
+\refp{dga:eq:corrective_beta} is approximately 1 and can be safely neglected when
 the track is densely sampled relative to the observational uncertainties.
 In the present paper, our GCE models are parametrized in such a manner that the
 normalization of the SFH does~\textit{not} impact the enrichment history, and
-we adopt equations~\refp{eq:lnL_fracweight} and~\refp{eq:lnL_fracweightsum}
+we adopt equations~\refp{dga:eq:lnL_fracweight} and~\refp{dga:eq:lnL_fracweightsum}
 accordingly.
 

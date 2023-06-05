@@ -138,6 +138,7 @@
 \usepackage{lscape}	% support for embedded landscape pages (e.g., tables)
 \usepackage{graphicx}   % support for includegraphics et al.
 \usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage[titles]{tocloft}        % ToC, LoF, LoF typesetting
 \renewcommand{\cftfigfont}{Figure } % add "Figure " before numbers in the LoF
 \renewcommand{\cfttabfont}{Table }  % add "Table " before numbers in the LoT
@@ -153,6 +154,25 @@
 \usepackage{tabularx}
 \usepackage{bm}
 \usepackage[toc, page]{appendix}
+\usepackage[explicit, compact]{titlesec}
+\titleformat{\chapter}[block]
+	{\centering\huge}
+	{Chapter~\thechapter:}{1ex}{#1}
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+\titleformat{\section}[block]
+	{\centering\LARGE}
+	{\thesection}{1ex}{#1}
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+\titleformat{\subsection}[block]
+	{\centering\Large}
+	{\thesubsection}{1ex}{#1}
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+\titleformat{\subsubsection}[block]
+	{\centering\large}
+	{\thesubsubsection}{1ex}{#1}
+\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
+	% {\bfseries\huge}
+	% {\filright\huge\thechapter.}{1ex}{\huge\filright #1}
 
 % Any new commands we need - this file contains all the current
 % AASTeX markup so you don't have to import it yourself.
@@ -330,6 +350,7 @@
 \doublespace
 \justifying
 \subfile{intro.tex}
+\subfile{chapter2/main.tex}
 \subfile{chapter4/main.tex}
 % \input{chapter1.tex}
 % \input{chapter5.tex}
@@ -372,6 +393,7 @@
 % 
 
 \appendix
+\input{chapter2/datacomp_example.tex}
 \input{chapter4/likelihood.tex}
 \input{chapter4/yield_outflow_degeneracy.tex}
 %\input{app2.tex}

@@ -5,13 +5,13 @@
 % \setcounter{figure}{0}
 
 \section{The Yield-Outflow Degeneracy}
-\label{sec:degeneracy}
+\label{dga:sec:degeneracy}
 
 \begin{figure*}
 \centering
 \includegraphics[scale = 0.38]{chapter4/degeneracy_512k.pdf}
 \caption{
-The same as Fig.~\ref{fig:fiducial_mock_corner}, but with the alpha element
+The same as Fig.~\ref{dga:fig:fiducial_mock_corner}, but with the alpha element
 yield from massive stars~$\yacc$ as an additional free parameter.
 Motivated both by theoretical models of O nucleosynthesis in massive stars and
 the convenience for scaling parameters up or down, we have adopted
@@ -19,7 +19,7 @@ $\yacc = 0.01$ in this paper to set the scale of this degeneracy.
 Here we include a prior that enforces~$\yacc < 0.1$, without which the
 likelihood distribution extends to arbitrarily high values.
 }
-\label{fig:degeneracy}
+\label{dga:fig:degeneracy}
 \end{figure*}
 
 Under the instantaneous recycling approximation, early work in GCE demonstrated
@@ -64,7 +64,7 @@ individual elements.
 In GCE models, there are many parametrizations of outflows.
 The publicly available GCE codes~\textsc{FlexCE}~\citep{Andrews2017},
 \textsc{OMEGA}~\citep{Cote2017} and~\vice~\citep{Johnson2020} assume the form
-of equation~\refp{eq:massloading}, implicitly assuming that massive stars are
+of equation~\refp{dga:eq:massloading}, implicitly assuming that massive stars are
 the dominant source of energy in outflow-driving winds.
 Recently,~\citet{delosReyes2022} modelled the evolution of the Sculptor dwarf
 spheroidal by letting the outflow rate be linearly proportional to the the
@@ -95,10 +95,10 @@ accretion~\citep{Weinberg2017a, Cooke2022}.
 \par
 Suffice it to say that the community has settled on neither the proper
 parametrization nor the importance of mass-loading in GCE models.
-As discussed in~\S~\ref{sec:onezone}, the strength of outflows (i.e., the value
+As discussed in~\S~\ref{dga:sec:onezone}, the strength of outflows (i.e., the value
 of~$\eta$ in this work) is strongly degenerate with the absolute scale of
 effective nucleosynthetic yields because they are the primary source and sink
-terms in describing enrichment rates (Eq.~\ref{eq:enrichment}).
+terms in describing enrichment rates (Eq.~\ref{dga:eq:enrichment}).
 In this paper, we have applied our fitting method on an assumed scale in which
 the oxygen yield from massive stars is fixed at~$\yacc = 0.01$, though if
 outflows are to be neglected, the assumption of~$\eta = 0$ fulfills the same
@@ -120,13 +120,13 @@ NGC 253,~\citealp{Lopez2023}; see also the review in~\citealt{Veilleux2020}).
 \par
 Motivated by this discourse, we quantify the strength of the yield-outflow
 degeneracy by introducing~\yacc~as an additional free parameter in our fit to
-our fiducial mock sample described in~\S~\ref{sec:mocks:fiducial}.
+our fiducial mock sample described in~\S~\ref{dga:sec:mocks:fiducial}.
 We include a prior enforcing~$\yacc < 0.1$; otherwise we find that the MCMC
 algorithm allows~$\eta$,~$\tau_\star$ and the SN yields to reach arbitrarily
 high values.
 Otherwise, we follow the exact same procedure to recover the known evolutionary
 parameters of the input model.
-Fig.~\ref{fig:degeneracy} shows the resultant posterior distributions.
+Fig.~\ref{dga:fig:degeneracy} shows the resultant posterior distributions.
 As expected, there are extremely strong degeneracies in all yields with one
 another and with the outflow parameter~$\eta$.
 There is an additional degeneracy between the SFE timescale~$\tau_\star$ and
@@ -134,7 +134,7 @@ the yields that arises because the position of the ``knee'' in
 the~\afe-\feh~plane can be fit with either a high-yield and slow star formation
 or a low yield and fast star formation (when we set the overall scale with
 $\yacc = 0.01$, we find a degeneracy of the opposite sign; see discussion
-in~\S~\ref{sec:mocks:recovered} and in~\citealt{Weinberg2017b}).
+in~\S~\ref{dga:sec:mocks:recovered} and in~\citealt{Weinberg2017b}).
 The strength of these degeneracies is especially striking considering that this
 is mock data drawn from an input model with known evolutionary parameters.
 In practice, the overall yield scale has factors of~$\sim$$2 - 3$ uncertainty
@@ -144,7 +144,7 @@ values of~\yacc~and understand how other parameters change rather than treat
 it as a free parameter.
 % We expect the other yields to change in proportion and~$\eta$ to change in
 % near proportion, but~$\tau_\star$ may be better constrained than
-% Fig.~\ref{fig:degeneracy} suggests.
+% Fig.~\ref{dga:fig:degeneracy} suggests.
 \par
 In detail, this degeneracy arises whenever a parameter influences either the
 centroid of the MDF or the position or shape of the evolutionary track in
@@ -152,7 +152,7 @@ the~\afe-\feh~diagram.
 The infall timescale~$\tau_\text{in}$ and the total duration of star formation
 $\tau_\text{tot}$ are unaffected by this degeneracy because they do not
 significantly impact these details of the enrichment history (see discussion
-in~\S~\ref{sec:mocks:recovered}).
+in~\S~\ref{dga:sec:mocks:recovered}).
 Regardless of the choice of yields and the values of~$\eta$ and~$\tau_\star$,
 the shape of the MDF is constrained by a sufficiently large sample, allowing
 precise derivations of~$\tau_\text{in}$ and~$\tau_\text{tot}$ with our fitting
@@ -160,5 +160,5 @@ method.
 Determining the duration of star formation in this manner may open a new
 pathway for constraining the early epochs of star formation in both intact
 and disrupted dwarf galaxies as well as deriving quenching times for the
-now-quiescent systems (see discussion in~\S~\ref{sec:mocks:variations}).
+now-quiescent systems (see discussion in~\S~\ref{dga:sec:mocks:variations}).
 

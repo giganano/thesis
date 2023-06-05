@@ -1,19 +1,19 @@
 
 \section{Mock Samples}
-\label{sec:mocks}
+\label{dga:sec:mocks}
 
 Using our parametrization of one-zone GCE models described
-in~\S~\ref{sec:onezone}, here we define a set of parameter choices from which
+in~\S~\ref{dga:sec:onezone}, here we define a set of parameter choices from which
 mock samples of stars can be drawn.
 We then demonstrate the validity of our likelihood function (Eq.
-\ref{eq:likelihood}) in~\S~\ref{sec:mocks:recovered} by applying it to a
+\ref{dga:eq:likelihood}) in~\S~\ref{dga:sec:mocks:recovered} by applying it to a
 fiducial mock sample and comparing the best-fit values to the known parameters
 of the input model.
-In~\S~\ref{sec:mocks:variations}, we then explore variations in sample size,
+In~\S~\ref{dga:sec:mocks:variations}, we then explore variations in sample size,
 measurement precision, and the availability of age information.
 
 \subsection{A Fiducial Mock Sample}
-\label{sec:mocks:fiducial}
+\label{dga:sec:mocks:fiducial}
 
 We take an exponential infall history~$\dot{M}_\text{in} \propto e^{-t /
 \tau_\text{in}}$ with an e-folding timescale of~$\tau_\text{in} = 2$ Gyr and an
@@ -36,8 +36,8 @@ with the empirical mass-metallicity relation for galaxies
 With these choices regarding~$\tau_\star$ and~$\eta$, our parameters are in
 the regime where the normalization of the infall history, and consequently the
 SFH, is inconsequential to the predicted evolution of the abundances.
-The appropriate likelihood function is therefore equation~\refp{eq:likelihood}
-with normalized weights, whereas equation~\refp{eq:lnL_minus_weights} with
+The appropriate likelihood function is therefore equation~\refp{dga:eq:likelihood}
+with normalized weights, whereas equation~\refp{dga:eq:lnL_minus_weights} with
 un-normalized weights would be the proper form if we had selected a
 parametrization in which the absolute scale of the SFH impacts the enrichment
 history.
@@ -58,7 +58,7 @@ qualitatively resemble some disrupted dwarf galaxy whose evolutionary
 parameters can be re-derived using our likelihood function as a check that it
 produces accurate best-fit parameters.
 \par
-As discussed in~\S~\ref{sec:onezone}, thoughout this paper we assume that the
+As discussed in~\S~\ref{dga:sec:onezone}, thoughout this paper we assume that the
 IMF-averaged alpha element yield is exactly~$\yacc = 0.01$ and
 $y_\alpha^\text{Ia} = 0$.
 While loosely motivated by nucleosynthesis models in massive stars
@@ -68,7 +68,7 @@ down to accommodate alternative choices.
 If no scale is assumed, then extremely strong degeneracies arise in the
 inferred yields, the strength of outflows~$\eta$, and the SFE timescale
 $\tau_\star$ due to the yield-outflow degeneracy (see discussion in
-Appendix~\ref{sec:degeneracy}).
+Appendix~\ref{dga:sec:degeneracy}).
 We do not distinguish between alpha elements in this validation of our
 likelihood function because, from a modelling standpoint, they can all be
 treated the same with a metallicity-independent yield from CCSNe and negligible
@@ -95,7 +95,7 @@ $\yfeia = \scinote{1.1}{-3}$ in our mock samples.
 We retain the assumption that~$\yacc = 0.01$ in our fits to our mock samples
 but otherwise let the Fe yields~\yfecc~and~\yfeia~be free parameters to be
 recovered by our likelihood function.
-We use this procedure in our application to the H3 survey in~\S~\ref{sec:h3}
+We use this procedure in our application to the H3 survey in~\S~\ref{dga:sec:h3}
 below as well.
 We then sample~$N = 500$ stars from the underlying SFH each of which have -- in
 the interest of mimicking the typical precision achieved by a spectroscopic
@@ -104,7 +104,7 @@ survey of a local group dwarf galaxy --~$\sigma_\afe = \sigma_\feh = 0.05$.
 $\sigma_{\log_{10}(\text{age})} = 0.1$ (i.e.,~$\sim$23\% precision).
 
 \subsection{Recovered Parameters of the Fiducial Mock}
-\label{sec:mocks:recovered}
+\label{dga:sec:mocks:recovered}
 
 % fig 2
 \begin{figure*}
@@ -112,28 +112,28 @@ $\sigma_{\log_{10}(\text{age})} = 0.1$ (i.e.,~$\sim$23\% precision).
 \includegraphics[scale = 0.42]{fiducial_512k.pdf}
 \caption{
 Posterior distributions obtained from applying our fitting method to our
-fiducial mock sample (see Fig.~\ref{fig:fiducial_mock} and discussion
-in~\S\S~\ref{sec:fitting} and~\ref{sec:mocks:fiducial}).
+fiducial mock sample (see Fig.~\ref{dga:fig:fiducial_mock} and discussion
+in~\S\S~\ref{dga:sec:fitting} and~\ref{dga:sec:mocks:fiducial}).
 Panels below the diagonal show 2-dimensional cross-sections of the likelihood
 function while panels along the diagonal show the marginalized distributions
 along with the best-fit values and confidence intervals.
 Blue stars mark the element of the Markov chain with the maximum likelihood.
 Red ``cross-hairs'' denote the true, known values of the parameters from the
-input model (see the top row of Table~\ref{tab:recovered_values}).
+input model (see the top row of Table~\ref{dga:tab:recovered_values}).
 }
-\label{fig:fiducial_mock_corner}
+\label{dga:fig:fiducial_mock_corner}
 \end{figure*}
 
-Fig.~\ref{fig:fiducial_mock} shows our fiducial mock in the observed space.
+Fig.~\ref{dga:fig:fiducial_mock} shows our fiducial mock in the observed space.
 As intended by our parameter choices (see discussion
-in~\S~\ref{sec:mocks:fiducial}), this sample qualitatively resembles a typical
+in~\S~\ref{dga:sec:mocks:fiducial}), this sample qualitatively resembles a typical
 disrupted dwarf galaxy -- dominated by old stars with metal-poor
 ($\feh \approx -1$) and alpha-enhanced ($\afe \approx +0.2$) modes in the MDF.
-We now apply the method outline in~\S~\ref{sec:fitting} to recover the known
+We now apply the method outline in~\S~\ref{dga:sec:fitting} to recover the known
 parameters of the input model.
-Fig.~\ref{fig:fiducial_mock_corner} shows the resulting posterior distributions,
+Fig.~\ref{dga:fig:fiducial_mock_corner} shows the resulting posterior distributions,
 demonstrating that our likelihood function accurately recovers each parameter.
-We include the predictions of the best-fit model in Fig.~\ref{fig:fiducial_mock},
+We include the predictions of the best-fit model in Fig.~\ref{dga:fig:fiducial_mock},
 finding excellent agreement with the input model.
 To quantify the quality of the fit, for each datum~$\script{D}_i$ we find the
 point along the track~$\script{M}_j$ with the maximum likelihood of observation
@@ -143,28 +143,28 @@ We then compute the chi-squared per degree of freedom diagnostic according to
 \begin{equation}
 \chi_\text{dof}^2 = \frac{1}{N_\text{obs} - N_\theta}
 \sum_{i,j} \Delta_{ij} C_i^{-1} \Delta_{ij}^T,
-\label{eq:chisquared_dof}
+\label{dga:eq:chisquared_dof}
 \end{equation}
 where~$N_\text{obs}$ is the number of quantities in the observed sample,
 $N_\theta$ is the number of model parameteres, and the summation is taken over
 the pair-wise combinations of the data and model with the maximum likelihood of
 observation.
 Although marginalizing over the track~\script{M}~is necessary to derive
-accurate best-fit parameters (see discussion below and in~\S~\ref{sec:fitting}),
+accurate best-fit parameters (see discussion below and in~\S~\ref{dga:sec:fitting}),
 it should be safe to estimate the quality of a fit by simply pairing each datum
 with the most appropriate point on the track.
-As noted in the middle panel of Fig.~\ref{fig:fiducial_mock}, our method
+As noted in the middle panel of Fig.~\ref{dga:fig:fiducial_mock}, our method
 achieves~$\chi_\text{dof}^2 = 0.55$, indicating that we have perhaps
 over-parametrized the data.
 This result is unsurprising, however, because we have fit the mock data with
 the exact, known parametrization of the evolutionary history and
 nucleosynthetic yields of the input model in the interest of demonstrating
-proof of concept that equation~\refp{eq:likelihood} provides accurate best-fit
+proof of concept that equation~\refp{dga:eq:likelihood} provides accurate best-fit
 values.
 \par
 Although it may appear that there are a worrying number of~$\gtrsim 1\sigma$
-discrepancies in Fig.~\ref{fig:fiducial_mock_corner}, we demonstrate
-in~\S~\ref{sec:mocks:variations} below that the differences between the known
+discrepancies in Fig.~\ref{dga:fig:fiducial_mock_corner}, we demonstrate
+in~\S~\ref{dga:sec:mocks:variations} below that the differences between the known
 and best-fit values here are consistent with randomly sampling from a Gaussian
 distribution due to measurement uncertainty.
 Although most cross sections of the posterior distribution are sufficiently
@@ -207,7 +207,7 @@ in which~\afe~is decreasing occurs in a similar region of chemical space.
 \yfecc~and~$\tau_\star$ are therefore inversely related when an overall scale
 of nucleosynthetic yields is chosen.
 When the overall scale is allowed to vary, we find a degeneracy of the opposite
-sign (see discussion in Appendix~\ref{sec:degeneracy}).
+sign (see discussion in Appendix~\ref{dga:sec:degeneracy}).
 \par
 \textit{The endpoint of the model track and centroid of the MDF.}
 % The ratio~$\yfecc / \yfeia$ controls the drop in~\afe~between the plateau
@@ -225,7 +225,7 @@ accompanied by a rightward shift (i.e., a decrease in~$\eta$) such that the
 endpoint lies in the same location as the data.
 $\yfeia$ and~$\eta$ are therefore inversely related, whereas the yield-outflow
 degeneracy produces a direct relationship between these parameters
-(see Appendix~\ref{sec:degeneracy}).
+(see Appendix~\ref{dga:sec:degeneracy}).
 \par
 \textit{The shape of the MDF.}
 The~\afe~and~\feh~distributions are affected in a handful of ways by the
@@ -262,7 +262,7 @@ the data.
 \par
 We emphasize that our fits achieve this level of precision by selecting an
 overall scale for nucleosynthetic yields and outflows ($\yacc = 0.01$; see
-discussion in~\S~\ref{sec:onezone} and Appendix~\ref{sec:degeneracy}).
+discussion in~\S~\ref{dga:sec:onezone} and Appendix~\ref{dga:sec:degeneracy}).
 Any GCE parameter that influences the centroid of the MDF or the position or
 shape of the evolutionary track in abundance space is subject to the
 yield-outflow degeneracy.
@@ -278,13 +278,13 @@ due to their impact on the MDF shape.
 % the MDF, an observational diagnostic which is constrained by a sufficiently
 % large sample.
 % We discuss the implications of these results applied to observed data
-% in~\S~\ref{sec:mocks:variations} below.
+% in~\S~\ref{dga:sec:mocks:variations} below.
 \par
 In conducting these tests against mock samples, we find that the two central
 features of this method are essential to ensuring the accuracy of the best-fit
 parameters.
 When either the weighted likelihood or the marginalization over the track
-(see discussion in~\S~\ref{sec:fitting}) are omitted, the fit fails to recover
+(see discussion in~\S~\ref{dga:sec:fitting}) are omitted, the fit fails to recover
 the parameters of the input model with discrepancies at the many-$\sigma$ level
 between the best-fit and known values.
 For this reason, we caution against the reliability of GCE parameters inferred
@@ -302,7 +302,7 @@ nearest point on the track.
 \caption{
 Differences between input model parameters and recovered best-fit values.
 Each point is the mean deviation~$\left|\Delta\theta\right|$ for each of the
-six free parameters in Table~\ref{tab:recovered_values} (i.e.,
+six free parameters in Table~\ref{dga:tab:recovered_values} (i.e.,
 $\{\theta\} = \{\tau_\text{in}, \eta, \tau_\star, \tau_\text{tot}, \yfecc,
 \yfeia\}$) in units of the best-fit uncertainty~$\sigma$.
 Our mock samples vary in terms of their sample size (left), measurement
@@ -313,16 +313,16 @@ Error bars denote the error in the mean deviation of the six free parameters.
 Blue dotted lines mark~$\langle \Delta \theta / \sigma \rangle = 1$, the
 expected mean offset due to randomly sampling from a Gaussian distribution.
 }
-\label{fig:accuracy}
+\label{dga:fig:accuracy}
 \end{figure*}
 
 \subsection{Variations in Sample Size, Measurement Precision and the
 Availability of Age Information}
-\label{sec:mocks:variations}
+\label{dga:sec:mocks:variations}
 
 We now explore variations of our fiducial mock sample.
 We retain the same evolutionary parameters of the input model (see discussion
-in~\S~\ref{sec:mocks:fiducial}), but each variant differs in one of the
+in~\S~\ref{dga:sec:mocks:fiducial}), but each variant differs in one of the
 following:
 \begin{itemize}
 
@@ -335,7 +335,7 @@ following:
 	\item The fraction of the sample that has age measurements.
 
 \end{itemize}
-The left-hand column of Table~\ref{tab:recovered_values} provides a summary of
+The left-hand column of Table~\ref{dga:tab:recovered_values} provides a summary of
 the values we take as exploratory cases with the fiducial mock marked in bold.
 In the remaining columns, we provide the associated values derived for each
 GCE parameter~$\theta$ along with their~$1\sigma$ confidence intervals.
@@ -359,7 +359,7 @@ In practice, however, uncertainties vary with stellar mass; for example, hot
 main sequence turnoff stars have precise ages but poorly constrained
 abundances due to the lack of lines in their spectra.
 \par
-Fig.~\ref{fig:accuracy} demonstrates the accuracy of our fitting method with
+Fig.~\ref{dga:fig:accuracy} demonstrates the accuracy of our fitting method with
 respect to variations in these details surrounding the data.
 We compute the deviation between each re-derived parameter~$\theta$
 (i.e.,~$\tau_\text{in}$,~$\eta$,~$\tau_\star$, etc.) and its known value from
@@ -372,13 +372,13 @@ Gaussian random process, wherein the most likely deviation from the true value
 is exactly~$1\sigma$.
 This expectation holds even with infinite data, though in that limit
 the~$1\sigma$ uncertainty interval becomes arbitrarily small.
-This demonstrates that equation~\refp{eq:likelihood} provides accurate best-fit
+This demonstrates that equation~\refp{dga:eq:likelihood} provides accurate best-fit
 parameters even when the sample size is as low as~$N \approx 20$, when the
 measurement uncertainties are as imprecise as~$\sigma_\text{[X/Y]} \approx 0.5$
 and~$\sigma_{\log_{10}(\text{age})} \approx 1$, or even when there is no age
 information available at all.
 The precision of the fit will indeed suffer in such cases (see Fig.
-\ref{fig:precision} and associated discussion below), but the inferred
+\ref{dga:fig:precision} and associated discussion below), but the inferred
 parameters will remain accurate nonetheless.
 
 % fig 4
@@ -393,7 +393,7 @@ Precision of our fitting method.
 For a fit uncertainty~$\sigma$ and deviation from the known value
 $\Delta\theta$, we compute precision according to
 $\left|\Delta\theta\right| / \sigma$ for each of the six free parameters
-in Table~\ref{tab:recovered_values} and plot them as a function
+in Table~\ref{dga:tab:recovered_values} and plot them as a function
 of sample size (top left), the fraction of the sample with age information (top
 right), abundance uncertainties (bottom left), and age uncertainties (bottom
 right).
@@ -402,7 +402,7 @@ on the~$y$-axis.
 We plot timescales in red, Fe yields in blue, and the mass-loading
 factor~$\eta$ in black in all panels according to the legend.
 }
-\label{fig:precision}
+\label{dga:fig:precision}
 \end{figure*}
 
 We have explored alternate parametrizations of our mock sample's evolutionary
@@ -419,7 +419,7 @@ accurately recovers the amplitude, phase and frequency in this case as well.
 Of course, the parametrization itself must allow for such possibilities, but
 we stick to smooth SFHs for the remainder of these tests.
 \par
-Fig.~\ref{fig:precision} demonstrates how the uncertainty of each best-fit
+Fig.~\ref{dga:fig:precision} demonstrates how the uncertainty of each best-fit
 parameter is affected by these details of the sample.
 With differences in the normalization, the precision of each inferred parameter
 scales with sample size approximately as~$N^{-0.5}$.

@@ -1,0 +1,113 @@
+
+\section{Introduction}
+\label{bursts:sec:intro}
+The elemental abundances and abundance ratios of stars encode information 
+about the history of galactic enrichment and about the stellar processes that 
+produce the elements. The ratio of $\alpha$-element abundances to the iron 
+abundance is an especially important diagnostic, because the $\alpha$-elements 
+(e.g. O, Mg, and Si) are produced primarily by massive stars with short 
+lifetimes, while Fe is also produced in substantial amounts by Type Ia 
+supernovae (SNe Ia) that explode after a wide range of delay times. In simple 
+chemical evolution models with smooth star formation histories, the track of 
+[$\alpha$/Fe] vs. [Fe/H]\footnote{
+	We follow conventional notation in which [X/Y] $\equiv\ \log_{10}(X/Y) 
+	- \log_{10}(X_\odot/Y_\odot)$.  
+} first follows a plateau that reflects the IMF\footnote{
+	IMF: Initial Mass Function 
+}-averaged yield of core collapse supernovae (CCSNe), then turns downward as 
+SNe Ia begin to add Fe without associated $\alpha$-elements. If the model has 
+continuing gas accretion, then the [Fe/H] and [$\alpha$/Fe] ratios tend to 
+approach an equilibrium in which the production of new elements is balanced by 
+dilution from freshly accreted gas and by depletion of metals from new star 
+formation or outflows~\citep{Larson1972, Finlator2008, Andrews2017,
+Weinberg2017b}.
+% (\citealp[][hereafter 
+% \citetalias{Andrews2017}]{Larson1972, Finlator2008, Andrews2017}; 
+% \citealp[][hereafter \citetalias{Weinberg2017}]{Weinberg2017}). 
+\par\null\par\null\par 
+In this paper we examine the impact of starbursts - sudden and temporary 
+increases in the star formation rate - which perturb chemical evolution by 
+temporarily boosting the rate of CCSNe relative to SNe Ia from earlier 
+generations of stars. We adopt one-zone evolution models in which stars form 
+from and enrich a fully mixed gas reservoir subject to accretion and outflow
+(see, e.g. \citealp{Schmidt1959, Schmidt1963, Larson1972, Tinsley1980} for 
+classical examples; \citealp{Weinberg2017b, Andrews2017} for 
+more recent work). Although idealized, one-zone models may be a reasonable 
+approximation for the evolution of dwarf galaxies. The Milky Way can be 
+modeled as an annular sequence of one-zone models ~\citep{Matteucci1989}, 
+which may be connected by processes such as the radial migration of 
+stars~\citep{Schoenrich2009a, Minchev2017} and radial gas 
+flows~\citep{Lacey1985, Bilitewski2012}. 
+\par 
+The [$\alpha$/Fe]-[Fe/H] tracks observed in the inner Milky Way agree well with 
+the predictions of a one-zone model in which the star-forming gas disk 
+contracts vertically over a period of~$\sim$2 Gyr~\citep{Hayden2015, 
+Freudenburg2017}. In the solar neighborhood, stars with high and low vertical 
+velocities trace distinct [$\alpha$/Fe]-[Fe/H] tracks known as the 
+``high-$\alpha$'' and ``low-$\alpha$'' sequences~\citep{Bensby2003, 
+Hayden2015}, a bimodality whose origin is still not fully understood. 
+\citet{Andrews2017} and~\citet{Weinberg2017b} systematically 
+investigate the influence of model parameters on the [$\alpha$/Fe]-[Fe/H] 
+tracks of one-zone models with smooth star formation histories, with 
+particlular attention to the role of outflows in regulating the equilibrium 
+metallicity. In agreement with previous studies of the galaxy mass-metallicity 
+relation~\citep[e.g. ][]{Dalcanton2007, Finlator2008, Peeples2011, Zahid2012}, 
+they find that achieving a solar metallicity interstellar medium (ISM) requires 
+strong outflows, with a mass-loading factor $\eta\equiv\dot{M}_\text{out}/
+\dot{M}_*\approx2.5$ for a~\citet{Kroupa2001} IMF where every star of mass 
+8 - 100 $M_\odot$ explodes as a CCSN with the yields predicted 
+by~\citet{Chieffi2004,Chieffi2013}. 
+\par 
+\citet{Gilmore1991} investigated the impact of a bursty star formation history 
+on [O/Fe]-[Fe/H] tracks, focusing on application to the Large Magellanic 
+Cloud. \citet{Weinberg2017b} investigated a model in which a sudden change 
+of star formation efficiency induces a starburst, causing an upward jump in 
+[O/Fe] followed by a return to equilibrium (see their Figure 9). In this 
+paper we study the impact of starbursts more systematically, showing the 
+different forms of [O/Fe]-[Fe/H] tracks and stellar [O/Fe] distributions for 
+bursts induced by a sudden influx of gas, a boost in gas accretion rate, or 
+an increase of star formation efficiency. We also investigate the 
+connection between starbursts and winds, considering the possibility that 
+outflows are tied to a time-averaged star formation rate (SFR) instead of the 
+instantaneous SFR that governs the rate of CCSN enrichment. In addition to 
+O and Fe, we examine strontium (Sr) as a representative element that has both 
+a CCSN contribution and an asymptotic giant branch (AGB) star contribution 
+with a metallicity dependent yield. 
+\par 
+To this end we have developed a publicly available\footnote{
+	\url{https://github.com/giganano/VICE.git}
+} \texttt{python} package, the \texttt{Versatile Integrator for Chemical 
+Evolution} (\texttt{VICE}), which solves the integro-differential equations of 
+a one-zone chemical evolution model. 
+Compared to \texttt{flexCE}~\citep{Andrews2017}\footnote{
+	\url{https://github.com/bretthandrews/flexce}
+}, \texttt{VICE} has a simpler methodology in that it works directly from 
+user-specified IMF-averaged yields rather than drawing CCSNe stochastically 
+from the IMF of massive stars. \texttt{VICE} focuses instead on versatility 
+in specifying star formation histories, gas accretion histories, and star 
+formation laws as arbitrary functions of time, and it will automatically 
+compute yield tables from a variety of sources if requested~\citep[e.g.][among 
+others to be added in subsequent versions]{Woosley1995, Iwamoto1999, 
+Chieffi2004, Karakas2010, Cristallo2011, Seitenzahl2013, Limongi2018}. With a 
+backend written in \texttt{C}, \texttt{VICE} also achieves powerful computing 
+speeds while maintaining this level of flexibility. We anticipate adding 
+further capabilities to \texttt{VICE} in the future, including extensions to 
+multizone models.
+\par 
+Our models in this paper are motivated primarily by considerations of dwarf 
+galaxies, which often show evidence of bursty star formation 
+histories~\citep[e.g.][]{Weisz2011, Weisz2014a}. However, even local variations 
+in star formation induced by passage of gas through a spiral arm can induce 
+some of these effects, damped mainly by the fact that such events typically 
+convert only a small fraction of the available gas into 
+stars~\citep{Weinberg2017b}. In their hydrodynamic simulations of disk 
+galaxy formation,~\citet{Clarke2019} find that massive clumps in young 
+gas-rich disks convert much of their gas into stars and therefore self-enrich, 
+following tracks in [$\alpha$/Fe]-[Fe/H] space that resemble those of our 
+efficiency-induced starburst models below. They propose that a superposition 
+of such bursts is responsible for the high-$\alpha$ sequence observed in the 
+Milky Way [$\alpha$/Fe]-[Fe/H] diagram. In addition to bursts, we investigate 
+here the effect of slow sinusoidal variations in SFR, finding that these less 
+dramatic variations could produce scatter in [$\alpha$/Fe] at fixed [Fe/H], at 
+least along the low-$\alpha$ sequence. 
+

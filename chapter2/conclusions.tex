@@ -1,0 +1,163 @@
+
+\section{Conclusions}
+\label{bursts:sec:conclusion} 
+
+We have studied one-zone chemical evolution models tracking the enrichment of 
+oxygen, iron, and strontium with the goal of understanding the impact of star 
+formation bursts on elemental abundance ratios. To this end, we have developed 
+the \texttt{Versatile Integrator for Chemical Evolution} (\texttt{VICE}), a 
+\texttt{python} package optimized for handling highly non-linear chemical 
+evolution models. With this new tool, we first simulated gas-driven 
+starbursts, whereby an amount of gas comparable to the current ISM mass of a 
+galaxy is added to the ISM on timescales shorter than the depletion time. 
+These starburst models predict hooks in the [O/Fe]-[Fe/H] plane; the rapid 
+addition of pristine gas first causes a reduction in [Fe/H] at fixed [O/Fe], 
+then the elevated rate of CCSNe relative to SNe Ia drives the ISM to higher 
+[O/Fe] and [Fe/H], and finally the onset of SNe Ia associated with the 
+starburst pushes the ISM back toward the [O/Fe]-[Fe/H] track of the unperturbed 
+(i.e. no-burst) model. The rate at which extra gas is added to the galaxy 
+affects the detailed shape of these jump-and-hook trajectories. 
+Although this paper focuses on characterizing model predictions
+rather than interpreting data, we provide an illustrative comparison to
+Kirby et al.'s (\citeyear{Kirby2010}) abundance measurements for 
+Milky Way dwarf satellites in Appendix~A.
+\par 
+Our unperturbed constant-SFR models predict one peak in the [O/Fe] distribution 
+at the ``plateau'' ratio of CCSN O and Fe yields, and a second peak associated 
+with the late-time equilibrium in which CCSN and SN Ia rates are equal. Our 
+gas-driven starburst models predict a third peak in the [O/Fe] distribution, 
+associated with stars that form out of the $\alpha$-enhanced ISM 
+during/following the burst before SNe Ia have driven evolution back toward the 
+unperturbed evolutionary track. The peak is centred near the value of [O/Fe] 
+at the top of the hook in the [O/Fe]-[Fe/H] trajectory, and its location and 
+shape are insensitive to the timescale on which the gas is added, provided 
+that this timescale is short compared to the depletion time. Earlier 
+starbursts produce this third peak at higher [O/Fe] because they arise when 
+the starting value of [O/Fe] is further from its eventual equilibrium. Thus, 
+even without accurate ages for individual stars, the existence of extra 
+peaks in the [O/Fe] distribution (or [X/Fe] distribution for other 
+$\alpha$-elements) can provide an observable diagnostic for past bursts of 
+galactic star formation, and the locations of these peaks can provide 
+estimates of the timing of these bursts. 
+\par 
+A gas-driven starburst could arise from the merger of a gas rich system or a 
+temporary increase in accretion rate. A starburst can also arise from a 
+temporary increase in star formation efficiency, consuming the available gas 
+more quickly, perhaps because of a dynamical disturbance that does not 
+increase the gas supply. The evolutionary tracks of efficiency-driven 
+starbursts differ in form from those of gas-driven starbursts, first because 
+there is no drop in [Fe/H] before the increase in [O/Fe], and second because 
+[O/Fe] loops below the track of the unperturbed model once the post-burst 
+gas supply is depleted, which allows the CCSN rate to fall well below the rate 
+of SNe Ia from stars that formed during the burst. With sufficiently precise 
+data, the [O/Fe] distribution of an efficiency-driven burst can be 
+distinguished from that of a gas-driven burst, in part by the shape of the 
+[O/Fe] peak for $\alpha$-enhanced stars formed during the burst, and in part 
+by the presence of an additional population of $\alpha$-deficient stars. 
+\par 
+In short, the chemical response to a simple starburst is driven by a 
+perturbation of the CCSN and SN Ia rates. Conventionally, one-zone models tie 
+the outflowing wind to the instantaneous star formation rate (i.e. 
+$\dot{M}_\text{out} = \eta\dot{M}_*$), which in turn ties it to the CCSN rate. 
+If SNe Ia contribute to the outflowing wind, then a better approximation of 
+the outflow rate would be one that is tied to a time-averaged SFR (i.e. 
+$\dot{M}_\text{out} = \eta\langle\dot{M}_*\rangle_{\tau_\text{s}}$), where 
+$\tau_\text{s}$ is the outflow smoothing time. Nonzero $\tau_\text{s}$ allows 
+the ISM to retain more gas at the onset of a starburst, because the outflow is 
+more sensitive to the preburst SFR. The ISM is then gas-poor in the decay of 
+the starburst, because the outflow is most sensitive to the elevated SFR from 
+the recent burst. Varying $\tau_\text{s}$ between 0 and 1 Gyr has minimal 
+impact on the predicted [O/Fe]-[Fe/H] trajectory or the stellar [O/Fe] 
+distribution of gas-driven starbursts. However, efficiency-driven burst models 
+with $\tau_\text{s}$ = 0.5 - 1 Gyr exhibit wider loops and produce lower 
+[$\alpha$/Fe] stars than in the $\tau_\text{s}$ = 0 model. These 
+$\alpha$-deficient stars are produced late in the burst when the ISM is 
+gas-poor, an effect that is magnified by a nonzero $\tau_\text{s}$ because 
+the gas outflow rate is higher and the CCSN rate is lower. 
+\par 
+While our simplest starburst scenarios are either gas- or efficiency-driven, 
+there is observational evidence for starbursts driven by both 
+an increase in the gas supply and an increase in the 
+efficiency~\citep[][and the citations therein]{Kennicutt2012}. As a simple 
+example of a ``hybrid'' starburst, we considered a model with a rapid influx 
+of gas and an SFE timescale $\tau_* \propto M_\text{g}^{-1/2}$ as suggested 
+by the Kennicutt-Schmidt law~\citep{Schmidt1959, Schmidt1963, Kennicutt1998}. 
+For $\tau_\text{s}$ = 0 or 0.5 Gyr, the [O/Fe]-[Fe/H] tracks of this model are 
+nearly the same as those of the gas-driven constant-$\tau_*$ model. For 
+$\tau_\text{s}$ = 1 Gyr, the hybrid model shows aspects of both gas-driven and 
+efficiency-driven models, including a population of $\alpha$-deficient stars. 
+\par 
+The AGB models of~\citet{Cristallo2011} predict Sr yields that are strongly 
+dependent on metallicity and dominated by 2 - 4 $M_\odot$ stars. Predicted 
+CCSN yields of Sr are sensitive to rotationally induced mixing; 
+the~\citet{Limongi2018} yields for non-rotating progenitors vs. progenitors 
+with $v_\text{rot}$ = 150 km s$^{-1}$ differ by 1-2 orders of magnitude, with 
+strong but differing metallicity dependence. Near solar metallicity, the AGB 
+yields and non-rotating CCSN yields are comparably important, but the 
+$v_\text{rot}$ = 150 km s$^{-1}$ CCSN yields would outweight AGB yields by a 
+large factor. 
+\par 
+Reproducing the approximately flat trend of [Sr/Fe] vs. [Fe/H] found in the 
+Milky Way and in dwarf satellites~\citep{Mishenina2019, Hirai2019} requires 
+an additional source of Sr with a yield that is nearly independent of 
+metallicity, perhaps the neutrino-driven winds from newly formed neutron 
+stars~\citep{Thompson2001, Vlasov2017, Thompson2018}. For any of these CCSN 
+yield models, the tracks of [Sr/Fe] vs. [Fe/H] in starburst models are complex, 
+affected by the yield metallicity dependence and by the differing timescales 
+of CCSN, AGB, and SN Ia enrichment. Tracks of [Sr/O] vs. [O/H] are simpler 
+because they are independent of SN Ia enrichment. However, the total range 
+of [Sr/Fe] or [Sr/O] induced by starbursts is small, typically 0.05-0.1 dex, 
+and in combination with yield uncertainties this small dynamic range makes it 
+difficult to use Sr abundances as a diagnostic of starburst behavior. 
+\par 
+In addition to strong (factor of~$\sim$2) starbursts, we have investigated 
+models with 10-20\% sinusoidal modulations of a constant SFR, induced by 
+variations in infall rate or star-formation efficiency. These models predict 
+[O/Fe]-[Fe/H] tracks that oscillate about the prediction of the constant SFR 
+model. The produce a multi-peaked structure in [O/Fe] distributions, though 
+in the presence of observational errors these peaks would likely merge into 
+a broader distribution. These variations do not produce a bimodal [O/Fe] 
+distribution, so they are not the origin of the observed separation of thin 
+and thick disk sequences~\citep[e.g.][]{Bensby2003, Hayden2015, 
+BertranDeLis2016}. However, moderate variations in SFR could be a source of 
+scatter in [O/Fe] along these sequences. With our adopted parameter values, 
+our smooth evolution models approximately reproduce the observed high-$\alpha$ 
+sequence. SFR oscillations produce a spread of~$\sim$0.05-0.1 dex in [O/Fe] 
+for [Fe/H] $\gtrsim$ -0.4, but they cannot produce scatter near the 
+high-$\alpha$ plateau of this sequence because the enrichment of those stars 
+is dominated by CCSN in any case. 
+\par 
+Motivated by findings on the recent star formation history of the 
+Milky Way by~\citet{Mor2019} and~\citet{Isern2019}, we explored 
+models that exhibit slow, factor of~$\sim$2 increases in the SFR at lookback 
+times of~$\sim$2 Gyr, adopting a simple gaussian with dispersion of $\sigma$ = 
+1 Gyr to describe the starburst. A late-time, slow starburst may help to 
+explain otherwise puzzling features of the age-abundance relations observed 
+in APOGEE~\citep{Martig2016,SilvaAguirre2018,Feuillet2018,Feuillet2019}, such 
+as young stars with mild $\alpha$-enhancements and young median ages of solar 
+metallicity or $\alpha$-deficient stars. Complete modeling of these 
+observables requires multizone models that account for radial mixing of 
+stellar populations, and we reserve such investigations to future work. 
+\par 
+Throughout this paper we have adopted an O yield similar to those predicted 
+by~\citet{Chieffi2004} and~\citet{Chieffi2013}, assuming a Kroupa IMF in which 
+all stars with $M > 8\ M_\odot$ explode. With this yield, evolving to solar 
+metallicity requires fairly strong outflows, with $\eta$ = 2.5
+\citep[e.g.,][]{Finlator2008, Peeples2011, Andrews2017, Weinberg2017b}.
+% (e.g.,~\citealp{Finlator2008};~\citealp{Peeples2011};~\citetalias{Andrews2017}; 
+% \citetalias{Weinberg2017}).
+With lower IMF-averaged SN yields, which could 
+arise if many massive stars form black holes instead of exploding, lower 
+values of $\eta$ would be needed to reach the same final metallicity.  
+Results for lower yield, lower $\eta$ models would differ in detail from those 
+presented here, mainly because the depletion time $\tau_\text{dep} = 
+\tau_*/(1 + \eta - r_\text{inst})$ would be longer for the same $\tau_*$. 
+However, we
+have investigated several of our models in which both yields and $\eta$ are 
+reduced by a factor of~$\sim$2 and found that our qualitative conclusions 
+still hold. 
+\par 
+We have released \texttt{VICE} as open-source software under the MIT 
+license. Source code, installation instructions, and documentation can be 
+found at~\url{http://github.com/giganano/VICE.git}. We also include code that 
+runs the simulations of our models and produces the figures in this paper. 

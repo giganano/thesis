@@ -1,6 +1,6 @@
 
 \section{Galactic Chemical Evolution}
-\label{sec:onezone}
+\label{dga:sec:onezone}
 
 One-zone GCE models connect the star formation and accretion histories of
 galaxies to the enrichment rates in the ISM through prescriptions for
@@ -47,7 +47,7 @@ describing the evolution of the gas supply:
 \begin{equation}
 \dot{M}_\text{g} = \dot{M}_\text{in} - \dot{M}_\star - \dot{M}_\text{out}
 + \dot{M}_\text{r},
-\label{eq:mdotgas}
+\label{dga:eq:mdotgas}
 \end{equation}
 where~$\dot{M}_\text{in}$ is the infall rate,~$\dot{M}_\star$ is the SFR,
 $\dot{M}_\text{out}$ is the outflow rate, and~$\dot{M}_\text{r}$ describes
@@ -59,20 +59,20 @@ codes in which a ``mass-loading factor''~$\eta$ describes a linear relationship
 between the outflow rate itself and the SFR:
 \begin{equation}
 \eta \equiv \frac{\dot{M}_\text{out}}{\dot{M}_\star}.
-\label{eq:massloading}
+\label{dga:eq:massloading}
 \end{equation}
 This parametrization is appropriate for models in which massive stars are the
 dominant source of energy for outflow-driving winds.
 Empirically, the strength of outflows (i.e., the value of~$\eta$) is strongly
 degenerate with the absolute scale of nucleosynthetic yields.
 We discuss this further below and quantify the strength of the degeneracy in
-more detail in Appendix~\ref{sec:degeneracy}.
+more detail in Appendix~\ref{dga:sec:degeneracy}.
 \par
 The SFR and the mass of the ISM are related by the SFE timescale~$\tau_\star$,
 defined as the ratio of the two:
 \begin{equation}
 \tau_\star \equiv \frac{M_\text{g}}{\dot{M}_\star}.
-\label{eq:taustar}
+\label{dga:eq:taustar}
 \end{equation}
 The inverse~$\tau_\star^{-1}$ is the SFE itself, quantifying the
 \textit{fractional} rate at which some ISM fluid element is forming stars.
@@ -171,7 +171,7 @@ terms and subtracting the sink terms:
 \begin{equation}
 \dot{M}_\text{x} = \dot{M}_\text{x}^\text{CC} + \dot{M}_\text{x}^\text{Ia} -
 Z_\text{x}\dot{M}_\star - Z_\text{x}\dot{M}_\text{out} + \dot{M}_{\text{x,r}},
-\label{eq:enrichment}
+\label{dga:eq:enrichment}
 \end{equation}
 where~$Z_x = M_\text{x} / M_\text{ISM}$ is the abundance by mass of the nuclear
 species x in the ISM.
@@ -186,7 +186,7 @@ As mentioned above, the strength of outflows is degenerate with the absolute
 scale of nucleosynthetic yields.
 This ``yield-outflow degeneracy'' is remarkably strong, and it arises because
 yields and outflows are the dominant source and sink terms in equation
-\refp{eq:enrichment} above.
+\refp{dga:eq:enrichment} above.
 As a consequence, high-yield and high-outflow models generally have a
 low-yield and low-outflow counterpart that predicts a similar enrichment
 history.
@@ -216,7 +216,7 @@ abundance (e.g., $\yacc = 1.75 Z_{\text{Mg},\odot} \approx
 The primary motivation behind this choice is to select a round number that
 allows our best-fit values affected by this degeneracy to be scaled up or down
 under different assumptions regarding the scale of effective yields.
-We reserve further discussion of this topic for Appendix~\ref{sec:degeneracy}
+We reserve further discussion of this topic for Appendix~\ref{dga:sec:degeneracy}
 where we also quantify the considerably strength of the yield-outflow
 degeneracy in more detail.
 

@@ -1,0 +1,399 @@
+
+\section{Methods: The One-Zone Approximation}
+\label{bursts:sec:methods}
+\subsection{The Gas Supply, Star Formation Rate, and Star Formation Efficiency}
+Under the one-zone approximation, the fundamental assumption is instantaneous 
+mixing of newly released metals throughout the star-forming gas reservoir. 
+In practice, the validity of this approximation depends on the ratio
+of the mixing timescale to the depletion timescale, i.e., the average 
+time required for an ISM fluid element to be either incorporated into
+a star or ejected in an outflow.  For conditions in typical star-forming
+disk galaxies, characteristic depletion times are $\sim 0.5-10\text{ Gyr}$
+(see discussion of \citet{Weinberg2017b} based on observations
+of \citealt{Leroy2008}).  Simulations of turbulent diffusion in disks
+imply that azimuthal mixing times are a fraction of an orbital period
+while radial mixing times can be much longer, so that ISM mixing will
+typically erase azimuthal abundance variations but not radial
+gradients \citep{Petit2015,Krumholz2018a}.
+In the dwarf galaxy regime, lengthscales are shorter while characteristic
+turbulent velocities are comparable, so instantaneous mixing should
+be a good approximation azimuthally and may become an adequate 
+approximation galaxy-wide.  However, we are unaware of systematic
+studies of metal-mixing in the dwarf galaxy regime.
+
+Under the one-zone approximation,
+the equations of galactic chemical evolution (GCE)
+reduce to a system of integro-differential equations of mass with time, which 
+can be integrated numerically. Under this formalism the time-derivative of the 
+gas-supply is given by: 
+\begin{subequations}\begin{align} 
+\label{bursts:eq:mdot_gas} 
+\dot{M}_\text{g} &= \dot{M}_\text{in} - \dot{M}_* - \dot{M}_\text{out} + 
+\dot{M}_\text{returned} \\ 
+&\approx \dot{M}_\text{in} - \dot{M}_*(1 + \eta - r_\text{inst}) \\ 
+&= \dot{M}_\text{in} - M_\text{g}\tau_*^{-1}(1 + \eta - r_\text{inst}) 
+\end{align}\end{subequations} 
+where $\dot{M}_\text{in}$ is the mass infall rate, $\dot{M}_*$ is the SFR, 
+$\dot{M}_\text{out}$ is the mass outflow rate, and $\dot{M}_\text{returned}$ 
+is the rate of recycling. The star formation efficiency (SFE) timescale is 
+defined by $\tau_* = M_\text{g}/\dot{M}_*$, and the parameters $\eta$ and 
+$r_\text{inst}$ are discussed further below. 
+\texttt{VICE} allows the user to specify the initial gas supply $M_\text{g,0}$ 
+and the inflow rate $\dot{M}_\text{in}$ as a function of time, in which case 
+the SFR follows from the star formation law $\dot{M}_* = M_\text{g}/\tau_*$. 
+Alternatively, the user can specify the star formation history $\dot{M}_*$ 
+itself or the gas supply at all times $M_\text{g}(t)$, with the star formation 
+law supplying the remaining quantity. In these cases, the infall rate is 
+determined implicitly by solving equation~\refp{bursts:eq:mdot_gas}. The former 
+approach is somewhat more common in chemical evolution modeling, reflecting 
+the expectation that a galaxy's star formation history is ultimately governed 
+by the rate at which it accretes gas from the surrounding circumgalactic 
+medium. However, a galaxy's star formation history can be estimated 
+observationally while its accretion history cannot, and for analytic solution 
+it is often more convenient to specify $\dot{M}_*(t)$ rather than 
+$\dot{M}_\text{in}(t)$ as shown by~\citet{Weinberg2017b}. For the 
+calculations in this paper, we specify $\dot{M}_\text{in}(t)$ and allow the 
+SFR to follow from the gas supply unless otherwise specified. 
+\par 
+As a default value for the SFE timescale we adopt 
+$\tau_*$ = 2 Gyr, the typical value found for molecular gas in a wide range of 
+star-forming galaxies~\citep{Leroy2008}. The observationally inferred $\tau_*$ 
+is lower in some starbursting systems, as short as~$\sim$100 Myr; however, the 
+details of this relation are subject to the ongoing debate about the 
+CO-to-H$_2$ conversion 
+factor~\citep[for details, see the review in][]{Kennicutt2012}. 
+Relative to the total gas supply, the SFE timescale will be longer if much of 
+the reservoir is in atomic form, roughly 
+$\tau_* = (\text{2 Gyr})(1 + M_\text{HI}/M_{\text{H}_2})$. 
+\texttt{VICE} allows the 
+user to specify $\tau_*$ as a function of time, simultaneously allowing it to 
+vary with the gas supply according to the Kennicutt-Schmidt 
+relation~\citep{Schmidt1959, Schmidt1963, Kennicutt1998}. If one views the 
+gas reservoir as representing an annulus of a disk, with gas surface density 
+$\Sigma_\text{g} = M_\text{g}/A_\text{ann}$, then the classic non-linear 
+Kennicutt-Schmidt law $\dot{\Sigma}_* \propto \Sigma_\text{g}^{1.5}$ implies 
+$\tau_* \propto M_\text{g}^{-0.5}$. We adopt this form in some of our 
+calculations below. 
+
+\begin{table*} 
+\caption{Galactic chemical evolution parameters and their fiducial/unperturbed 
+values adopted in this paper (if applicable). For further details 
+on each parameter, see \texttt{VICE}'s science documentation, available 
+at~\url{https://github.com/giganano/VICE/tree/master/docs}. } 
+\begin{tabularx}{\textwidth}{l @{\extracolsep{\fill}} l r} 
+\hline 
+\hline 
+Quantity & Description & Fiducial/Unperturbed Value \\ 
+\hline 
+$M_\text{g}$ & Gas Supply & $\sim6\times10^9\ M_\odot$ \\ 
+$\dot{M}_*$ & Star Formation Rate & $\sim3\ M_\odot\ \text{yr}^{-1}$ \\ 
+$\dot{M}_\text{in}$ & Infall Rate & $\sim9\ M_\odot\ \text{yr}^{-1}$ \\ 
+$\dot{M}_\text{out}$ & Outflow Rate & 
+	$\eta\langle\dot{M}_*\rangle_{\tau_\text{s}}$ \\ 
+$\dot{M}_\text{returned}$ & Recycling Rate & 
+	Continuous (see equation~\refp{bursts:eq:mdot_returned}) \\ 
+$\tau_*$ & Star Formation Efficiency (SFE) Timescale ($M_\text{g}/\dot{M}_*$) & 
+	2 Gyr \\ 
+$\eta$ & Mass-Loading Factor ($\dot{M}_\text{out} / \dot{M}_*$) & 2.5 \\ 
+$\xi_\text{enh}$ & Outflow Enhancement Factor ($Z_\text{out}/Z_\text{ISM}$) & 
+	1 \\ 
+$\dot{M}_x^\text{CC}$ & Rate of Enrichment from CCSNe & N/A \\ 
+$y_x^\text{CC}$ & IMF-integrated fractional yield from CCSNe & 
+	O: 0.015; Fe: 0.0012; Sr: $3.5\times10^{-8}$ \\ 
+$\dot{M}_x^\text{Ia}$ & Rate of Enrichment from SNe Ia & N/A \\ 
+$y_x^\text{Ia}$ & IMF-integrated fractional yield from SNe Ia & 
+	O: 0.0; Fe: 0.0017; Sr: 0.0 \\ 
+$\dot{M}_x^\text{AGB}$ & Rate of Enrichment from AGB stars & N/A \\ 
+$y_x^\text{AGB}(m_\text{to} | Z)$ & Fraction yield from an AGB star of mass 
+$m_\text{to}$ and metallicity $Z$ & \citet{Cristallo2011} \\ 
+$r(t)$ & Cumulative Return Fraction (CRF) & N/A \\ 
+$h(t)$ & Main Sequence Mass Fraction (MSMF) & N/A \\ 
+$Z_\text{ISM}$ & Total Metallicity by Mass of the ISM & N/A \\ 
+\hline
+\end{tabularx}
+\label{bursts:tab:docs} 
+\end{table*} 
+
+\subsection{The Cumulative Return Fraction} 
+\label{bursts:sec:crf} 
+The cumulative return fraction (CRF) $r(t)$ is the fraction of a stellar 
+population's mass formed at $t$ = 0 that has been returned to the ISM by a 
+time $t$ through stellar winds or supernova explosions. In \texttt{VICE}, we 
+calculate $r(t)$ approximately by assuming that all stars with initial mass 
+$M > 8 M_\odot$ leave a remnant of 1.44 $M_\odot$ while those less than 8 
+$M_\odot$ leave remnants of mass $0.394 M_\odot + 0.109 M$~\citep{Kalirai2008}. 
+In these calculations, the main sequence turnoff mass at a time $t$ following 
+the formation of a stellar population is assumed to be $M_\text{to}/M_\odot 
+\approx (t/\text{10 Gyr})^{-1/3.5}$, the same form as adopted 
+in~\citet{Weinberg2017b}. While this formula is less accurate for high 
+$M_\text{to}$, the return timescale for these stars is much shorter than 
+other chemical evolution timescales anyway, so the approximation is adequate. 
+\par
+\texttt{VICE} calculates the time-dependent return rate from all previous 
+stellar generations as: 
+\begin{equation}
+\label{bursts:eq:mdot_returned} 
+\dot{M}_\text{returned}(t) = \int_0^t\dot{M}_*(t - t')\dot{r}(t')dt' . 
+\end{equation} 
+Alternatively, one can make the approximation that all mass (from AGB stars as 
+well as CCSNe) is returned instantaneously, in which case: 
+\begin{equation} 
+\label{bursts:eq:mdot_returned_inst}
+\dot{M}_\text{returned} = r_\text{inst}\dot{M}_* . 
+\end{equation}
+For a Kroupa IMF, the CRF is $r(t) \approx$ 0.37, 0.40, and 0.45 after 1, 2, 
+and 10 Gyr, and~\citet{Weinberg2017b} shows that the difference between 
+[$\alpha$/Fe]-[Fe/H] evolution with the time-dependent return of 
+equation~\refp{bursts:eq:mdot_returned} and the instantaneous approximation with 
+$r_\text{inst}$ = 0.4 is very small. Nonetheless, numerical implementation of 
+equation~\refp{bursts:eq:mdot_returned} is neither difficult nor time-consuming, so we 
+use continuous recycling throughout this paper. We note that 
+equation~\refp{bursts:eq:mdot_returned_inst} is not equivalent to the ``instantaneous 
+recycling approximation'' as that term is most frequently used, where it 
+implies instantaneous return of \textit{newly produced} elements as well as the 
+mass and metals that stars are born with. The full instantaneous recycling 
+approximation is accurate for pure-CCSN elements if the star formation 
+history is smooth on timescales of~$\sim$100 Myr, but it is not an accurate 
+description of SN Ia enrichment. 
+While our one-zone models assume instantaneous mixing,
+they {\it do not} assume instantaneous recycling for enrichment 
+by SN Ia or AGB stars.
+
+\subsection{The Mass Loading Factor} 
+For the outflow mass loading factor $\eta$ we adopt a default value of 2.5, 
+the same as~\citet{Weinberg2017b}, with the result that our models 
+approach approximately solar abundances at late times given our adopted CCSN 
+and SN Ia yields. However, as noted in \S~\ref{bursts:sec:intro}, we also 
+consider the possibility that the outflow rate is not tied to the 
+instantaneous SFR but to some time-averaged value. This introduces an 
+additional parameter, the smoothing timescale $\tau_\text{s}$, defined such 
+that 
+\begin{equation}\begin{split}
+\label{bursts:eq:tau_s}
+\dot{M}_\text{out} &= \eta\langle\dot{M}_*\rangle_{\tau_\text{s}} \\ 
+&= \begin{dcases}
+\frac{\eta}{\tau_\text{s}}\int_{t - \tau_\text{s}}^{t} \dot{M}_*(t') dt' & 
+(t > \tau_\text{s}) \\ 
+\frac{\eta}{t}\int_{0}^{t} \dot{M}_*(t') dt' & (0 \leq t \leq \tau_\text{s}) . 
+\end{dcases}
+\end{split}\end{equation} 
+If galactic winds are driven primarily by massive star winds, radiation 
+pressure, and CCSNe, then the effective smoothing timescale is likely to be 
+short ($\tau_\text{s}\sim$ 50 Myr), and smoothing will have little impact on 
+chemical evolution if the SFR is smooth on these timescales. However, if SNe 
+Ia play a central role in driving winds, then effective smoothing times as 
+long as $\tau_\text{s}\sim$ 1 Gyr are possible, altering the relative ejection 
+of CCSNe and SNe Ia elements from a shorter duration starburst. Cosmic ray 
+feedback could also produce an intermediate smoothing time, because the 
+energy deposited by CCSNe can be temporarily stored in cosmic rays before 
+building up sufficiently to drive a wind. While \texttt{VICE} allows the user 
+to specify $\eta$ as a function of time, we do not consider models with a 
+time-varying $\eta$ here. 
+
+\subsection{CCSNe} 
+\label{bursts:sec:ccsne} 
+Following~\citet{Weinberg2017b}, we implement in \texttt{VICE} the 
+instantaneous explosion approximation to CCSNe. This is a good approximation, 
+because the lifetimes of CCSN progenitors ($\lesssim$40 Myr for the least 
+massive ones) are much shorter than the relevant timescales of 
+GCE. In our models, a given yield of some element X is ejected 
+simultaneously with the formation of a stellar population at all timesteps: 
+\begin{equation} 
+\label{bursts:eq:mdot_ccsne}
+\dot{M}_\text{x}^\text{CC} = y_\text{x}^\text{CC}(Z)\dot{M}_* ~,
+\end{equation} 
+where $y_\text{x}^\text{CC}$ is the fraction of the stellar population's 
+\textit{total} mass that is converted to the element $x$ at a metallicity 
+$Z$.
+The CCSN yield is
+\begin{equation} 
+\label{bursts:eq:frac_yield}
+y_x^\text{CC} = \ddfrac{
+	\int_{m_{\rm SN}}^u m_x \frac{dN}{dm}dm 
+}{ 
+	\int_l^u m \frac{dN}{dm}dm 
+}
+\end{equation} 
+where $m_x$ is the mass of the element $x$ ejected in the explosion of a star 
+of initial mass $m$, and $dN/dm$ is the assumed stellar IMF, for which we adopt 
+the~\citet{Kroupa2001} form throughout this work. We also adopt $l$ = 0.08 
+$M_\odot$ and $u$ = 100 $M_\odot$ as the lower and upper mass limits of the 
+IMF and $m_{\rm SN} = 8\ M_\odot$ 
+as the minimum progenitor mass for a CCSN explosion. 
+If some stars above $m_{\rm SN}$ implode to black holes instead of 
+exploding as supernovae, they will have much lower (possibly zero)
+values of $m_X$ (e.g., \citealt{Sukhbold2016}).
+\par 
+Upon request~\texttt{VICE} will calculate $y_\text{x}^\text{CC}$ for a given 
+element and metallicity from literature tables.
+It also allows users to adopt any numerical value or
+user-constructed functions of $Z$ to describe the yield for any element in 
+its simulations. 
+In practice, supernova nucleosynthesis studies determine the value of 
+$m_\text{x}$ for of order 10 values of $m$ at a specified metallicity and 
+rotational velocity. To compute the numerator of equation~\refp{bursts:eq:frac_yield}, 
+\texttt{VICE} linearly interpolates $m_\text{x}$\footnote{
+	linearly in $m$, not $\log m$
+} values between the two surrounding $m$ values in the available yield 
+grid, or linearly extrapolates $m_\text{x}$ values from the two highest $m$ 
+values in the grid if it does not extend to 100 $M_\odot$. 
+\par 
+We discuss our adopted O and Fe CCSN yields 
+in~\S~\ref{bursts:sec:yields}. 
+We base our choices on \citet{Weinberg2017b}, but \citet{Weinberg2017b}
+did not investigate Sr enrichment, which we 
+are interested in as a tracer of s-process nucleosynthesis in both CCSN and 
+AGB stars. For this reason, we conduct a thorough investigation of 
+CCSN Sr yields and the metallicity dependence thereof. We reserve this 
+discussion to~\S~\ref{bursts:sec:sr_nuc}, which focuses on Sr nucleosynthesis. 
+
+\subsection{The SN Ia Delay-Time Distribution (DTD)} 
+\label{bursts:sec:dtd} 
+We define $R_\text{Ia}(t)$ to be the rate of SNe Ia per unit stellar mass 
+formed at a time $t$ following an episode of star formation. 
+Following~\citet{Weinberg2017b} (see Appendix A therein), we set: 
+\begin{equation} 
+\label{bursts:eq:mdot_ia} 
+M_\text{x}^\text{Ia} = y_\text{x}^\text{Ia}\langle\dot{M}_*\rangle_\text{Ia} 
+\end{equation} 
+where 
+\begin{equation} 
+\label{bursts:eq:y_x_Ia} 
+y_\text{x}^\text{Ia} \equiv m_\text{x}^\text{Ia} 
+\int_{t_\text{D}}^{t_\text{max}} R_\text{Ia}(t)dt = 
+m_\text{x}^\text{Ia}\frac{N_\text{Ia}}{M_*} 
+\end{equation} 
+is the fractional yield of element X from all SNe Ia that would explode 
+between the minimum delay time $t_\text{D}$ and a specified maximum time 
+$t_\text{max}$. Here $m_\text{x}^\text{Ia}$ is the average mass yield of the 
+element X per SN Ia, $M_*$ is the mass of the stellar population, and 
+\begin{equation}
+\label{bursts:eq:mdotstarIa} 
+\langle\dot{M}_*\rangle_\text{Ia} \equiv \ddfrac{
+	\int_0^t \dot{M}_*(t - t')R_\text{Ia}(t')dt' 
+}{
+	\int_{t_\text{D}}^{t_\text{max}} R_\text{Ia}(t')dt' 
+} 
+\end{equation} 
+is the time-averaged SFR weighted by the SNe Ia DTD. In implementation, 
+\texttt{VICE} enforces $t_\text{max}$ = 15 Gyr always, though provided one is 
+consistent in equations~\refp{bursts:eq:y_x_Ia} and~\refp{bursts:eq:mdotstarIa}, the result 
+of equation~\refp{bursts:eq:mdot_ia} is independent of the choice of $t_\text{max}$. 
+This formulation implicitly assumes that $R_\text{Ia}$ and 
+$m_\text{x}^\text{Ia}$ are independent of the birth population's metallicity. 
+As discussed further in \S~\ref{bursts:sec:yields} below, we adopt a power-law DTD 
+with $R_\text{Ia} \propto t^{-1.1}$ and a minimum time delay of 
+$t_\text{D}$ = 150 Myr. \texttt{VICE} allows the user to specify alternative 
+forms for the DTD, including user-constructed functional forms. 
+
+\subsection{AGB Stars} 
+For AGB enrichment, we implement in \texttt{VICE} an algorithm that tracks the 
+mass rate of change of a single stellar population to determine the mass in 
+dying stars at each timestep. The rate of mass enrichment of an element $x$ 
+from AGB stars is then given by 
+\begin{equation} 
+\label{bursts:eq:mdot_agb} 
+\dot{M}_\text{x}^\text{AGB} = -\int_0^t y_\text{x}^\text{AGB}(m_\text{to}
+(t - t'), Z_\text{ISM}(t'))\dot{M}_*(t')\dot{h}(t - t')dt' 
+\end{equation} 
+where $y_\text{x}^\text{AGB}$ is the yield of a star of mass $m$ and 
+total metallicity $Z$, and $h$ is the main sequence mass fraction, 
+defined to be the fraction of a stellar population's mass that is in the form 
+of main sequence stars at a time $t$ following its formation. By definition, 
+$h$ = 1 at $t$ = 0, and declines monotonically; hence the minus sign in 
+equation~\refp{bursts:eq:mdot_agb}. $h$ is fully described by the adopted 
+stellar IMF and the mass-lifetime relation (see \texttt{VICE}'s Science 
+Documentation for further details). 
+
+\subsection{Adopted Nucleosynthetic Yields} 
+\label{bursts:sec:yields} 
+For CCSN yields of O and Fe, we adopt the same values 
+as~\citet{Weinberg2017b}, $y_\text{O}^\text{CC}$ = 0.015 and 
+$y_\text{Fe}^\text{CC}$ = 0.0012, independent of metallicity. The former is 
+approximately the value computed from the yields of~\citet{Chieffi2004} 
+for solar metallicity stars assuming a Kroupa IMF in which all stars with M = 
+8 - 100 $M_\odot$ explode. CCSN iron yields are difficult to predict from 
+first principles; our choice yields a plateau at [O/Fe] $\approx$ +0.45, in 
+reasonable agreement with observations. Although we investigate Sr as a 
+representative example of an AGB element, it is also expected to have a CCSN 
+contribution. In \S~\ref{bursts:sec:sr} we examine the impact of various assumptions 
+of the form of $y_\text{Sr}^\text{CC}$, including one with no 
+metallicity dependence, one that depends linearly on $Z$, another with a 
+$y_\text{Sr}^\text{CC} \propto 1 - e^{-kZ}$ dependence, and one in which 
+$y_\text{Sr}^\text{CC} = 0$ as a limiting case describing pure AGB enrichment. 
+\par
+For the SN Ia iron yield we adopt $y_\text{Fe}^\text{Ia}$ = 0.0017, similar to 
+the values used by~\citet{Schoenrich2009a},~\citet{Andrews2017}, 
+and~\citet{Weinberg2017b}. This value is based on a normalization of the 
+SNe Ia DTD that yields $N_\text{Ia}/M_* = \int_{t_\text{D}}^{t_\text{max}}
+R_\text{Ia}(t)dt = 2.2\times10^{-3} M_\odot^{-1}$, consistent with 
+$(2\pm1)\times10^{-3} M_\odot^{-1}$ from~\citet{Maoz2012a}, and 
+$m_\text{Fe}^\text{Ia}$ = 0.78 $M_\odot$ from the W70 explosion model 
+of~\citet{Iwamoto1999}. Because this enrichment channel is negligible for 
+O and Sr, we adopt $y_\text{Sr}^\text{Ia}$ and $y_\text{O}^\text{Ia}$ = 0 
+throughout this work. As noted in \S~\ref{bursts:sec:dtd}, we adopt a 
+$t^{-1.1}$ power-law DTD, again motivated by~\citet{Maoz2012a}, with a minimum 
+delay time of $t_\text{D}$ = 150 Myr. In principle, $t_\text{D}$ could be as 
+short as the lifetime of the most massive stars that produce white dwarfs 
+(roughly 40 Myr), but it is not clear empirically whether the t$^{-1.1}$ 
+power-law extends to such small $t$. As a rule of thumb, it is useful to 
+remember that a $t^{-1}$ power-law DTD would yield equal numbers of SNe Ia 
+per logarithmic time interval (i.e. the same number between 0.1 - 1 Gyr and 
+1 - 10 Gyr). Thus 1 Gyr is the approximate characteristic time for half of the 
+SN Ia iron to be produced. If $t_\text{D}$ is as short as 0.05 Gyr, then 
+about 20\% of SNe Ia explode between 0.05 and 0.15 Gyr, enough to noticably 
+shift the ``knee'' of the [$\alpha$/Fe]-[Fe/H] tracks. For our default 
+$t_\text{D}$ = 0.15 Gyr, these tracks are nearly identical to those of an 
+exponential DTD with the same
+normalization~\citep[see figure 11 of ][]{Weinberg2017b}.
+\par 
+Recently~\citet{Maoz2017} argued for a lower DTD normalization of 
+$N_\text{Ia}/M_* = (1.3\pm0.1)\times10^{-3} M_\odot^{-1}$ for a Kroupa IMF, 
+based on comparisons of the cosmic star formation history and the 
+redshift-dependent SN Ia rate derived from cosmological surveys. Adopting this 
+lower normalization would require us to adopt lower values of 
+$y_\text{O}^\text{CC}$, $y_\text{Fe}^\text{CC}$, and $\eta$ to reproduce the 
+observed [O/Fe]-[Fe/H] tracks in the Milky Way, reducing each by roughly a 
+factor of two. Such a change is physically plausible, because many of the 
+high-mass stars with the highest oxygen yields may collapse to black holes 
+instead of exploding as CCSNe (see discussion by, e.g.,
+~\citealp{Pejcha2015},~\citealp{Sukhbold2016}, and observational evidence 
+of~\citealp{Gerke2015},~\citealp{Adams2017}). These changes would not alter our 
+qualitative conclusions below, but they would change the detailed form of 
+evolutionary tracks and element ratio distributions. \citet{Brown2019} found 
+that the local specific SN Ia rate scales strongly (and inversely) with 
+galaxy stellar mass, and they argue that this dependence may imply a 
+metallicity-dependent $R_\text{Ia}(t)$ in addition to a DTD that produces more 
+SNe Ia at early times. Adopting a metallicity-dependent $y_\text{Fe}^\text{Ia}$ 
+would have a larger qualitative impact on our models (though as a practical 
+matter it would be straight-forward to implement within \texttt{VICE}). We 
+reserve a more thorough investigation of empirical constraints on elemental 
+yields to future work. 
+\par 
+The AGB yields of s-process elements depend strongly on both stellar mass and
+birth metallicity. It is therefore not feasible to specify single yield values 
+or simple time-dependent functional forms. Instead, \texttt{VICE} implements 
+a grid of fractional yields on a table of stellar mass and metallicity. At 
+each timestep, and for each element, it then determines the appropriate yield 
+$y_\text{x}^\text{AGB}$ in equation~\refp{bursts:eq:mdot_agb} via bilinear 
+interpolation between elements on the grid. The current version of 
+\texttt{VICE} allows users to adopt either the~\citet{Cristallo2011} 
+or~\citet{Karakas2010} yield tables, and we adopt the former for calculations 
+in this paper. A future version of \texttt{VICE} will likely include more yield 
+tables as well as the capability to handle user-specifications on the AGB 
+yields of each element. We provide further discussion of Sr yields in 
+\S~\ref{bursts:sec:sr}. 
+
+\subsection{Illustrations}
+For smooth star formation histories, \texttt{VICE} yields
+[O/Fe]-[Fe/H] tracks similar to those of
+\citet{Andrews2017}, \citet{Weinberg2017b}, 
+and \citet{Freudenburg2017}, who present comparisons to data
+for Milky Way stellar populations.  In this paper we focus on the ways
+that starbursts and subtler perturbations to the star formation
+history influence abundance tracks and distributions, and we do not
+attempt to model or interpret current observational data.  For illustrative
+purposes, we present in Appendix A a comparison of \texttt{VICE} 
+predictions to the dwarf galaxy abundance data of 
+\cite{Kirby2010}, for which low characteristic metallicities
+require quite different parameter choices from the Milky Way.
