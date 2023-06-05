@@ -91,8 +91,9 @@
 %
 
 \documentclass[12pt,fleqn,oneside,hidelinks]{book}
+% \usepackage{setspace}
 \usepackage{aaspp4}	% For compatibility with aastex'isms
-\usepackage{epsfig}	% for importing Encapsulated PostScript figures
+% \usepackage{epsfig}	% for importing Encapsulated PostScript figures
 % JCZ 150319 !!! commented this out to try out my bibliography appraoch, using mktex
 %\usepackage{biblatex}	% Bibliography style
 %\usepackage{deluxetable}
@@ -136,6 +137,7 @@
 \usepackage{lscape}	% support for embedded landscape pages (e.g., tables)
 \usepackage{graphicx}   % support for includegraphics et al.
 \usepackage{amsmath}
+% \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage[titles]{tocloft}        % ToC, LoF, LoF typesetting
 \renewcommand{\cftfigfont}{Figure } % add "Figure " before numbers in the LoF
@@ -154,23 +156,33 @@
 \usepackage[toc, page]{appendix}
 \usepackage[explicit, compact]{titlesec}
 \titleformat{\chapter}[block]
-	{\centering\huge}
+	{\singlespace\centering\huge}
 	{Chapter~\thechapter:}{1ex}{#1}
-\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+\titlespacing*{\chapter}{0pt}{20pt}{20pt}
 \titleformat{\section}[block]
-	{\centering\LARGE}
+	{\singlespace\centering\LARGE}
 	{\thesection}{1ex}{#1}
-\titlespacing*{\section}{0pt}{0pt}{0pt}
+\titlespacing*{\section}{0pt}{20pt}{20pt}
 \titleformat{\subsection}[block]
-	{\centering\Large}
+	{\singlespace\centering\Large}
 	{\thesubsection}{1ex}{#1}
-\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}{0pt}{20pt}{20pt}
 \titleformat{\subsubsection}[block]
-	{\centering\large}
+	{\singlespace\centering\large}
 	{\thesubsubsection}{1ex}{#1}
-\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
-	% {\bfseries\huge}
-	% {\filright\huge\thechapter.}{1ex}{\huge\filright #1}
+\titlespacing*{\subsubsection}{0pt}{20pt}{20pt}
+
+% it is entirely RIDICULOUS that none of the following does ANYTHING to the
+% figure captions in this FUCKING document....
+% \NewCommandCopy{\latexcaption}{\caption}
+% \renewcommand{\caption}[1]{\singlespace{\latexcaption{#1}}}
+% \let\latexfigcaption\figcaption
+% \renewcommand{\figcaption}[1]{\latexfigcaption{\singlespace #1}}
+% \let\latexcaption\caption
+% \renewcommand{\caption}[1]{\singlespace{\latexcaption{#1}}}
+% \let\latexcaption\caption
+% \renewcommand{\caption}[1]{\latexcaption{\singlespace #1}}
+% \renewcommand{\caption}[1]{\caption{\singlespace #1}}
 
 % Any new commands we need - this file contains all the current
 % AASTeX markup so you don't have to import it yourself.
@@ -352,6 +364,7 @@
 \subfile{chapter3/main.tex}
 \subfile{chapter4/main.tex}
 \subfile{chapter5/main.tex}
+\subfile{chapter6/main.tex}
 % \input{chapter1.tex}
 % \input{chapter5.tex}
 % \input{chapter2.tex}
@@ -399,6 +412,7 @@
 \input{chapter5/age_oh.tex}
 \input{chapter5/normalize_sfh.tex}
 \input{chapter5/vice.tex}
+\input{chapter6/vice.tex}
 %\input{app2.tex}
 %\input{app3.tex}
 %\input{app4.tex}

@@ -1,21 +1,36 @@
 
 \newcommand{\mc}{\textsc{emcee}}
 \newcommand{\vice}{\textsc{VICE}}
+\newcommand{\python}{\textsc{python}}
 \newcommand{\ah}{\ensuremath{\text{[}\alpha\text{/H]}}}
 \newcommand{\oh}{\ensuremath{\text{[O/H]}}}
+\newcommand{\nh}{\ensuremath{\text{[N/H]}}}
 \newcommand{\feh}{\ensuremath{\text{[Fe/H]}}}
 \newcommand{\afe}{\ensuremath{\text{[$\alpha$/Fe]}}}
 \newcommand{\ofe}{\ensuremath{\text{[O/Fe]}}}
+\newcommand{\no}{\ensuremath{\text{[N/O]}}}
+\newcommand{\ohno}{\no-\oh}
+\newcommand{\Ctwelve}{\ensuremath{^{12}\text{C}}}
+\newcommand{\Cthirteen}{\ensuremath{^{13}\text{C}}}
+\newcommand{\Cfourteen}{\ensuremath{^{14}\text{C}}}
+\newcommand{\Nthirteen}{\ensuremath{^{13}\text{N}}}
+\newcommand{\Nfourteen}{\ensuremath{^{14}\text{N}}}
+\newcommand{\Nfifteen}{\ensuremath{^{15}\text{N}}}
+\newcommand{\Ofifteen}{\ensuremath{^{15}\text{O}}}
+\newcommand{\Osixteen}{\ensuremath{^{16}\text{O}}}
 \newcommand{\logage}{\ensuremath{\log_{10}\text{(age)}}}
 \newcommand{\ddfrac}[2]{\frac{\displaystyle{#1}}{\displaystyle{#2}}}
 \newcommand{\refp}[1]{(\ref{#1})}
+\newcommand{\subcc}{\ensuremath{_\text{cc}}}
+\newcommand{\ycc}[1]{\ensuremath{y_\text{#1}^\text{CC}}}
+\newcommand{\yia}[1]{\ensuremath{y_\text{#1}^\text{Ia}}}
+\newcommand{\yagb}[1]{\ensuremath{y_\text{#1}^\text{AGB}}}
 \newcommand{\yacc}{\ensuremath{y_\alpha^\text{CC}}}
 \newcommand{\yfecc}{\ensuremath{y_\text{Fe}^\text{CC}}}
 \newcommand{\yfeia}{\ensuremath{y_\text{Fe}^\text{Ia}}}
 \newcommand{\script}[1]{\ensuremath{\mathcal{#1}}}
 \newcommand{\scinote}[2]{\ensuremath{#1\times10^{#2}}}
 \newcommand{\erf}{\ensuremath{\text{erf}}}
-\newcommand{\python}{\textsc{python}}
 \newcommand{\msun}{\ensuremath{\text{M}_\odot}}
 \newcommand{\mstar}{\ensuremath{\text{M}_\star}}
 \newcommand{\persqkpc}{\ensuremath{\text{kpc}^{-2}}}
@@ -25,4 +40,18 @@
 \newcommand{\um}{\textsc{UniverseMachine}}
 \newcommand{\hsim}{\texttt{h277}}
 
-\newcommand{\na}{New A} % New Astronomy Journal
+% nitrogen chapter -> yield model short-hand names
+\defcitealias{Cristallo2011}{C11}
+\defcitealias{Cristallo2015}{C15}
+\defcitealias{Karakas2010}{K10}
+\defcitealias{Karakas2016}{KL16}
+\defcitealias{Karakas2018}{K18}
+\defcitealias{Ventura2013}{V13}
+\newcommand{\cristallo}{\citetalias{Cristallo2011}+\citetalias{Cristallo2015}}
+\newcommand{\karakasten}{\citetalias{Karakas2010}}
+\newcommand{\karakas}{\citetalias{Karakas2016}+\citetalias{Karakas2018}}
+\newcommand{\ventura}{\citetalias{Ventura2013}}
+
+% Undefined escape sequences that stand for journal names
+\newcommand{\jcap}{JCAP}
+\newcommand{\na}{New A}
