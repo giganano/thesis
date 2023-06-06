@@ -1,0 +1,76 @@
+% OSU Thesis Style File
+% V2002-2004 - RWP
+% v2001 - AWS
+% v2000 - SVR,PLM
+% v1999 - VKN
+%
+
+\ProvidesPackage{osuthesis}
+                 [2004/06/28]
+
+\pagestyle{plain}
+\flushbottom
+\renewcommand{\baselinestretch}{2.0} % does nothing
+
+%\setlength{\topmargin}{0.1in}
+%\setlength{\topmargin}{1.1in}
+%\setlength{\headheight}{0in}
+%\setlength{\headsep}{0in}
+%\setlength{\oddsidemargin}{0.55in}
+%\setlength{\evensidemargin}{0.55in}
+%\setlength{\textwidth}{5.9in}
+%\setlength{\textheight}{8.3in}
+%\setlength{\footskip}{0.5in}
+%\setlength{\parskip}{0.15in}
+%\setlength{\parindent}{5ex}
+
+% Forbid single lines at the top or bottom of the page (widows & orphans):
+\widowpenalty=10000		% Default=150
+\clubpenalty=10000 		% Default=150
+
+% Discourage breaking paragraphs:
+\interlinepenalty=100		% Default=0 (100 for footnotes)
+
+% Make LaTeX shut up about vboxes and hboxes:
+\hbadness=10000			% Default=1000
+\vbadness=10000			% Default=1000
+
+% Fix a few section titles:
+%\def\contentsname{\sc Table of Contents}
+\def\contentsname{Table of Contents}
+\def\bibname{References}
+\def\references{\chapter*{References}}
+
+% Fix the chapter/section numbering scheme:
+\renewcommand{\thepage}{\roman{page}} 
+\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
+\renewcommand{\thetable}{\thechapter.\arabic{table}}
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+
+% Tighten the figure captions:
+\renewcommand{\figcaption}[1]{ % does nothing
+  \renewcommand{\baselinestretch}{1.25}\caption{#1}
+  \renewcommand{\baselinestretch}{2.0}
+}
+
+% Normal 1'' margins:
+\newcommand{\normalmargins}{
+\setlength{\topmargin}{0.0in}
+\setlength{\textheight}{8.8in}
+\setlength{\oddsidemargin}{0.05in}
+\setlength{\evensidemargin}{0.05in}
+\setlength{\textwidth}{6.5in}
+}
+
+% Binding margins:
+\newcommand{\bindingmargins}{
+\setlength{\topmargin}{0.0in}
+\setlength{\textheight}{8.8in}
+\setlength{\oddsidemargin}{0.52in}
+\setlength{\evensidemargin}{0.05in}
+\setlength{\textwidth}{5.9in}
+}
+
+\typeout{OSU Thesis Style 2004}	% because we can...

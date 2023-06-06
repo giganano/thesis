@@ -92,57 +92,46 @@
 
 \documentclass[12pt,fleqn,oneside,hidelinks]{book}
 % \usepackage{setspace}
-\usepackage{aaspp4}	% For compatibility with aastex'isms
+% \usepackage{aaspp4}	% For compatibility with aastex'isms
 % \usepackage{epsfig}	% for importing Encapsulated PostScript figures
 % JCZ 150319 !!! commented this out to try out my bibliography appraoch, using mktex
 %\usepackage{biblatex}	% Bibliography style
 %\usepackage{deluxetable}
 %\usepackage{mnras}
 % \usepackage{natbib}
-\usepackage[
-	style=authoryear-comp,
-	natbib=true,
-	backend=bibtex,
-	maxcitenames=3,
-	maxbibnames=8,
-	giveninits=true,
-	uniquename=init,
-	autocite=inline,
-	isbn=false,
-	doi=false,
-	eprint=false
-]{biblatex}
+\usepackage[style=authoryear-comp, natbib=true, backend=bibtex]{biblatex}
+\usepackage[explicit, compact]{titlesec}
+\usepackage[titles]{tocloft} % ToC, LoF, LoF typesetting
 \bibliography{main}
-\renewcommand*\finalnamedelim{\addspace\&\space}
-\renewcommand*\nameyeardelim{\addspace}
-\AtBeginBibliography{\renewcommand*\finalnamedelim{\addcomma\space}}
-\DeclareFieldFormat{journaltitle}{#1}
-\DeclareFieldFormat{pages}{#1}
-\DeclareNameAlias{sortname}{family-given}
-\DeclareBibliographyDriver{article}{%
-	\printnames{author}%
-	\addcomma\addspace%
-	\printfield{year}%
-	\addcomma\addspace%
-	\printfield{journaltitle}%
-	\addcomma\addspace%
-	\printfield{volume}%
-	\addcomma\addspace%
-	\printfield{pages}%
-}
+% \renewcommand*\finalnamedelim{\addspace\&\space}
+% \renewcommand*\nameyeardelim{\addspace}
+% \AtBeginBibliography{\renewcommand*\finalnamedelim{\addcomma\space}}
+% \DeclareFieldFormat{journaltitle}{#1}
+% \DeclareFieldFormat{pages}{#1}
+% \DeclareNameAlias{sortname}{family-given}
+% \DeclareBibliographyDriver{article}{%
+% 	\printnames{author}%
+% 	\addcomma\addspace%
+% 	\printfield{year}%
+% 	\addcomma\addspace%
+% 	\printfield{journaltitle}%
+% 	\addcomma\addspace%
+% 	\printfield{volume}%
+% 	\addcomma\addspace%
+% 	\printfield{pages}%
+% }
 
 %\usepackage{natbib,amsmath,multirow,tabularx}
 %\usepackage{bk12e}	% A modified bk12.sty to work with LaTeX2e
 \usepackage{osuthesis}	% OSU thesis format
+\usepackage{setspace}
 \usepackage{lscape}	% support for embedded landscape pages (e.g., tables)
 \usepackage{graphicx}   % support for includegraphics et al.
 \usepackage{amsmath}
-% \usepackage{amssymb}
+\usepackage{amssymb}
 \usepackage{mathtools}
-\usepackage[titles]{tocloft}        % ToC, LoF, LoF typesetting
-\renewcommand{\cftfigfont}{Figure } % add "Figure " before numbers in the LoF
-\renewcommand{\cfttabfont}{Table }  % add "Table " before numbers in the LoT
-\renewcommand{\cftchapleader}{\cftdotfill{4}}
+\usepackage{apptools}
+\usepackage{afterpage}
 %\usepackage{refcheck}	% Uncomment to check references, usually unnecessary
 
 % User's \usepackage imports:
@@ -153,36 +142,7 @@
 \usepackage{ragged2e}
 \usepackage{tabularx}
 \usepackage{bm}
-\usepackage[toc, page]{appendix}
-\usepackage[explicit, compact]{titlesec}
-\titleformat{\chapter}[block]
-	{\singlespace\centering\huge}
-	{Chapter~\thechapter:}{1ex}{#1}
-\titlespacing*{\chapter}{0pt}{20pt}{20pt}
-\titleformat{\section}[block]
-	{\singlespace\centering\LARGE}
-	{\thesection}{1ex}{#1}
-\titlespacing*{\section}{0pt}{20pt}{20pt}
-\titleformat{\subsection}[block]
-	{\singlespace\centering\Large}
-	{\thesubsection}{1ex}{#1}
-\titlespacing*{\subsection}{0pt}{20pt}{20pt}
-\titleformat{\subsubsection}[block]
-	{\singlespace\centering\large}
-	{\thesubsubsection}{1ex}{#1}
-\titlespacing*{\subsubsection}{0pt}{20pt}{20pt}
-
-% it is entirely RIDICULOUS that none of the following does ANYTHING to the
-% figure captions in this FUCKING document....
-% \NewCommandCopy{\latexcaption}{\caption}
-% \renewcommand{\caption}[1]{\singlespace{\latexcaption{#1}}}
-% \let\latexfigcaption\figcaption
-% \renewcommand{\figcaption}[1]{\latexfigcaption{\singlespace #1}}
-% \let\latexcaption\caption
-% \renewcommand{\caption}[1]{\singlespace{\latexcaption{#1}}}
-% \let\latexcaption\caption
-% \renewcommand{\caption}[1]{\latexcaption{\singlespace #1}}
-% \renewcommand{\caption}[1]{\caption{\singlespace #1}}
+\usepackage[toc, title, page]{appendix}
 
 % Any new commands we need - this file contains all the current
 % AASTeX markup so you don't have to import it yourself.
@@ -230,16 +190,20 @@
 %% be unacceptable to the Graduate School (and you don't need that...)
 %%
 
-\setlength{\topmargin}{0.00in}
-\setlength{\headheight}{0in}
-\setlength{\headsep}{0in}
-\setlength{\oddsidemargin}{0.55in}
-\setlength{\evensidemargin}{0.55in}
-\setlength{\textwidth}{6.0in}  %% avoids overrun in PS/PDF generation
-\setlength{\textheight}{8.5in}
-\setlength{\footskip}{0.4in}
-\setlength{\parskip}{0.15in}
-\setlength{\parindent}{5ex}
+% \setlength{\topmargin}{0.00in}
+% \setlength{\headheight}{0in}
+% \setlength{\headsep}{0in}
+% \setlength{\oddsidemargin}{0.55in}
+% \setlength{\evensidemargin}{0.55in}
+% \setlength{\textwidth}{6.0in}  %% avoids overrun in PS/PDF generation
+% \setlength{\textheight}{8.5in}
+% \setlength{\footskip}{0.4in}
+% \setlength{\parskip}{0.15in}
+% \setlength{\parindent}{5ex}
+
+% uncomment these lines if you want LaTeX to shut up about vboxes and hboxes
+\hbadness=10000 % default = 1000
+\vbadness=10000 % default = 1000
 
 % Some bibliography punctuations that are required.  These affect the
 % appearance of \citep, \citet, and associated citation macros.  It's
@@ -250,6 +214,7 @@
 % All done, now you may begin the document
 
 \begin{document}
+\emergencystretch 3em
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -278,6 +243,21 @@
 %\input{title_srh.tex}  % Senior Honors Thesis
 
 \input{title.tex}
+% \input{abstract.tex}
+\input{dedication.tex}
+\input{acknowledgments.tex}
+% \input{vita.tex}
+\tableofcontents
+\newpage
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+\newpage
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+
+
+
 % \subfile{title.tex}
 
 % Abstract.  Begins on page 2
@@ -356,8 +336,9 @@
 %
 
 %{\onehalfspace  % acceptable, but make \doublespace if needed
-{
-\doublespace
+% {
+% \doublespace
+\begin{doublespace}
 \justifying
 \subfile{intro.tex}
 \subfile{chapter2/main.tex}
@@ -394,7 +375,10 @@
 % \input{biblio.tex}
 % \bibliography{main}
 % \begin{thebibliography}
+% \bibliography
 \printbibliography
+% \chapter*{References}
+% \printbibliography
 % \bibliography{main}
 % \bibliographystyle{mnras}
 % \end{thebibliography}
@@ -405,7 +389,10 @@
 % The \appendix macro changes Chapter->Appendix and Numbered->Letters
 % 
 
+\newpage
 \appendix
+% \begin{appendices}
+\addcontentsline{toc}{chapter}{Appendices}
 \input{chapter2/datacomp_example.tex}
 \input{chapter3/likelihood.tex}
 \input{chapter3/yield_outflow_degeneracy.tex}
@@ -413,14 +400,15 @@
 \input{chapter5/normalize_sfh.tex}
 \input{chapter5/vice.tex}
 \input{chapter6/vice.tex}
+% \end{appendices}
 %\input{app2.tex}
 %\input{app3.tex}
 %\input{app4.tex}
 %\input{app5.tex}
 %\input{app6.tex}
 
-
-}  % end of the onehalfspace / doublespace
+\end{doublespace}
+% }  % end of the onehalfspace / doublespace
 
 % all done!
 

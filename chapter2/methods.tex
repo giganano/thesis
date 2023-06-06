@@ -20,7 +20,7 @@ turbulent velocities are comparable, so instantaneous mixing should
 be a good approximation azimuthally and may become an adequate 
 approximation galaxy-wide.  However, we are unaware of systematic
 studies of metal-mixing in the dwarf galaxy regime.
-
+\par
 Under the one-zone approximation,
 the equations of galactic chemical evolution (GCE)
 reduce to a system of integro-differential equations of mass with time, which 
@@ -75,14 +75,17 @@ Kennicutt-Schmidt law $\dot{\Sigma}_* \propto \Sigma_\text{g}^{1.5}$ implies
 $\tau_* \propto M_\text{g}^{-0.5}$. We adopt this form in some of our 
 calculations below. 
 
+\afterpage{
+\clearpage
+\begin{landscape}
 \begin{table*} 
 \caption{Galactic chemical evolution parameters and their fiducial/unperturbed 
 values adopted in this paper (if applicable). For further details 
 on each parameter, see \texttt{VICE}'s science documentation, available 
 at~\url{https://github.com/giganano/VICE/tree/master/docs}. } 
-\begin{tabularx}{\textwidth}{l @{\extracolsep{\fill}} l r} 
-\hline 
-\hline 
+\begin{tabularx}{\linewidth}{l @{\extracolsep{\fill}} l r} 
+\hline
+\hline
 Quantity & Description & Fiducial/Unperturbed Value \\ 
 \hline 
 $M_\text{g}$ & Gas Supply & $\sim6\times10^9\ M_\odot$ \\ 
@@ -91,7 +94,7 @@ $\dot{M}_\text{in}$ & Infall Rate & $\sim9\ M_\odot\ \text{yr}^{-1}$ \\
 $\dot{M}_\text{out}$ & Outflow Rate & 
 	$\eta\langle\dot{M}_*\rangle_{\tau_\text{s}}$ \\ 
 $\dot{M}_\text{returned}$ & Recycling Rate & 
-	Continuous (see equation~\refp{bursts:eq:mdot_returned}) \\ 
+	Continuous (see equation~\ref{bursts:eq:mdot_returned}) \\ 
 $\tau_*$ & Star Formation Efficiency (SFE) Timescale ($M_\text{g}/\dot{M}_*$) & 
 	2 Gyr \\ 
 $\eta$ & Mass-Loading Factor ($\dot{M}_\text{out} / \dot{M}_*$) & 2.5 \\ 
@@ -112,7 +115,10 @@ $Z_\text{ISM}$ & Total Metallicity by Mass of the ISM & N/A \\
 \hline
 \end{tabularx}
 \label{bursts:tab:docs} 
-\end{table*} 
+\end{table*}
+\end{landscape}
+\clearpage
+} % afterpage
 
 \subsection{The Cumulative Return Fraction} 
 \label{bursts:sec:crf} 
