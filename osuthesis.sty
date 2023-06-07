@@ -15,7 +15,16 @@
 \setlength{\parskip}{0.15in}
 \setlength{\parindent}{5ex}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%% PAGE & SECTION NUMBERING %%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\thepage}{\roman{page}}
+\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
+\renewcommand{\thetable}{\thechapter.\arabic{table}}
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+
 %%%%%%%%%%%%%%%%%%%%% CHAPTER & SECTION TITLE FORMATTING %%%%%%%%%%%%%%%%%%%%%
+\setcounter{secnumdepth}{3}
 \titleformat{\chapter}[block]
 	{\singlespace\centering\huge}
 	{\IfAppendix{Appendix~\thechapter:}{Chapter~\thechapter:}}{1ex}{#1}
@@ -32,14 +41,6 @@
 	{\singlespace\centering\large}
 	{\thesubsubsection}{1ex}{#1}
 \titlespacing{\subsubsection}{0pt}{0pt}{5pt}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%% PAGE & SECTION NUMBERING %%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand{\thepage}{\roman{page}}
-\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
-\renewcommand{\thetable}{\thechapter.\arabic{table}}
-\renewcommand{\thesection}{\thechapter.\arabic{section}}
-\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
-\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 
 % A few specific section titles:
 \def\contentsname{Table of Contents}
@@ -72,10 +73,6 @@
 	\addcomma\addspace%
 	\printfield{pages}%
 }
-
-%%%%%%%%%%%%%%%%%% APPENDIX EQUATION, FIGURE, TABLE NUMBERING %%%%%%%%%%%%%%%%%%
-% \renewcommand{\setthesection}{\arabic{section}}
-% \renewcommand{\setthefigure}{\thesection.\thefigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MISCELLANEOUS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Forbids single lines at the top or bottom of the page (widows & orphans)

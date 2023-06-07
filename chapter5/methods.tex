@@ -130,10 +130,13 @@ interesting question that can be probed by simply swapping the~\hsim~data
 within~\vice~for another simulation, then rerunning our numerical models and 
 comparing the results. 
 
-% fig 1 
+% fig 1
+\afterpage{
+\clearpage
+\begin{landscape}
 \begin{figure*} 
 \centering 
-\includegraphics[scale = 0.32]{decomposition.pdf} 
+\includegraphics[scale = 0.38]{decomposition.pdf} 
 \caption{Radial distributions of our sample of star particles from 
 \texttt{h277}. In the top row, we show distributions of~\textit{final} radius 
 in bins of birth radius and age, and in the bottom row, we show distributions 
@@ -146,7 +149,10 @@ improve visual clarity. We omit the distributions for 8 - 10 Gyr old stars born
 in the 9 - 11 and 11 - 13 kpc bins due to an insufficient number of star 
 particles with which to calculate the distribution. } 
 \label{migration:fig:h277_decomposition} 
-\end{figure*} 
+\end{figure*}
+\end{landscape}
+\clearpage
+}
 
 In the top row of Fig.~\ref{migration:fig:h277_decomposition}, we plot the distributions 
 of final radius in bins of birth radius and age for our sample of star 
@@ -362,15 +368,17 @@ history.
 % fig 2 
 \begin{figure} 
 \centering 
-\includegraphics[scale = 0.45]{migration.pdf} 
-\caption{A diagram illustrating how Galactocentric radius changes with time for 
+\includegraphics[scale = 0.7]{migration.pdf} 
+\caption{
+A diagram illustrating how Galactocentric radius changes with time for 
 two stellar populations under our migration schema: diffusion (crimson, solid), 
 linear (lime, dot-dashed), post-process (black, dotted), and sudden (blue, 
 dashed). Here the initial and final radii and birth times are chosen at random 
 for illustrative purposes. With the initial and final Galactocentric radii of 
 a stellar population, its birth time, and one of these assumptions regarding 
 the time-dependence of radial migration, the Galactocentric radius at all times 
-is known. Diffusion is our default model. } 
+is known. Diffusion is our default model.
+} 
 \label{migration:fig:migration_schema} 
 \end{figure} 
 
@@ -750,10 +758,13 @@ They are defined as follows:
 	accretion preferentially in the outer regions. 
 \end{itemize} 
 
-% fig 4 
+% fig 4
+\afterpage{
+\clearpage
+\begin{landscape}
 \begin{figure*} 
 \centering 
-\includegraphics[scale = 0.32]{evol.pdf} 
+\includegraphics[scale = 0.34]{evol.pdf} 
 \caption{The surface densities of star formation~$\dot{\Sigma}_\star$ (top 
 row), infall $\dot{\Sigma}_\text{in}$ (middle row), and gas~$\Sigma_\text{g}$ 
 (bottom row) as functions of simulation time for our four fiducial SFHs: 
@@ -765,7 +776,10 @@ kpc (blue), and 15 kpc (purple) (see equations~\refp{migration:eq:constant_sfh},
 definition of each SFH). 
 }
 \label{migration:fig:evol} 
-\end{figure*} 
+\end{figure*}
+\end{landscape}
+\clearpage
+}
 
 The inside-out model is our fiducial choice, and it is the model shown in 
 figures unless otherwise specified. 
@@ -1013,77 +1027,95 @@ pursue this question further here.
 \subsection{Surface Density Gradient} 
 \label{migration:sec:methods:surface_density_gradient} 
 
-\begin{table*} 
-% \color{red} 
+\afterpage{
+\clearpage
+\small
+\begin{landscape}
+\begin{table*}
 \caption{
-A summary of our chemical evolution model parameters, their fiducial values, 
-and in what section of the text relevant discussion can be found. 
+A summary of our chemical evolution model parameters, their fiducial values,
+and in what section of the text relevant discussion can be found.
 }
-\begin{tabularx}{\textwidth}{l @{\extracolsep{\fill}} l l r} 
-\hline 
-\hline 
-Quantity & Section & Description & Fiducial Value(s) 
+\begin{tabularx}{\linewidth}{l @{\extracolsep{\fill}} l l r}
+\hline
+\hline
+Quantity & Section & Description & Fiducial Value(s)
+\\
+\hline
+\rgal & N/A & Galactocentric Radius & $0 - 20$ kpc
+\\
+$\delta$\rgal & \ref{migration:sec:methods:summary} & Width of each concentric
+ring &  100 pc
+\\
+$\Delta$\rgal & \ref{migration:sec:methods:migration} & Change in orbital
+radius due to stellar migration & N/A
+\\
+\null & \null & (adopted from~\hsim~analogue star particle) & \null
 \\ 
-\hline 
-\rgal & N/A & Galactocentric Radius & $0 - 20$ kpc 
+$z$ & \ref{migration:sec:methods:migration} & Present day distance to Galactic
+midplane & [$-3$, 3] kpc
+\\
+\null & \null & (adopted from~\hsim~analogue star particle) & \null
 \\ 
-$\delta$\rgal & \ref{migration:sec:methods:summary} & Width of each concentric ring & 
-100 pc 
-\\ 
-$\Delta$\rgal & \ref{migration:sec:methods:migration} & Change in orbital radius due to 
-stellar migration; adopted from~\hsim~analogue star particle & N/A 
-\\ 
-$z$ & \ref{migration:sec:methods:migration} & Present day distance to Galactic midplane; 
-adopted from~\hsim~analogue star particle & [$-3$, 3] kpc 
-\\ 
-$T_\text{max}$ & \ref{migration:sec:methods:h277} & Time interval over which our models 
-are integrated & 13.2 Gyr 
-\\ 
+$T_\text{max}$ & \ref{migration:sec:methods:h277} & Time interval over which
+our models are integrated & 13.2 Gyr
+\\
 $\delta T$ & \ref{migration:sec:methods:summary} & Timestep size & 10 Myr 
 \\ 
-$n$ & \ref{migration:sec:methods:summary} & Number of stellar populations formed per ring 
-per timestep & 8 
+$n$ & \ref{migration:sec:methods:summary} & Number of stellar populations
+formed per ring per timestep & 8 
 \\ 
-$R_\text{SF}$  & \ref{migration:sec:methods:summary} & Maximum radius of star formation 
-(i.e.~$\dot{\Sigma}_\star$ = 0 at~\rgal~>~$R_\text{SF}$) & 15.5 kpc 
+$R_\text{SF}$  & \ref{migration:sec:methods:summary} & Maximum radius of star
+formation (i.e.~$\dot{\Sigma}_\star$ = 0 at~\rgal~>~$R_\text{SF}$) & 15.5 kpc 
 \\ 
 $\tau_\star$ & \ref{migration:sec:methods:sfe} & The SFE timescale of the ISM: 
 $\tau_\star \equiv \Sigma_\text{gas} / \dot{\Sigma}_\star$ & N/A 
 \\ 
-$\tau_{\text{mol},0}$ & \ref{migration:sec:methods:sfe} & The SFE timescale of molecular 
-hydrogen at the present day & 2 Gyr 
+$\tau_{\text{mol},0}$ & \ref{migration:sec:methods:sfe} & The SFE timescale of
+molecular hydrogen at the present day & 2 Gyr 
 \\ 
 $\gamma$ & \ref{migration:sec:methods:sfe} & The power-law index describing the 
-time-dependence of the molecular hydrogen SFE timescale 
-(i.e.~$\tau_\text{mol}\sim t^\gamma$) & 1/2 
+time-dependence of the molecular & 1/2
+\\
+\null & \null & hydrogen SFE timescale
+(i.e.~$\tau_\text{mol}\sim t^\gamma$) & \null
 \\ 
-$\eta$ & \ref{migration:sec:methods:outflows} & The outflow mass-loading factor: 
-$\eta \equiv \dot{\Sigma}_\text{out}/\dot{\Sigma}_\star$ (assumed to be 
-time-independent) & equation~\refp{migration:eq:eta_rgal} 
+$\eta$ & \ref{migration:sec:methods:outflows} & The outflow mass-loading
+factor: $\eta \equiv \dot{\Sigma}_\text{out}/\dot{\Sigma}_\star$ &
+equation~\refp{migration:eq:eta_rgal}
+\\
+\null & \null & (assumed to be time-independent) & \null
 \\ 
-$y_\text{O}^\text{CC}$ & \ref{migration:sec:methods:yields} & CCSN yield of O & 0.015 
+$y_\text{O}^\text{CC}$ & \ref{migration:sec:methods:yields} & CCSN yield of O &
+0.015 
 \\ 
-$y_\text{Fe}^\text{CC}$ & \ref{migration:sec:methods:yields} & CCSN yield of Fe & 0.0012 
+$y_\text{Fe}^\text{CC}$ & \ref{migration:sec:methods:yields} & CCSN yield of
+Fe & 0.0012 
 \\ 
-$y_\text{O}^\text{Ia}$ & \ref{migration:sec:methods:yields} & SN Ia yield of O & 0 
+$y_\text{O}^\text{Ia}$ & \ref{migration:sec:methods:yields} & SN Ia yield of O
+& 0 
 \\ 
-$y_\text{Fe}^\text{Ia}$ & \ref{migration:sec:methods:yields} & SN Ia yield of Fe & 0.00214 
+$y_\text{Fe}^\text{Ia}$ & \ref{migration:sec:methods:yields} & SN Ia yield of
+Fe & 0.00214 
 \\ 
-$\dot{\Sigma}_\star$ & \ref{migration:sec:methods:sfhs} & Surface density of star 
-formation & N/A
+$\dot{\Sigma}_\star$ & \ref{migration:sec:methods:sfhs} & Surface density of
+star formation & N/A
 \\ 
-$f_\text{IO}(t|\rgal)$ & \ref{migration:sec:methods:sfhs} & The time-dependence of the 
-star formation history in the inside-out model & 
-equation~\refp{migration:eq:insideout_sfh} 
+$f_\text{IO}(t|\rgal)$ & \ref{migration:sec:methods:sfhs} & The time-dependence
+of the star formation history in the inside-out
+model & equation~\refp{migration:eq:insideout_sfh} 
 \\ 
-$f_\text{LB}(t|\rgal)$ & \ref{migration:sec:methods:sfhs} & The time-dependence of the 
-star formation history in the late-burst model & 
-equation~\refp{migration:eq:lateburst_sfh} 
+$f_\text{LB}(t|\rgal)$ & \ref{migration:sec:methods:sfhs} & The time-dependence
+of the  star formation history in the late-burst
+model & equation~\refp{migration:eq:lateburst_sfh} 
 \\ 
 \hline 
 \end{tabularx} 
 \label{migration:tab:params} 
-\end{table*} 
+\end{table*}
+\end{landscape}
+\clearpage
+}
 
 % As discussed in~\S~\ref{migration:sec:methods:sfhs}, Appendix~\ref{migration:sec:normalize_sfh} 
 % presents the recipe by which we select a unitless function describing the 
@@ -1127,7 +1159,7 @@ where~$R_t$~and~$R_T$~are the scale radii of the thin and thick discs,
 respectively, and~$\Sigma_T/\Sigma_t$~is the ratio of their surface densities 
 at~$\rgal$~= 0. 
 We adopt~$R_t$~= 2.5 kpc,~$R_T$~= 2.0 kpc, and~$\Sigma_T/\Sigma_t$~= 0.27 based 
-on the findings of~\citet{Bland-Hawthorn2016}. 
+on the findings of~\mbox{\citet{Bland-Hawthorn2016}}. 
 We plot the single exponential forms of each disc component as dotted black 
 lines in Fig.~\ref{migration:fig:surface_density}, with the solid black line denoting the 
 sum of the two. 
@@ -1191,9 +1223,12 @@ between the linear and non-linear regimes of our star formation law
 \label{migration:sec:methods:summary} 
 
 % fig 7 
+\afterpage{
+\clearpage
+\begin{landscape}
 \begin{figure*} 
 \centering 
-\includegraphics[scale = 0.28]{ofe_feh_densitymap.pdf} 
+\includegraphics[scale = 0.3]{ofe_feh_densitymap.pdf} 
 \caption{[O/Fe]-[Fe/H] diagrams for 15 Galactic regions spanning five bins in 
 $R_\text{gal}$ and three in~$\left|z\right|$. Each region has its own panel, 
 with radial bins shown in columns denoted at the top, and with bins in 
@@ -1208,6 +1243,9 @@ SFH in the~$R_\text{gal}$ = 8 kpc annulus, but with the post-processing
 migration model; this curve is the same in all panels. } 
 \label{migration:fig:ofe_feh_diagram} 
 \end{figure*} 
+\end{landscape}
+\clearpage
+}
 
 % {\color{red} 
 Table~\ref{migration:tab:params} presents a breakdown of our model parameters, their 

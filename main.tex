@@ -91,7 +91,6 @@
 %
 
 \documentclass[12pt,fleqn,oneside,hidelinks]{book}
-% \usepackage{setspace}
 % \usepackage{aaspp4}	% For compatibility with aastex'isms
 % \usepackage{epsfig}	% for importing Encapsulated PostScript figures
 % JCZ 150319 !!! commented this out to try out my bibliography appraoch, using mktex
@@ -103,42 +102,27 @@
 \usepackage[explicit, compact]{titlesec}
 \usepackage[titles]{tocloft} % ToC, LoF, LoF typesetting
 \bibliography{main}
-% \renewcommand*\finalnamedelim{\addspace\&\space}
-% \renewcommand*\nameyeardelim{\addspace}
-% \AtBeginBibliography{\renewcommand*\finalnamedelim{\addcomma\space}}
-% \DeclareFieldFormat{journaltitle}{#1}
-% \DeclareFieldFormat{pages}{#1}
-% \DeclareNameAlias{sortname}{family-given}
-% \DeclareBibliographyDriver{article}{%
-% 	\printnames{author}%
-% 	\addcomma\addspace%
-% 	\printfield{year}%
-% 	\addcomma\addspace%
-% 	\printfield{journaltitle}%
-% 	\addcomma\addspace%
-% 	\printfield{volume}%
-% 	\addcomma\addspace%
-% 	\printfield{pages}%
-% }
 
 %\usepackage{natbib,amsmath,multirow,tabularx}
 %\usepackage{bk12e}	% A modified bk12.sty to work with LaTeX2e
 \usepackage{osuthesis}	% OSU thesis format
 \usepackage{setspace}
-\usepackage{lscape}	% support for embedded landscape pages (e.g., tables)
+\usepackage{pdflscape}	% support for embedded landscape pages (e.g., tables)
 \usepackage{graphicx}   % support for includegraphics et al.
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{apptools}
 \usepackage{afterpage}
+\usepackage{longtable}
+\usepackage[font=small]{caption}
+% \captionsetup{font=\small}
 %\usepackage{refcheck}	% Uncomment to check references, usually unnecessary
-
+\graphicspath{{chapter2/}{chapter3/}{chapter4/}{chapter5/}{chapter6/}}
 % User's \usepackage imports:
 % \usepackage{amssymb}
 \usepackage{color}
 % \usepackage{lscape}
-\usepackage{subfiles}
 \usepackage{ragged2e}
 \usepackage{tabularx}
 \usepackage{bm}
@@ -146,9 +130,6 @@
 
 % Any new commands we need - this file contains all the current
 % AASTeX markup so you don't have to import it yourself.
-
-% \input{newcommands.tex}
-\input{commands.tex}
 
 % Put your custom macro definitions here (DO NOT HACK newcommands.tex)
 % These are just examples.  Please be sparing, as the more macros you define, 
@@ -205,6 +186,10 @@
 \hbadness=10000 % default = 1000
 \vbadness=10000 % default = 1000
 
+\usepackage{subfiles}
+% \input{newcommands.tex}
+\input{commands.tex}
+
 % Some bibliography punctuations that are required.  These affect the
 % appearance of \citep, \citet, and associated citation macros.  It's
 % all fairly arcane, so just leave it alone, OK? 
@@ -244,9 +229,12 @@
 
 \input{title.tex}
 % \input{abstract.tex}
+\newpage
 \input{dedication.tex}
+\newpage
 \input{acknowledgments.tex}
-% \input{vita.tex}
+\subfile{vita.tex}
+\newpage
 \tableofcontents
 \newpage
 \addcontentsline{toc}{chapter}{List of Tables}
@@ -334,27 +322,14 @@
 % during document investigation, comment out {\onehalfspace below to
 % get double spacing, but beware, everything will break...
 %
-
-%{\onehalfspace  % acceptable, but make \doublespace if needed
-% {
-% \doublespace
 \begin{doublespace}
 \justifying
-\subfile{intro.tex}
-\subfile{chapter2/main.tex}
-\subfile{chapter3/main.tex}
-\subfile{chapter4/main.tex}
-\subfile{chapter5/main.tex}
-\subfile{chapter6/main.tex}
-% \input{chapter1.tex}
-% \input{chapter5.tex}
-% \input{chapter2.tex}
-% \input{chapter3.tex}
-% \input{chapter4.tex}
-%\input{chapter5.tex}
-%\input{chapter6.tex}
-% \input{chapter7.tex}
-
+\input{intro.tex}
+\subfile{chapter2.tex}
+\subfile{chapter3.tex}
+\subfile{chapter4.tex}
+\subfile{chapter5.tex}
+\subfile{chapter6.tex}
 
 
 %-----------------------------------
@@ -369,47 +344,22 @@
 % *BEFORE* the first of any appendices.  See the 00README file
 % for how to format appendices if you use them.
 %
-
-% JCZ 070319
-% trying to put in bibliography command instead of biblio.tex
-% \input{biblio.tex}
-% \bibliography{main}
-% \begin{thebibliography}
-% \bibliography
 \printbibliography
-% \chapter*{References}
-% \printbibliography
-% \bibliography{main}
-% \bibliographystyle{mnras}
-% \end{thebibliography}
+
 
 %-----------------------------------
-%
 % Appendices begin here, and must come *after* the bibliography.
-% The \appendix macro changes Chapter->Appendix and Numbered->Letters
-% 
-
 \newpage
 \appendix
-% \begin{appendices}
 \addcontentsline{toc}{chapter}{Appendices}
-\input{chapter2/datacomp_example.tex}
-\input{chapter3/likelihood.tex}
-\input{chapter3/yield_outflow_degeneracy.tex}
-\input{chapter5/age_oh.tex}
-\input{chapter5/normalize_sfh.tex}
-\input{chapter5/vice.tex}
-\input{chapter6/vice.tex}
-% \end{appendices}
-%\input{app2.tex}
-%\input{app3.tex}
-%\input{app4.tex}
-%\input{app5.tex}
-%\input{app6.tex}
+\subfile{datacomp_example.tex}
+\subfile{likelihood.tex}
+\subfile{yield_outflow_degeneracy.tex}
+\subfile{age_oh.tex}
+\subfile{normalize_sfh.tex}
+\subfile{vice1.tex}
+\subfile{vice2.tex}
 
 \end{doublespace}
-% }  % end of the onehalfspace / doublespace
-
-% all done!
 
 \end{document}

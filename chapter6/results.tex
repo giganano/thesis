@@ -48,10 +48,13 @@ star yield models we consider in each subsequent subsection.
 \label{ohno:sec:results:fiducial}
 
 % fig 5
+\afterpage{
+\clearpage
+\begin{landscape}
 \begin{figure*}
 \centering
-\includegraphics[scale = 0.6]{no_oh_superposition.pdf}
-\includegraphics[scale = 0.6]{no_oh_timeevol.pdf}
+\includegraphics[scale = 0.7]{no_oh_superposition.pdf}
+\includegraphics[scale = 0.7]{no_oh_timeevol.pdf}
 \caption{
 \textbf{Left}: The gas-phase~\ohno~relation parametrized by time at
 fixed radius (solid coloured lines) in the fiducial model. X's denote the
@@ -70,6 +73,9 @@ rates.
 }
 \label{ohno:fig:no_oh_timeevol}
 \end{figure*}
+\end{landscape}
+\clearpage
+}
 
 % {\color{red} [Redacted paragraph incorporated into the one above]}
 % Our fiducial model adopts~$\ycc{N} = 3.6\times10^{-4}$ and our linear AGB star
@@ -260,11 +266,14 @@ observed data.
 \label{ohno:sec:results:yields}
 
 % fig 6
+\afterpage{
+\clearpage
+\begin{landscape}
 \begin{figure*}
 \centering
-\includegraphics[scale = 0.45]{no_oh_predictions_unmodified.pdf}
-\includegraphics[scale = 0.45]{no_oh_predictions.pdf}
-\includegraphics[scale = 0.45]{no_oh_predictions_karakas.pdf}
+\includegraphics[scale = 0.5]{no_oh_predictions_unmodified.pdf}
+\includegraphics[scale = 0.5]{no_oh_predictions.pdf}
+\includegraphics[scale = 0.5]{no_oh_predictions_karakas.pdf}
 \caption{
 \textbf{Left}: The present-day gas-phase~\ohno~relation predicted by our
 model with each of the four AGB star yield tables predict by stellar evolution
@@ -291,6 +300,9 @@ discussion in~\S~\ref{ohno:sec:multizone}).
 }
 \label{ohno:fig:no_oh_predictions}
 \end{figure*}
+\end{landscape}
+\clearpage
+}
 
 We use the~\citet{Dopita2016}~\ohno~relation, which is inferred by fitting
 local stars and HII regions spanning a wide range of~\oh, as our observational
@@ -533,7 +545,7 @@ metallicity, is difficult to reconcile with the observed~\ohno~trend.
 % fig 7 
 \begin{figure}
 \centering
-\includegraphics[scale = 0.6]{t_z_dep_comp.pdf}
+\includegraphics[scale = 0.7]{t_z_dep_comp.pdf}
 \caption{
 A comparison between our fiducial model with post-processing migration (black)
 and variations with the time dependence (red) and metallicity dependence 
@@ -616,7 +628,7 @@ AGB stars.
 % fig 8
 \begin{figure}
 \centering
-\includegraphics[scale = 0.6]{nh_feh_vs_lookback.pdf}
+\includegraphics[scale = 0.7]{nh_feh_vs_lookback.pdf}
 \caption{
 \nh~(solid),~\feh~(dashed), and~\oh~(dotted) in the gas-phase as a function of
 lookback time in the fiducial model at~$\rgal = 4$ (black), 8 (red), and 12 kpc
@@ -624,24 +636,6 @@ lookback time in the fiducial model at~$\rgal = 4$ (black), 8 (red), and 12 kpc
 }
 \label{ohno:fig:nh_feh_vs_lookback}
 \end{figure}
-
-% fig 9
-\begin{figure*}
-\centering
-\includegraphics[scale = 0.6]{no_vs_age.pdf}
-\includegraphics[scale = 0.6]{no_vs_ofe.pdf}
-\caption{
-\textbf{Left}:~\no~as a function of stellar age for 5000 stars randomly
-sampled from our model stellar populations in three bins of~\feh~(coloured 
-points).
-Stars quantify the median trend in~\no~with age using N abundances corrected
-for internal mixing processes reported by~\citet{Vincenzo2021b} in the same
-bins of~\feh.
-\textbf{Right}: The same as the left panel, but instead showing~\no~as a
-function of~\ofe~in bins of~\oh.
-}
-\label{ohno:fig:vincenzo_comp}
-\end{figure*}
 
 Although N abundances are typically measured in the gas-phase in external
 galaxies, APOGEE~\citep{Majewski2017} has measured N abundances in large
@@ -690,16 +684,37 @@ equilibrium before N yields stabilize.
 When many stellar populations are present, the bulk of the N production will
 thus always follow the bulk production of more abundant species; this is 
 qualitatively similar to what~\citet{Johnson2020} found regarding the
-production timescales of Sr and Fe
-% {\color{red}
-\citep[see also][]{Tinsley1979}.
-% }.
+production timescales of Sr and Fe~\citep[see also][]{Tinsley1979}.
 As a consequence of both its slight delay and its metallicity-dependent
 yields, N reaches its equilibrium abundance on timescales similar to Fe rather
 than O.
 Due to the prompt and metallicity independent nature of O enrichment,~\oh~is
 near equilibrium as far back as~$\sim$10 Gyr ago while~\nh~and~\feh~are not.
-\par
+
+% fig 9
+\afterpage{
+\clearpage
+\begin{landscape}
+\begin{figure*}
+\centering
+\includegraphics[scale = 0.7]{no_vs_age.pdf}
+\includegraphics[scale = 0.7]{no_vs_ofe.pdf}
+\caption{
+\textbf{Left}:~\no~as a function of stellar age for 5000 stars randomly
+sampled from our model stellar populations in three bins of~\feh~(coloured 
+points).
+Stars quantify the median trend in~\no~with age using N abundances corrected
+for internal mixing processes reported by~\citet{Vincenzo2021b} in the same
+bins of~\feh.
+\textbf{Right}: The same as the left panel, but instead showing~\no~as a
+function of~\ofe~in bins of~\oh.
+}
+\label{ohno:fig:vincenzo_comp}
+\end{figure*}
+\end{landscape}
+\clearpage
+}
+
 Combining the~\citet{Vincenzo2021b}~\no~ratios with the APOGEE stellar ages
 taken from~\citet{Miglio2021}, we illustrate the~\no-age relation in bins
 of~\feh~as predicted by our model and measured by APOGEE in the left panel of
@@ -770,10 +785,13 @@ $t^{-1.1}$ enrichment is too slow to match the observations.
 \label{ohno:sec:results:schaefer_comp}
 
 % fig 10
+\afterpage{
+\clearpage
+\begin{landscape}
 \begin{figure*}
 \centering
-\includegraphics[scale = 0.44]{no_oh_sfevar.pdf}
-\includegraphics[scale = 0.47]{delta_no_schaefercomp.pdf}
+\includegraphics[scale = 0.5]{no_oh_sfevar.pdf}
+\includegraphics[scale = 0.53]{delta_no_schaefercomp.pdf}
 \caption{
 % \singlespace
 \textbf{Left}: One cycle of oscillations in the~\ohno~relation at
@@ -804,6 +822,9 @@ enrichment rates (see discussion in~\S~\ref{ohno:sec:multizone}).
 }
 \label{ohno:fig:schaefer_comp}
 \end{figure*}
+\end{landscape}
+\clearpage
+}
 
 \citet{Schaefer2020} demonstrate that intrinsic scatter in the
 gas-phase~\ohno~relation is correlated with variations in the local SFE.

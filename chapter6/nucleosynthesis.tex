@@ -3,9 +3,12 @@
 \label{ohno:sec:yields}
 
 % fig 2
+\afterpage{
+\clearpage
+\begin{landscape}
 \begin{figure*}
 \centering
-\includegraphics[scale = 0.65]{n_cc_yields.pdf}
+\includegraphics[scale = 0.7]{n_cc_yields.pdf}
 \caption{
 \textbf{Left}: IMF-averaged CCSN yields of N calculated using~\vice's
 \texttt{vice.yields.ccsne.fractional} function with the tables published by
@@ -29,6 +32,9 @@ in Fig.~\ref{ohno:fig:no_oh_observed}.
 }
 \label{ohno:fig:n_cc_yields}
 \end{figure*}
+\end{landscape}
+\clearpage
+}
 
 Here we make use of the chemical evolution model for the Milky Way
 presented by~\citet{Johnson2021}, which runs using the publicly available
@@ -168,13 +174,15 @@ approximated to be produced instantaneously following a single stellar
 population's formation, including newly synthesized material expelled in a
 massive star wind before the star explodes or collapses to a black hole.
 \par
+{\sloppy
 We compute theoretically predicted values of~\ycc{N}~using
-\vice's~\texttt{vice.yields.ccsne.fractional} function assuming a
+\vice's\linebreak\texttt{vice.yields.ccsne.fractional} function assuming a
 \citet{Kroupa2001} IMF; details on how~\vice~handles these calculations can be
 found in~\S~4 of~\citet{Griffith2021b} and in the~\vice~science 
 documentation\footnote{\url
 	{https://vice-astro.readthedocs.io/en/latest/science_documentation/yields}
 }.
+}
 In the left panel of Fig.~\ref{ohno:fig:n_cc_yields}, we plot the results as a
 function of progenitor metallicity as predicted by the~\citet{Woosley1995},
 \citet*{Nomoto2013},~\citet{Sukhbold2016}, and~\citet{Limongi2018} tables.
@@ -241,9 +249,12 @@ both the normalization and metallicity-independence of this choice are
 supported by the~\citet{Limongi2018} models.
 
 % fig 3
+\afterpage{
+\clearpage
+\begin{landscape}
 \begin{figure*}
 \centering
-\includegraphics[scale = 0.45]{agb_yield_models.pdf}
+\includegraphics[scale = 0.48]{agb_yield_models.pdf}
 \caption{
 The fractional yields of N from AGB stars~\yagb{N}~as a function of progenitor
 ZAMS mass and birth metallicity~$Z$ as reported by
@@ -264,6 +275,9 @@ figure.
 }
 \label{ohno:fig:agb_yield_models}
 \end{figure*}
+\end{landscape}
+\clearpage
+}
 
 The~\citet{Sukhbold2016} tables, available only at solar metallicity, agree
 nearly perfectly with our empirical value of~$\ycc{N} = 3.6\times10^{-4}$, but
@@ -561,11 +575,14 @@ span a wide range of assumptions regarding stellar evolution.
 \label{ohno:sec:yields:imf_agb}
 
 % fig 4
+\afterpage{
+\clearpage
+\begin{landscape}
 \begin{figure*}
 \centering
-\includegraphics[scale = 0.46]{agb_yield_models_imfweighted.pdf}
-\includegraphics[scale = 0.45]{ssp_production_modelcomp.pdf}
-\includegraphics[scale = 0.46]{ssp_production_metdep.pdf}
+\includegraphics[scale = 0.51]{agb_yield_models_imfweighted.pdf}
+\includegraphics[scale = 0.5]{ssp_production_modelcomp.pdf}
+\includegraphics[scale = 0.51]{ssp_production_metdep.pdf}
 \caption{
 \textbf{Left}: The IMF-weighted mass yield of N from AGB stars as a function of
 progenitor ZAMS mass at solar metallicity (i.e. the contribution per linear
@@ -591,6 +608,9 @@ in~\S~\ref{ohno:sec:results} given our adopted O and Fe yields (\S~\ref{ohno:sec
 }
 \label{ohno:fig:ssp}
 \end{figure*}
+\end{landscape}
+\clearpage
+}
 
 To more directly compare these AGB star yields predicted from stellar
 evolution models, we plot their IMF-weighted yields at solar metallicity in the

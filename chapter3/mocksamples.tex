@@ -291,14 +291,17 @@ For this reason, we caution against the reliability of GCE parameters inferred
 from simplified likelihood estimates, such as matching each datum with the
 nearest point on the track.
 
-\input{mocksamples.tablebody.tex}
+\input{chapter3/mocksamples.tablebody.tex}
 
 % fig 3
+\afterpage{
+\clearpage
+\begin{landscape}
 \begin{figure*}
 \centering
-\includegraphics[scale = 0.42]{dp_sigma_samplesize.pdf}
-\includegraphics[scale = 0.42]{dp_sigma_precision.pdf}
-\includegraphics[scale = 0.42]{dp_sigma_agefrac.pdf}
+\includegraphics[scale = 0.5]{dp_sigma_samplesize.pdf}
+\includegraphics[scale = 0.5]{dp_sigma_precision.pdf}
+\includegraphics[scale = 0.5]{dp_sigma_agefrac.pdf}
 \caption{
 Differences between input model parameters and recovered best-fit values.
 Each point is the mean deviation~$\left|\Delta\theta\right|$ for each of the
@@ -315,6 +318,9 @@ expected mean offset due to randomly sampling from a Gaussian distribution.
 }
 \label{dga:fig:accuracy}
 \end{figure*}
+\end{landscape}
+\clearpage
+}
 
 \subsection{Variations in Sample Size, Measurement Precision and the
 Availability of Age Information}

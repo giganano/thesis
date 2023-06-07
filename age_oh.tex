@@ -1,15 +1,25 @@
 
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
 \chapter{The Age-\oh~Relation} 
 \label{migration:sec:age_oh_relation}
 
 % fig 18 
+\afterpage{
+\clearpage
+\begin{landscape}
 \begin{figure*} 
-\includegraphics[scale = 0.32]{chapter5/age_oh_comparison.pdf} 
-\caption{The same as Fig.~\ref{migration:fig:amr_insideout_vs_lateburst_fe}, but for 
-\oh, and with an additional comparison to the outer-burst model in the 
+\centering
+\includegraphics[scale = 0.38]{chapter5/age_oh_comparison.pdf} 
+\caption{The same as Fig.~\ref{migration:fig:amr_insideout_vs_lateburst_fe},
+but for~\oh, and with an additional comparison to the outer-burst model in the 
 bottom row.} 
 \label{migration:fig:age_oh_comparison} 
 \end{figure*} 
+\end{landscape}
+\clearpage
+}
 
 Fig.~\ref{migration:fig:age_oh_comparison} presents a comparison of the age-\oh~ 
 relation predicted by our inside-out, late-burst, and outer-burst SFHs to 
@@ -36,4 +46,6 @@ outer-burst model mitigates the very young ages of the most metal-rich stars
 at~\rgal~= 5 - 7 kpc seen in the late-burst model; this is a consequence of 
 the starburst producing a bimodal age distribution at these abundances (see 
 discussion in~\S~\ref{migration:sec:obs_comp:amr}). 
+
+\end{document}
 

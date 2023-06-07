@@ -1,8 +1,6 @@
 
-% \renewcommand\theequation{\thesection\arabic{equation}}
-% \renewcommand\thefigure{\thesection\arabic{figure}}
-% \setcounter{equation}{0}
-% \setcounter{figure}{0}
+\documentclass[main.tex]{subfiles}
+\begin{document}
 
 \chapter{Derivation of the Likelihood Function}
 \label{dga:sec:likelihood}
@@ -133,7 +131,7 @@ to a delta function at the known point~$\script{M}_j$.
 
 \begin{figure}
 \centering
-\includegraphics[scale = 0.6]{chapter3/derivation_cartoon.pdf}
+\includegraphics[scale = 0.8]{chapter3/derivation_cartoon.pdf}
 \caption{
 A schematic of our derivation and the quantities involved.
 In practice, the evolutionary track~\script{M} is computed by some numerical
@@ -388,4 +386,6 @@ In the present paper, our GCE models are parametrized in such a manner that the
 normalization of the SFH does~\textit{not} impact the enrichment history, and
 we adopt equations~\refp{dga:eq:lnL_fracweight} and~\refp{dga:eq:lnL_fracweightsum}
 accordingly.
+
+\end{document}
 

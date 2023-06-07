@@ -17,7 +17,7 @@ structure in the Milky Way's inner halo~\citep{Helmi2018} and because we can
 compare to independent constraints thanks to the amount of attention it has
 received in the literature.
 
-\subfile{results.tablebody.tex}
+\input{chapter3/results.tablebody.tex}
 
 The second is a less well-studied system: Wukong/LMS-1, a structure chemically
 distinct from GSE which sits between it and the Helmi stream~\citep{Helmi1999}
@@ -76,11 +76,14 @@ In this paper we use the catalog which uses this flat age prior.
 \label{dga:sec:h3:gse}
 
 % fig 5
+\afterpage{
+\clearpage
+\begin{landscape}
 \begin{figure*}
 \centering
-\includegraphics[scale = 0.65]{gsefit_afe_feh.pdf}
-\includegraphics[scale = 0.54]{gsefit_agedist.pdf}
-\includegraphics[scale = 0.53]{gsefit_amr.pdf}
+\includegraphics[scale = 0.43]{gsefit_afe_feh.pdf}
+\includegraphics[scale = 0.48]{gsefit_agedist.pdf}
+\includegraphics[scale = 0.47]{gsefit_amr.pdf}
 \caption{
 Our GSE sample.
 Red lines in all panels denote the best-fit one-zone model, while the
@@ -93,15 +96,15 @@ and plot their predictions as highly transparent lines to offer a sense of the
 fit uncertainty.
 Error bars in each distribution indicate a~$\sqrt{N}$ uncertainty associated
 with random sampling.
-\textbf{Top}: Our sample in chemical space and the associated marginalized
+\textbf{Left}: Our sample in chemical space and the associated marginalized
 distributions.
 Stars with age measurements are colour coded accordingly and are otherwise
 plotted in black.
 The median~\feh~and~\afe~uncertainty in the sample is shown by the error bar
 to the right of the data.
-\textbf{Bottom left}: The age distribution of our GSE sample (black,
+\textbf{Middle}: The age distribution of our GSE sample (black,
 binned).
-\textbf{Bottom right}: Age-\feh~(top) and age-\afe~(bottom) relations
+\textbf{Right}: Age-\feh~(top) and age-\afe~(bottom) relations
 The median~\feh,~\afe~and age uncertainties are shown by the error bars at the
 top and bottom of each panel.
 We plot the two stars that we exclude from our fit as black X's (likely
@@ -112,11 +115,16 @@ uncertainty of the sample.
 }
 \label{dga:fig:gse}
 \end{figure*}
+\end{landscape}
+\clearpage
+}
 
 % fig 6
+\afterpage{
+\clearpage
 \begin{figure*}
 \centering
-\includegraphics[scale = 0.45]{gsechem_512k.pdf}
+\includegraphics[scale = 0.4]{gsechem_512k.pdf}
 \caption{
 Posterior distributions for an exponential infall history applied to our GSE
 sample.
@@ -133,11 +141,15 @@ not appear in other panels when zoomed in on the peak.
 }
 \label{dga:fig:gse_corner}
 \end{figure*}
+\clearpage
+}
 
 % fig 7
+\afterpage{
+\clearpage
 \begin{figure}
 \centering
-\includegraphics[scale = 0.65]{wukong_bestfit.pdf}
+\includegraphics[scale = 0.8]{wukong_bestfit.pdf}
 \caption{
 Our Wukong/LMS-1 sample in the~\afe-\feh~plane and the associated marginalized
 distributions.
@@ -152,8 +164,12 @@ free parameters.
 }
 \label{dga:fig:wukong}
 \end{figure}
+\clearpage
+}
 
 % fig 8
+\afterpage{
+\clearpage
 \begin{figure*}
 \centering
 \includegraphics[scale = 0.6]{wukong_512k.pdf}
@@ -172,6 +188,8 @@ statistical likelihood.
 }
 \label{dga:fig:wukong_corner}
 \end{figure*}
+\clearpage
+}
 
 We select our GSE sample based on the criteria in~\citet{Conroy2022}, which
 yields a sample of 189 stars with spectroscopic signal-to-noise
@@ -296,9 +314,11 @@ is an accurate description of the galaxy.
 \label{dga:sec:h3:wukong}
 
 % fig 9
+\afterpage{
+\clearpage
 \begin{figure}
 \centering
-\includegraphics[scale = 0.63]{gse_wukong_timescales.pdf}
+\includegraphics[scale = 0.75]{gse_wukong_timescales.pdf}
 \caption{
 Our best-fit evolutionary timescales for Wukong/LMS-1 (blue) and GSE (red) as a
 function of their stellar mass (taken from~\citealt{Naidu2022}; values are
@@ -308,11 +328,14 @@ timescales~$\tau_\star$ for GSE are smaller than the point.
 }
 \label{dga:fig:gse_wukong_timescales}
 \end{figure}
+\clearpage
+}
 
 % fig 10
+\afterpage{
 \begin{figure}
 \centering
-\includegraphics[scale = 0.6]{gse_wukong_eta.pdf}
+\includegraphics[scale = 0.75]{gse_wukong_eta.pdf}
 \caption{
 Our best-fit mass-loading factors~$\eta$ for Wukong/LMS-1 (blue) and GSE (red) as
 a function of their stellar mass (taken from~\citealt{Naidu2022}; values are
@@ -323,6 +346,7 @@ $\eta = 3.6$ at~$M_\star = 10^{10}~M_\odot$ taken from~\citet{Muratov2015}.
 }
 \label{dga:fig:gse_wukong_eta}
 \end{figure}
+}
 
 We select Wukong/LMS-1 stars following the criteria in~\citet{Naidu2020}, with
 the following additional cuts for high purity (inspired by the orbits of the
@@ -408,12 +432,13 @@ track;~\citealp{Weinberg2017b}).
 
 \subsection{Comparison}
 \label{dga:sec:h3:comparison}
-
+{\sloppy
 Fig.~\ref{dga:fig:gse_wukong_timescales} compares the best-fit evolutionary
-timescales between GSE and Wukong/LMS-1 as a function of their stellar mass (we
-adopt the stellar masses inferred by~\citealt{Naidu2021, Naidu2022}; our GCE
-models as we have parametrized them do not offer any constraints on this
-quantity).
+timescales between GSE and \linebreak Wukong/LMS-1 as a function of their
+stellar mass (we adopt the stellar masses inferred by~\citealt{Naidu2021,
+Naidu2022}; our GCE models as we have parametrized them do not offer any
+constraints on this quantity).
+}
 Due to the yield-outflow degeneracy (see Appendix~\ref{dga:sec:degeneracy}), only
 relative values of~$\tau_\star$ carry meaning, while the absolute values of
 $\tau_\text{in}$ and~$\tau_\text{tot}$ do.
@@ -432,8 +457,10 @@ derived an SFH from its CMD here.
 The failure of our fit to GSE omitting all ages (see Table~\ref{dga:tab:results})
 suggests that these best-fit parameters may be biased to high values.
 \par
+{\sloppy
 As expected given Wukong/LMS-1's shallower gravity well, it experienced
-stronger mass-loading than GSE.
+\linebreak stronger mass-loading than GSE.
+}
 Fig.~\ref{dga:fig:gse_wukong_eta} shows the inferred mass-loading factors in
 comparison to the scaling of~$\eta \propto M_\star^{-1/3}$ as suggested by
 \citet{Finlator2008} and~\citet{Peeples2011} modelling the impact of galactic

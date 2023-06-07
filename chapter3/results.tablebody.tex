@@ -1,22 +1,21 @@
 
-\documentclass[foo.tex]{subfiles}
-\begin{document}
-
-{\renewcommand{\arraystretch}{1.8}
+\afterpage{
+\clearpage
+\begin{landscape}
+\renewcommand{\arraystretch}{1.5}
 \begin{table*}
 \caption{
 Inferred best-fit parameters for the fits to our GSE and Wukong/LMS-1 samples.
 The parametrization is the same as the input GCE model to our mock samples (see
-discussion in~\S~\ref{sec:mocks}).
+discussion in~\S~\ref{dga:sec:mocks}).
 The quality of each fit~$\chi_\text{dof}^2$ computed according to
-equation~\refp{eq:chisquared_dof} is noted at the bottom.
+equation~\refp{dga:eq:chisquared_dof} is noted at the bottom.
 }
-\begin{tabularx}{\textwidth}{c @{\extracolsep{\fill}} c c c c}
+\begin{tabularx}{\linewidth}{c @{\extracolsep{\fill}} c c c c}
 \hline
-Parameter & GSE (with ages) & GSE (without ages) & Wukong/LMS-1 (yields are
-fixed) & Wukong/LMS-1 (yields are free parameters)
+Parameter & GSE & GSE (no ages) &
+Wukong/LMS-1 (fixed yields) & Wukong/LMS-1 (free yields)
 \\
-\hline
 \hline
 $\tau_\text{in}$ &
 $1.01 \pm 0.13$ Gyr &
@@ -55,14 +54,13 @@ N/A &
 $\scinote{2.42^{+0.88}_{-0.65}}{-3}$
 \\
 \hline
-\hline
 $\chi_\text{dof}^2$ & $1.34$ & $2.18$ & $0.98$ & $0.84$
 \\
 \hline
-\hline
 \end{tabularx}
-\label{tab:results}
+\label{dga:tab:results}
 \end{table*}
-}
+\end{landscape}
+\clearpage
+} % afterpage
 
-\end{document}
