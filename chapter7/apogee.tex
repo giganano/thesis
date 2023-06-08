@@ -1,0 +1,70 @@
+
+\section{Empirical Age and Metallicity Gradients}
+\label{outflows:sec:empirical}
+
+\subsection{The Sample}
+\label{outflows:sec:empirical:apogee}
+
+\begin{itemize}
+
+	\item There are many spectroscopic surveys to choose from to characterize
+	the abundance structure of the Galactic disk, such as
+	LAMOST~\citep{Luo2015}, GALAH~\citep{DeSilva2015, Martell2017},~\gaia-ESO
+	\citep{Gilmore2012}, and APOGEE~\citep{Majewski2017}.
+	APOGEE is particularly well suited to this task, because it targets
+	luminous evolved stars accessible at large distances and observes them at
+	near-IR wavelengths, which are less susceptible to dust obscuration.
+	The disk sample is dominated by stars with Two Micron All Sky Survey
+	\citep{Skrutskie2006} magnitudes of~$7 < H < 13.8$ on a grid of
+	sightlines at Galactic latitudes of~$b = 0$,~$\pm 4^\circ$,
+	and~$\pm 8^\circ$; targeting is described in detail by
+	\citet{Zasowski2013, Zasowski2017},~\citet{Beaton2021},
+	and~\citet{Santana2021}.
+	APOGEE collects high-resolution spectra ($R \sim$ 22,500) between~$1.51$
+	and~$1.70~\mu$m~\citep{Wilson2019} on the 2.5 m Sloan Foundation Telescope
+	\citep{Gunn2006} at Apache Point Observatory and the 2.5 m du Pont
+	Telescope~\citep{Bowen1973} at Las Campanas Observatory, which are then
+	reduced and calibrated using the APOGEE data processing pipeline
+	\citep{Nidever2015}.
+	Stellar parameters such as~$T_\text{eff}$,~$\log g$, and abundances of
+	15 or more elements per target star are then computed with the APOGEE
+	Stellar Parameters and Chemical Abundances Pipeline
+	\citep[ASPCAP;][]{Holtzman2015, GarciaPerez2016}.
+
+	\item In this chapter, we select stars from the seventeenth data release
+	\citep[DR17;][]{Abdurrouf2022} that satisfy the following criteria:
+	\begin{itemize}
+
+		\item \texttt{EXTRATARG == 0}
+
+		\item \texttt{STAR\_BAD == 0}
+
+		\item S/N~$\geq 80$
+
+		\item $\log g = 1 - 3.8$
+
+		\item $T_\text{eff} = 3500 - 5500$ K
+
+	\end{itemize}
+	We additionally exclude stars with surface gravities of~$\log g > 3$ and
+	$T_\text{eff} < 4000$ K to exclude main sequence stars, yielding a sample
+	of 191,173 red giant and red clump stars.
+
+	\item To constrain the evolution of the abundance gradient over time, we
+	also need star-by-star ages.
+	To this end, we make use of two age catalogs, both produced by deep
+	learning algorithms available through~\texttt{AstroNN}~\citep{Leung2019}.
+	\citet{Mackereth2019b} trained a Bayesian convolutional neural network on
+	APOGEE spectra and asteroseismic data from the APOKASC-2
+	catalog~\citep{Pinsonneault2018}.
+	Using a variational encoder-decoder algorithm~\citep[e.g.,][]{LeCun2015},
+	\citet{Leung2023} instead compress the APOGEE spectra and the asteroseismic
+	power spectra into lower-dimensional representations of themselves (i.e., a
+	\textit{latent space}).
+	They then train a modified random forest algorithm to predict the
+	asteroseismic power spectrum from the APOGEE spectra in this latent space.
+	While~\citet{Mackereth2019b} infer ages for the entire APOGEE catalog,
+	\citet{Leung2023} only do so for the range of surface gravities spanned by
+	their training sample ($\log g = 2.5 - 3.6$).
+
+\end{itemize}
