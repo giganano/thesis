@@ -3,7 +3,7 @@
 \begin{document}
 
 \chapter{Derivation of the Flow Coefficients}
-\label{outflows:coefficients-derivation}
+\label{outflows:sec:coefficients-derivation}
 
 \begin{figure}
 \centering
@@ -54,10 +54,23 @@ and~$\gamma_\flow$.}
 	\\
 	&= Z_x(R + \Delta R) M_g(R + \Delta R) \frac{a(R + \Delta R)}{\Delta t} -
 	Z_x(R) M_g(R) \frac{a(R)}{\Delta t},
+	% \\
+	% &= Z_x(R) M_g(R) \frac{a(R)}{\Delta t}
+	% \left(
+	% \frac{Z_x(R + \Delta R)}{Z_x(R)}
+	% \frac{M_g(R + \Delta R)}{M_g(R)}
+	% \frac{a(R + \Delta R)}{a(R)}
+	% - 1\right)
 	\label{outflows:eq:flowin-minus-flowout}
 	\end{split}\end{equation}
 	where~$Z_x \equiv M_x / M_g$ is the mass-fraction of the element~$x$ in the
 	ISM and~$M_g$ is the mass of the ISM gas itself.
+	We clarify that for the sake of this derivation, we define an inward
+	velocity to have positive sign (i.e.,~$v_R > 0$) so that we do not have to
+	keep track of an additional minus sign for notational convenience.
+	We then apply a~$v_R \rightarrow -v_R$ transformation at the end in order
+	for~$v_R > 0$ to correspond to an outward radial velocity according to
+	convention.
 
 	\item Regardless of the functional form of~$Z_x(R)$ and~$M_g(R)$, they can
 	be expressed in terms of a Taylor series, along with~$a$:
@@ -146,48 +159,103 @@ and~$\gamma_\flow$.}
 	Since we are taking the limit as~$\partial \Gamma / \partial \Delta R$
 	approaches zero, despite the complicated nature of its expression, all but
 	terms with~$\Delta R^{i - 1}$ with~$i = 1$ drop out entirely.
+	Furthermore, it is straight-forward to demonstrate that~$(1 / a) \partial a
+	/ \partial R \rightarrow 0$ in the limit that $\Delta t, \Delta R
+	\rightarrow 0$.
 	This results in the following expression for~$\dot{M}_{x,\flow}$:
 	\begin{equation}
 	\dot{M}_{x,\flow} = Z_x(R) M_g(R) v_R \left(
 	\frac{1}{Z_x} \frac{\partial Z_x}{\partial R} +
-	\frac{1}{M_g} \frac{\partial M_g}{\partial R} +
-	\frac{1}{a} \frac{\partial a}{\partial R}
+	\frac{1}{M_g} \frac{\partial M_g}{\partial R}
+	% \frac{1}{a} \frac{\partial a}{\partial R}
 	\right).
+	\label{outflows:eq:mdot-flow-general}
 	\end{equation}
+
+	\item At this point, we derive expressions for~$(1 / Z_x) \partial Z_x /
+	\partial R$ and~$(1 / M_g) \partial M_g / \partial R$ appropriate for a
+	disk galaxy like the Milky Way in an equilibrium state as suggested by
+	the results in~\S~\ref{outflows:sec:empirical}.
+
+	\item For a linear gradient in [X/H] of slope~\grad{X}, the abundance by
+	mass of the element~$x$ is an exponential
+	\begin{equation}
+	Z_x = Z_{x,\odot} e^{-(R - R_\odot) / R_x},
+	\end{equation}
+	where~$R_\odot \approx 8$ kpc is the Galactocentric radius of the sun,
+	$Z_{x,\odot}$ is the abundance by mass of~$x$ in the sun, and
+	$R_x \equiv -(\grad{X} \ln 10)^{-1}$ is the scale radius implied by the
+	slope of the [X/H] gradient.
+	In this case, the derivative of~$Z_x$ with respect to radius is trivial:
+	\begin{equation}
+	\frac{\partial Z_x}{\partial R} = \frac{-Z_x}{R_x}.
+	\label{outflows:eq:partial-zx-radius}
+	\end{equation}
+
+	\item The mass in a given ring changes with radius not only due to the
+	exponential decline of surface density but also due to the increasing area
+	of the ring:
+	\begin{equation}\begin{split}
+	\frac{\partial M_g}{\partial R} &= \frac{\partial}{\partial R}
+	\left(2 \pi R \Delta R \Sigma_{g,0} e^{-R / R_g}\right)
+	\\
+	&= 2 \pi \Delta R \Sigma_{g,0} \left(e^{-R / R_g} - \frac{R}{R_g}
+	e^{-R / R_g}\right)
+	\\
+	&= M_g(R) \left(\frac{1}{R} - \frac{1}{R_g}\right),
+	\label{outflows:eq:partial-mgas-radius}
+	\end{split}\end{equation}
+	where~$\Sigma_{g,0}$ is simply a constant of normalization for the
+	exponential gas disk and~$R_g$ is some scale radius.
+
+	\item Plugging equations~\refp{outflows:eq:partial-zx-radius}
+	and~\refp{outflows:eq:partial-mgas-radius} into equation
+	\refp{outflows:eq:mdot-flow-general} yields
+	\begin{equation}
+	\dot{M}_{x,\flow} = -Z_x \dot{M}_\star \tau_\star v_R
+	\left(\frac{1}{R} - \frac{1}{R_g} - \frac{1}{R_x}\right)
+	\end{equation}
+	as the expression for the flow rate of some element~$x$ if the Galactic
+	disk is in chemical equilibrium and the scale radius of the ISM surface
+	density is not changing significantly with time.
+	In the above expression, we have now applied the~$v_R \rightarrow -v_R$
+	transformation so that~$v_R > 0$ corresponds to an~\textit{outward} flow.
+	For the sake of including this term in GCE models, it is useful to express
+	the rate in terms of the SFR, so we have substituted in the SFE timescale
+	$\tau_\star \equiv M_g / \dot{M}_\star$.
+
+	\item The flow rate of~\textit{gas} follows a similar derivation, and can
+	be deduced from the above expressions if one simply sets~$Z_x = 1$
+	everywhere.
+	The gas flow rate is then given by
+	\begin{equation}
+	\dot{M}_{g,\flow} = -\dot{M}_\star \tau_\star v_R
+	\left(\frac{1}{R} - \frac{1}{R_g}\right).
+	\end{equation}
+
+	\item We now introduce the unitless coefficients~$\mu_\flow$
+	and~$\gamma_\flow$
+	\begin{subequations}\begin{align}
+	\mu_\flow &\equiv -\tau_\star v_R
+	\left(\frac{1}{R} - \frac{1}{R_g} - \frac{1}{R_x}\right)
+	\\
+	\gamma_\flow &\equiv -\tau_\star v_R
+	\left(\frac{1}{R} - \frac{1}{R_g}\right) =
+	\mu_\flow - \frac{\tau_\star v_R}{R_x}
+	\end{align}\end{subequations}
+	such that the rates of change of the metal and ISM gas masses can then be
+	expressed as
+	\begin{subequations}\begin{align}
+	\dot{M}_{x,\flow} &= Z_x \dot{M}_\star \mu_\flow
+	\\
+	\dot{M}_{g,\flow} &= \dot{M}_\star \gamma_\flow.
+	\end{align}\end{subequations}
+
+	\item {\color{red} Further discussion of~$\mu_\flow$ and~$\gamma_\flow$
+	probably belongs in the main text of the paper, though this Appendix will
+	need some sort of brief conclusion.}
 
 \end{itemize}
 
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
