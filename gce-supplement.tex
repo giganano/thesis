@@ -1,0 +1,33 @@
+
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Analytic Solutions to One-zone Chemical Evolution Models}
+\label{outflows:sec:gce-supplement}
+
+In this appendix, we derive expressions for the alpha element mass fraction
+$Z_\alpha$ as a function of time in a one-zone GCE model incorporating the
+effects of radial gas flows in the Galaxy (see discussion
+in~\S~\ref{outflows:sec:gce:onezone}).
+Given equation~\refp{outflows:eq:mdot-element-flow} and the definition of the
+SFE timescale~$\tau_\star \equiv M_g / \dot{M}_\star$, an expression for
+$\dot{Z}_\alpha$ follows from quotient rule:
+\begin{equation}\begin{split}
+\dot{Z}_\alpha &= \frac{
+	\ycc{$\alpha$} \dot{M}_\star -
+	Z_\alpha \dot{M}_\star \left(1 + \eta - \mu_\flow - r\right)
+}{M_g} - Z_\alpha \frac{\ddot{M}_\star}{\dot{M}_\star}
+\\
+&= \ycc{$\alpha$} \tau_\star^{-1} - Z_\alpha \tau_\star^{-1}
+\left(
+1 + \eta - \mu_\flow - r + \tau_\star \frac{\ddot{M}_\star}{\dot{M}_\star}
+\right),
+\label{outflows:eq:zdotalpha-generic}
+\end{split}\end{equation}
+where we have assumed~$\tau_\star$ to be constant in time, allowing the
+substitution~$\dot{M}_g = \ddot{M}_\star \tau_\star$.
+For a given choice of SFH~$\dot{M}_\star$, the above expression results in a
+linear ordinary different equation, which has a well-known solution.
+
+\end{document}
+
