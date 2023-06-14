@@ -10,8 +10,11 @@ Though similar, the former does not incorporate mixing of stellar populations
 while the latter does.
 We also extend these models to incorporate radial gas
 flows~\citep[e.g.,][]{Lacey1985, Bilitewski2012}.
-We present models with both analytic and numerical solutions.
-
+We present models with numerical solutions predicted by multi-ring GCE models
+of the Galactic disk accounting for both stellar migration and radial flows
+(see~\S~\ref{outflows:sec:gce:multizone}), alongside which we develop an
+analytic framework useful for qualitative interpretation
+(see~\S~\ref{outflows:sec:gce:onezone:analytic}).
 
 \subsection{One-Zone Models}
 \label{outflows:sec:gce:onezone}
@@ -53,8 +56,8 @@ In the present chapter, we focus on the abundances of alpha and
 iron-peak elements whose production is dominated by SNe
 \citep[e.g.,][]{Johnson2019}.
 We take O and Fe as the prototypical elements from these categories, though
-we would expect our GCE models to make similar predictions if we chose
-differently.
+we expect our GCE models to make similar predictions if we chose different
+elements to compute abundances for.
 The rate of change of the mass of some element~$x$ in the ISM can be
 expressed as
 \begin{equation}
@@ -120,7 +123,7 @@ rates and the gas supply can be expressed as
 \\
 \implies \dot{M}_x &= \ycc{$x$} \dot{M}_\star +
 \yia{$x$} \langle \dot{M}_\star \rangle_\text{Ia} -
-Z_x \dot{M}_\star \left(1 + \eta - \mu_\flow - r\right).
+Z_x \dot{M}_\star \left(1 + \eta - r - \mu_\flow\right).
 \label{outflows:eq:mdot-element-flow}
 \end{split}
 \end{align}\end{subequations}
@@ -164,7 +167,34 @@ area of an annulus~$2 \pi R \Delta R$ with radius.
 This term encodes the ``pile-up'' of both gas and metals at small radii due to
 the inward flow.
 \par
-{\color{red} Brief description of how~$\tau_\star$ should change with radius.}
+While our parameterizations of~$\gamma_\flow$ and~$\mu_\flow$ have an
+explicit~$1 / R$ dependence on radius, they should in principle also be
+influenced by an increase in~$\tau_\star$ with radius (i.e., inefficient star
+foramtion).
+By reparameterizing~$\tau_\star$ in terms of surface densities of gas
+$\Sigma_g$ and star formation~$\dot{\Sigma}_\star$ as opposed to masses, an
+explicit dependence of~$\tau_\star$ with~$R$ can be derived from the relation
+between the two for an exponential gas disk.
+If~$\dot{\Sigma}_\star \propto \Sigma_g^N$~\citep[e.g.,][]{delosReyes2019,
+Kennicutt2021}, then
+\begin{equation}\begin{split}
+\Sigma_g \tau_\star^{-1} &\propto \Sigma_g^N
+\\
+\implies \tau_\star &\propto \Sigma_g^{1 - N}
+\\
+\implies \tau_\star &= \tau_{\star,0} e^{(N - 1) R / R_g},
+\end{split}\end{equation}
+where~$\tau_{\star,0}$ is a normalizing constant specifying the efficiency of
+star formation at~$R = 0$.
+If~$N \approx 1.5$, consistent with the measurements of integrated SFRs and
+surface densities in star forming spirals from~\citet{Kennicutt1998}, then
+the scale radius that the SFE timescale increases over is exactly twice that
+of the gas disk itself.
+Based on the presence of the central molecular zone in the Milky Way
+\citep[e.g.,][]{Morris1996, Dahmen1998, PiercePrice2000, Hatchfield2020} and
+\citeauthor{Leroy2008}'s~\citeyearpar{Leroy2008} measurement that
+$\tau_\star = 2$ Gyr for molecular gas, we adopt~$\tau_{\star,0} = 2$ Gyr as a
+fiducial value.
 
 \begin{figure*}
 \centering
@@ -210,187 +240,127 @@ Interestingly, the exact slope of the metallicity gradient~\grad{X} has minimal
 impact on~$\mu_\flow$, potentially indicating that radial flows in turn have
 minimal impact on abundance gradients.
 
+\subsubsection{Analytic Solutions to Simple Cases}
+\label{outflows:sec:gce:onezone:analytic}
+Given a handful of simplifying assumptions, one-zone models often allow
+analytic solutions to the abundance by mass~$Z_x \equiv M_x / M_g$ as a
+function of time.
+Under the approximation that the SN Ia DTD is a simple exponential followed by
+some minimum delay,~\citet{Weinberg2017b} obtain solutions for~$Z_\text{O}$
+and~$Z_\text{Fe}$ within the formalism of equations~\refp{outflows:eq:mdot-gas}
+and~\refp{outflows:eq:mdot-element}.
+With the additional approximation that~$\mu_\flow$ is constant in time, which
+we expect to be accurate up to~$\sim$8 Gyr ago based on the results
+of~\S~\ref{outflows:sec:empirical}, the derivation proceeds similarly under the
+simple transformation~$1 + \eta - r \rightarrow 1 + \eta - r - \mu_\flow$.
+We briefly discuss this extension of the~\citet{Weinberg2017b} results here and
+refer readers to their~\S\S~2 and 3 for further details.
+\par
+The primary complication of the parameterization arises because
+$\mu_\flow \neq \gamma_\flow$.
+This inequality is a consequence of the radial metallicity gradient, which
+lowers the metallicity of inward flowing gas.
+% Fig.~\ref{outflows:fig:flow-coefficients-vs-radius} indicates that the amount
+% of mass lost from a given~$\Delta R$ annulus at Galactocentric radii outside of
+% the bulge over the course of some~$\Delta t$ timestep is replaced not only by
+% less gas, but lower metallicity gas.
+As a consequence, the~\textit{depletion time} of metals is shorter than that of
+the bulk gas.
+That is, in the absence of accretion (which would affect only the gas supply if
+it is zero metallicity), metals spend less time than non-metals within a given
+ISM fluid element before being incorporated into new stars or lost to an
+outflow or the radial flow.
+\par
+These timescales are defined as
+\begin{subequations}\begin{align}
+\timescale{dep,g} &\equiv \frac{M_g}{
+	\dot{M}_\star + \dot{M}_\text{out} - \dot{M}_r - \dot{M}_{g,\flow}
+} = \frac{\tau_\star}{1 + \eta - r - \gamma_\flow}
+\\
+\timescale{dep,$x$} &\equiv \frac{M_x}{
+	Z_x\left(\dot{M}_\star + \dot{M}_\text{out} - \dot{M}_r - \dot{M}_{x,\flow}
+	\right)
+} = \frac{\tau_\star}{1 + \eta - r - \mu_\flow},
+\end{align}\end{subequations}
+and both reduce to the~\citet{Weinberg2017b} form
+$\timescale{dep} = \tau_\star / (1 + \eta - r)$ in the absence of a radial
+flow (i.e.,~$v_R = 0 \implies \mu_\flow = \gamma_\flow = 0$).
+In Appendix~\ref{outflows:sec:gce-supplement}, we demonstrate that their form
+of~\timescale{dep} should be replaced with the metal depletion time as opposed
+to the gas depletion time.
+% A generic expression for~$\dot{Z}_x$ can be derived by differentiating
+% $Z_x = M_x / (\dot{M}_\star \tau_\star)$ with time and substituting in
+% equation~\refp{outflows:eq:mdot-element-flow}, carrying~$\mu_\flow$ as opposed
+% to~$\gamma_\flow$ through the derivation.
 
+{
+\renewcommand{\arraystretch}{1.8}
+\begin{table*}
+\caption{
+The SFHs we use in this analytic framework (left) and the implied functions of
+time specifying the evolution toward chemical equilibrium (right; see equations
+\ref{outflows:eq:z-o-eq} and~\ref{outflows:eq:fsfh-definition} and associated
+discussion in~\S~\ref{outflows:sec:gce:onezone:analytic}).
+}
+\begin{tabularx}{\linewidth}{l @{\extracolsep{\fill}} r}
+\hline
+SFH Shape & $f_\text{sfh}$
+\\
+\hline
+$e^{-t / \timescale{sfh}}$ &
+$1 - e^{-t / \tau_\psi}$
+\\
+$te^{-t / \timescale{sfh}}$ &
+$1 - \ddfrac{\tau_\psi}{t} \left(1 - e^{-t / \tau_\psi}\right)$
+\\
+$\left(1 - e^{-t / \timescale{rise}}\right) e^{-t / \timescale{sfh}}$ &
+$\ddfrac{1}{1 - e^{-t / \timescale{rise}}} \left(
+1 - e^{-t / \tau_\psi} -
+\ddfrac{\timescale{rise}}{\timescale{rise} - \tau_\psi}
+\left(e^{-t / \timescale{rise}} - e^{-t / \tau_\psi}\right)
+\right)$
+\\
+\hline
+\end{tabularx}
+\label{outflows:tab:f-sfh-forms}
+\end{table*}
+}
 
+As we are primarily interested in this analytic framework for qualitative
+interpretation, we focus this component of our investigation on O.
+This simplifies the parameterization as Fe abundances are additionally affected
+by SN Ia enrichment (see discussion in~\S~X.Y.Z below), and the expressions
+lend qualitative insight into the predicted Fe abundances anyway.
+Applying our transformation to the~\citet{Weinberg2017b} formalism results in
+the following expression for the equilibrium O abundance for the
+linear-exponential and pure exponential SFHs:
+\begin{equation}
+Z_{\text{O,eq}} =
+\frac{\ycc{O}}{1 + \eta - r - \mu_\flow - \tau_\star / \timescale{sfh}}.
+\label{outflows:eq:z-o-eq}
+\end{equation}
+In Appendix~\ref{outflows:sec:gce-supplement}, we demonstrate that the
+equilibrium abundance is the same for the ``inside-out'' SFH from
+Chapter~\ref{migration}.
+Of these three separate SFHs, the full time evolution of~$Z_x$ is given by
+\begin{equation}
+{Z}_\text{O}(t) = Z_\text{O,eq} f_\text{sfh}(t),
+\label{outflows:eq:fsfh-definition}
+\end{equation}
+where~$f_\text{sfh}$ is some unitless function that depends on the SFH and
+specifies the detailed evolution toward equilibrium with time.
+Table~\ref{outflows:tab:f-sfh-forms} presents the time-dependence of these
+SFHs and the associated forms of~$f_\text{sfh}$, where the timescale~$\tau_\psi$
+is defined as 
+\begin{equation}
+\tau_\psi \equiv \left(
+\frac{1 + \eta - r - \mu_\flow}{\tau_\star} - \frac{1}{\timescale{sfh}}
+\right)^{-1}.
+\label{outflows:eq:tau-psi-def}
+\end{equation}
+We also reserve the derivation of~$f_\text{sfh}$ for the inside-out SFH for
+Appendix~\ref{outflows:sec:gce-supplement}.
 
-% In Appendix~\ref{outflows:sec:coefficients-derivation}, we demonstrate that the
-% effects of radial flows in a Milky Way-like disk can be understood with the
-% coefficients~$\gamma_\flow$ and~$\mu_\flow$
-% \begin{subequations}\begin{align}
-% \gamma_\flow &= -\tau_\star v_R
-% \left(\frac{1}{R} - \frac{1}{R_g}\right)
-% \label{outflows:eq:gamma-flow}
-% \\
-% \mu_\flow &= -\tau_\star v_R
-% \left(\frac{1}{R} - \frac{1}{R_g} - \frac{1}{R_x}\right),
-% \label{outflows:eq:mu-flow}
-% \end{align}\end{subequations}
-% where~$R$ denotes Galactocentric radius,~$R_g$ is the scale radius of an
-% exponential surface density gas disk, and~$R_x = -(\grad{X}~\ln 10)^{-1}$ is the
-% scale radius of the metallicity gradient in~$Z_x$ implied by a linear gradient
-% in [X/H].
-% Because~$v_R < 0$ for inward radial flows, the length scale~$-\tau_\star v_R$
-% is positive.
-% \par
-% The flow rates themselves and their impact on equations
-% \refp{outflows:eq:mdot-gas} and~\refp{outflows:eq:mdot-element} are then given
-% by
-% \begin{subequations}\begin{align}
-% \begin{split}
-% \dot{M}_{g,\flow} &= \dot{M}_\star \gamma_\flow
-% \\
-% \implies \dot{M}_g &= \dot{M}_\text{in} - \dot{M}_\star
-% \left(1 + \eta - \gamma_\flow - r\right)
-% \end{split}
-% \label{outflows:eq:mdot-gas-flow}
-% \\
-% \begin{split}
-% \dot{M}_{x,\flow} &= Z_x \dot{M}_\star \mu_\flow
-% \\
-% \implies \dot{M}_x &= \ycc{$x$} \dot{M}_\star +
-% \yia{$x$} \langle \dot{M}_\star \rangle_\text{Ia} -
-% Z_x \dot{M}_\star \left(1 + \eta - \mu_\flow - r\right).
-% \end{split}
-% \label{outflows:eq:mdot-element-flow}
-% \end{align}\end{subequations}
-
-
-
-
-
-
-% 	\item Assuming infalling gas to be zero metallicity, the rate of a change
-% 	of the mass of some element~$x$ in the ISM is given by
-% 	\begin{equation}
-% 	\dot{M}_x = \sum_i \dot{M}_{x,i} - Z_x \dot{M}_\star
-% 	\left(1 + \eta - r\right),
-% 	\end{equation}
-% 	where~$Z_x = M_x / M_g$ is the mass fraction of~$x$ in the ISM
-% 	and~$\sum_i \dot{M}_{x,i}$ generically accounts for enrichment channels
-% 	such as core collapse supernovae (CCSNe), Type Ia supernovae (SNe Ia),
-% 	asymptotic giant branch (AGB) stars, etc. which may produce~$x$ in some
-% 	significant amount.
-% 	In the case of O and Mg, there are arguments from both theoretical
-% 	\citep[e.g.,][]{Andrews2017, Limongi2018} and empirical
-% 	\citep{Griffith2019, Griffith2022, Weinberg2019, Weinberg2022}
-% 	perspectives suggesting that their population-averaged yields are dominated
-% 	by massive stars with a metallicity-independent yield.
-% 	In this case, the above expression reduces to
-% 	\begin{equation}
-% 	\dot{M}_x \approx \ycc{$x$} \dot{M}_\star - Z_x \dot{M}_\star
-% 	\left(1 + \eta - r\right),
-% 	\end{equation}
-% 	where~$\ycc{$x$}$ is the yield of~$x$.
-% 	This expression retains the approximations from {\color{red} previous
-% 	chapters} that enrichment from CCSNe occurs instantaneously after a single
-% 	stellar population's formation, which is valid as long as the timescales of
-% 	galaxy evolution are much longer than the lifetimes of massive stars.
-
-% 	\item \citet{Weinberg2017b} demonstrate that the first-order details of the
-% 	enrichment history in the ISM are determined by~$\eta$ and the star
-% 	formation efficiency timescale~$\tau_\star \equiv M_g / \dot{M}_\star$.
-% 	In the absence of sudden events such as bursts in star formation
-% 	\citep[e.g.,][]{Johnson2020}, the detailed form of the SFH has minimal
-% 	impact on the shape of the evolutionary track through chemical space
-% 	(e.g., the~\afe-\feh~plane), with that information instead encoded in the
-% 	density of stars along the track.
-% 	However, in the absence of outflows (i.e.,~$\eta = 0$), then the shape of
-% 	the SFH has a stronger effect, and radial flows have a stronger effect.
-% 	{\color{red} Some short discussion on why~$\eta = 0$ versus~$\eta \neq 0$
-% 	is interesting, potentially just referencing the discussion in the
-% 	introduction}.
-
-% 	\item {\color{red} Speaking of radial flows and Segways!}
-% 	Under the approximation that all of the gas in some ring flows
-% 	inward or outward with a single velocity~$v_R$, we demonstrate in
-% 	Appendix~\ref{outflows:sec:coefficients-derivation} that the rate of change
-% 	of the mass of some element~$x$ due solely to this process can be expressed
-% 	as
-% 	\begin{equation}
-% 	\dot{M}_{x,\flow} = Z_x \dot{M}_\star \mu_\flow,
-% 	\end{equation}
-% 	where~$\mu_\flow$ is a unitless coefficient given by
-% 	\begin{equation}
-% 	\mu_\flow \equiv -\tau_\star v_R
-% 	\left(\frac{1}{R} - \frac{1}{R_g} - \frac{1}{R_x}\right).
-% 	\end{equation}
-% 	$R_g$ is the scale radius of the gas disk, and~$R_x \equiv
-% 	-(\grad{X} \ln 10)^{-1}$ is the scale radius of the exponential gradient
-% 	in~$Z_x$ implied by a linear gradient in [X/H].
-
-% 	\item Similarly, the rate of change of the ISM mass due to radial flows is
-% 	given by
-% 	\begin{equation}
-% 	\dot{M}_{g,\flow} = \dot{M}_\star \gamma_\flow,
-% 	\end{equation}
-% 	where~$\gamma_\flow$ is given by
-% 	\begin{equation}
-% 	\gamma_\flow \equiv -\tau_\star v_R
-% 	\left(\frac{1}{R} - \frac{1}{R_g}\right)
-% 	= \mu_\flow - \frac{\tau_\star v_R}{R_x}.
-% 	\end{equation}
-
-% 	\item The coefficients~$\mu_\flow$ and~$\gamma_\flow$ have an explicit
-% 	$1 / R$ dependence on radius, though in principle variations in the SFE
-% 	timescale~$\tau_\star$ should also shape their variations with radius.
-% 	A simple parameterization of~$\tau_\star$ with radius can be motivated by
-% 	combining the Kennicutt-Schmidt scaling~\citep[e.g.,][]{Schmidt1959,
-% 	Schmidt1963, Kennicutt1998} with its definition:
-% 	\begin{equation}\begin{split}
-% 	\tau_\star &\equiv \frac{M_g}{\dot{M}_\star}
-% 	= \frac{\Sigma_g}{\dot{\Sigma}_\star}
-% 	\\
-% 	&\propto \frac{\Sigma_g}{\Sigma_g^N}
-% 	\\
-% 	&= \tau_{\star,0} e^{(N - 1) R / R_g},
-% 	\end{split}\end{equation}
-% 	where~$\tau_{\star,0}$ is a normalizing constant setting the value of
-% 	$\tau_\star$ at~$R = 0$.
-% 	In short, the decrease in surface density of gas should in principle imply
-% 	an increase in~$\tau_\star$ with increasing radius.
-% 	If~$N = 1.5$, consistent with~\citet{Kennicutt1998}, then~$\tau_\star$
-% 	increases exponentially with a scale radius exactly twice that of the gas
-% 	disk itself.
-% 	Based on the presence of the central molecular zone in the Milky Way
-% 	\citep[e.g.,][]{Morris1996, Dahmen1998, PiercePrice2000, Hatchfield2020}
-% 	and~\citeauthor{Leroy2008}'s~\citeyearpar{Leroy2008} measurement of
-% 	$\tau_\star = 2$ Gyr for molecular gas, we adopt~$\tau_{\star,0} = 2$ Gyr
-% 	as a fiducial value.
-
-% \end{itemize}
-
-% \begin{itemize}
-
-% 	\item $\mu_\flow$ and~$\gamma_\flow$ are parameterized such that radial
-% 	flows are a source if they are positive and a sink if they are negative.
-% 	For an inward gas flow (i.e.,~$v_R < 0$),~$\gamma_\flow > \mu_\flow$.
-
-% 	\item $0 \leq \gamma_\flow \leq -\tau_\star v_R / R_x$ is an interesting
-% 	region of parameter space in that radial flows are a~\textit{source} of
-% 	gas ($\gamma_\flow > 0$) but a~\textit{sink} of metals ($\mu_\flow < 0$).
-% 	Dilution can be a strong effect in this scenario.
-
-	% \item To understand the impact of radial flows on the metallicity gradient,
-	% we must incorporate the effects on both metal and gas masses separately as
-	% the metals are affected by the gradient but the gas is not.
-	% Isolating the terms~$\dot{M}_{x,\flow}$ and~$\dot{M}_{g,\flow}$:
-	% \begin{equation}\begin{split}
-	% \dot{Z}_{x,\flow} &= \frac{\dot{M}_x M_g - M_x \dot{M}_g}{M_g^2}
-	% \\
-	% &= \frac{\dot{M}_x}{M_g} - \left(\frac{M_x}{M_g}\right)
-	% \frac{\dot{M}_g}{M_g}
-	% \\
-	% \dot{Z}_{x,\flow} < 0 \implies \frac{\dot{M}_x}{M_g} &< Z_x
-	% \frac{\dot{M}_g}{M_g}
-	% \\
-	% \frac{\dot{M}_x}{\dot{M}_g} &< Z_x
-	% \\
-	% \frac{Z_x \dot{M}_\star \mu_\flow}{\dot{M}_\star \gamma_\flow} &< Z_x
-	% \\
-	% \mu_\flow &< \gamma_\flow.
-	% \end{split}\end{equation}
-
-
-% \end{itemize}
-
+\section{Multi-Ring Models}
+\label{outflows:sec:gce:multizone}
 

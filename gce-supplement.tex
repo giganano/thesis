@@ -5,29 +5,159 @@
 \chapter{Analytic Solutions to One-zone Chemical Evolution Models}
 \label{outflows:sec:gce-supplement}
 
-In this appendix, we derive expressions for the alpha element mass fraction
-$Z_\alpha$ as a function of time in a one-zone GCE model incorporating the
-effects of radial gas flows in the Galaxy (see discussion
-in~\S~\ref{outflows:sec:gce:onezone}).
-Given equation~\refp{outflows:eq:mdot-element-flow} and the definition of the
-SFE timescale~$\tau_\star \equiv M_g / \dot{M}_\star$, an expression for
-$\dot{Z}_\alpha$ follows from quotient rule:
+In this appendix, we derive an expression for the oxygen abundance
+$Z_\text{O} \equiv M_\text{O} / M_g$ as a function of time~$t$ since the onset
+of star formation in a one-zone GCE model embedded within a Milky Way-like
+disk with radial gas flows
+(see discussion in~\S~\ref{outflows:sec:gce:onzeone}).
+A generic linear ordinary differential equation (ODE) for~$\dot{Z}_\text{O}$
+can be derived by differenting~$Z_x \equiv M_x / (\dot{M}_\star \tau_\star)$
+with time and substituting in equation~\refp{outflows:eq:mdot-element-flow}:
 \begin{equation}\begin{split}
-\dot{Z}_\alpha &= \frac{
-	\ycc{$\alpha$} \dot{M}_\star -
-	Z_\alpha \dot{M}_\star \left(1 + \eta - \mu_\flow - r\right)
-}{M_g} - Z_\alpha \frac{\ddot{M}_\star}{\dot{M}_\star}
+\dot{Z}_\text{O} &= \frac{M_g \dot{M}_\text{O} - M_\text{O} \dot{M}_g}{M_g^2}
 \\
-&= \ycc{$\alpha$} \tau_\star^{-1} - Z_\alpha \tau_\star^{-1}
-\left(
-1 + \eta - \mu_\flow - r + \tau_\star \frac{\ddot{M}_\star}{\dot{M}_\star}
-\right),
-\label{outflows:eq:zdotalpha-generic}
+&= \ycc{O} \tau_\star^{-1} - Z_\text{O} \tau_\star^{-1}
+\left(1 + \eta - r - \mu_\flow + \tau_\star \left(
+\frac{\ddot{M}_\star}{\dot{M}_\star}
+\right)\right),
+\label{outflows:eq:generic-linear-ode}
 \end{split}\end{equation}
-where we have assumed~$\tau_\star$ to be constant in time, allowing the
-substitution~$\dot{M}_g = \ddot{M}_\star \tau_\star$.
-For a given choice of SFH~$\dot{M}_\star$, the above expression results in a
-linear ordinary different equation, which has a well-known solution.
+where we have retained the assumption of a constant~$\tau_\star$ from
+\citet{Weinberg2017b} to substitute in~$\dot{M}_g = \ddot{M}_\star \tau_\star$.
+A linear ODE of the form
+\begin{equation}
+\dot{y} + p(t) y = g(t)
+\end{equation}
+has the well-known solution of
+\begin{equation}
+y(t) = \exp\left(-\int p(t) dt\right)
+\left(\int_0^t \exp\left(\int p(t') dt'\right) g(t') dt' + C\right),
+\label{outflows:eq:linear-ode-formula}
+\end{equation}
+where~$C$ is a constant of integration that will be assigned to ensure that
+the boundary condition of~$Z_\text{O}(t = 0) = 0$.
+Here we have~$p(t) = \ddot{M}_\star / \dot{M}_\star + (1 + \eta - r -
+\mu_\flow) / \tau_\star$ and $g(t) = \ycc{O} / \tau_\star$.
+From here, one can choose an SFH and, as long as it is integrable when raised
+to an exponential, compute its time derivative, plug it into~$p(t)$, and solve
+for~$Z_\text{O}$.
+In the case of the inside-out SFH
+\begin{equation}
+\dot{M}_\star \propto \left(1 - e^{-t / \timescale{rise}}\right)
+e^{-t / \timescale{sfh}},
+\end{equation}
+this procedure results in
+\begin{subequations}\begin{align}
+\frac{\ddot{M}_\star}{\dot{M}_\star} &=
+\frac{
+	e^{-t / \timescale{rise}}
+}{
+	\timescale{rise}\left(
+	1 - e^{-t / \timescale{rise}}
+	\right)
+} - \frac{1}{\timescale{sfh}}
+\\
+\int p(t) dt &= \ln\left(1 - e^{-t / \timescale{rise}}\right) +
+\frac{t}{\tau_\psi},
+\end{align}\end{subequations}
+where we have substituted in the timescale~$\tau_\psi$ defined according to
+equation~\refp{outflows:eq:tau-psi-def}.
+Integration of equation~\refp{outflows:eq:linear-ode-formula} then yields
+\begin{equation}
+Z_\text{O}(t) = Z_\text{O,eq}
+\frac{1}{1 - e^{-t / \timescale{rise}}} \left[
+1 - e^{-t / \tau_\psi} -
+\frac{\timescale{rise}}{\timescale{rise} - \tau_\psi}
+\left(e^{-t / \timescale{rise}} - e^{-t / \tau_\psi}\right)
+\right],
+\end{equation}
+where~$Z_\text{O,eq}$ is the same equilibrium abundance given by
+equation~\refp{outflows:eq:z-o-eq}.
+Setting the integration constant~$C = 0$ in this case provides the only
+physical solution as both~$1 - e^{-t / \timescale{rise}}$ and the quantity in
+square brackets in the above expression both approach zero as~$t \rightarrow 0$.
+As a sanity check, we have evaluated the limit of~$Z_\text{O}$
+as~$t \rightarrow 0$ with L'H\^opital's rule and found that it indeed
+approaches~$0$.
+This expression reduces to the case for a pure exponential by taking the limit
+at~$\timescale{rise} \rightarrow 0$, and reduces once more to the solutions
+presented in~\citet{Weinberg2017b} in the absence of a radial flow
+(i.e.,~$v_R = 0$).
+
+
+
+
+
+% In this appendix, we derive an expression for the alpha element mass fraction
+% $Z_\alpha$ as a function of time~$t$ since the onset of star formation in a
+% one-zone GCE model incorporating the effects of radial gas flows in the Galaxy
+% (see discussion in~\S~\ref{outflows:sec:gce:onezone}).
+% Given equation~\refp{outflows:eq:mdot-element-flow} and the definition of the
+% SFE timescale~$\tau_\star \equiv M_g / \dot{M}_\star$, an expression for
+% $\dot{Z}_\alpha$ follows from quotient rule:
+% \begin{equation}\begin{split}
+% \dot{Z}_\alpha &= \frac{
+% 	\ycc{$\alpha$} \dot{M}_\star -
+% 	Z_\alpha \dot{M}_\star \left(1 + \eta - r - \mu_\flow\right)
+% }{M_g} - Z_\alpha \frac{\ddot{M}_\star}{\dot{M}_\star}
+% \\
+% &= \ycc{$\alpha$} \tau_\star^{-1} - Z_\alpha \tau_\star^{-1}
+% \left(
+% 1 + \eta - r - \mu_\flow + \tau_\star \frac{\ddot{M}_\star}{\dot{M}_\star}
+% \right),
+% \label{outflows:eq:zdotalpha-generic}
+% \end{split}\end{equation}
+% where we have assumed~$\tau_\star$ to be constant in time, allowing the
+% substitution~$\dot{M}_g = \ddot{M}_\star \tau_\star$.
+% For a given choice of SFH~$\dot{M}_\star$, the above expression results in a
+% linear ordinary different equation, which has a well-known solution.
+% \par
+% \citet{Weinberg2017b} derive solutions to this expression for exponential
+% ($\dot{M}_\star \propto e^{-t / \timescale{sfh}}$) and linear-exponential
+% ($\dot{M}_\star \propto t e^{-t / \timescale{sfh}}$) SFHs, though they did not
+% incorporate radial gas flows.
+% Under the approximation that~$\mu_\flow$ is constant in time, this factor
+% carries through their derivations under the simple transformation that
+% $1 + \eta - r \rightarrow 1 + \eta - r - \mu_\flow$.
+% For the exponential SFH, the solution to~$Z_\alpha(t)$ is given by
+% \begin{equation}
+% Z_\alpha(t) = Z_{\alpha,\eq} \left(1 - e^{-t / \tau_\psi}\right),
+% \end{equation}
+% where~$Z_{\alpha,\eq}$ is the equilibrium abundance at which recycling and the
+% production of alpha elements is perfectly balanced by losses to outflows and
+% new stars, given by
+% \begin{equation}
+% Z_{\alpha,\eq} =
+% \frac{\ycc{$\alpha$}}{1 + \eta - r - \mu_\flow - \tau_\star / \timescale{sfh}}.
+% \end{equation}
+% The timescale~$\tau_\psi$, given by
+% \begin{equation}
+% \tau_\psi \equiv \left(
+% \frac{1 + \eta - r - \mu_\flow}{\tau_\star} - \frac{1}{\timescale{sfh}}
+% \right)^{-1},
+% \end{equation}
+% quantifies the rate at which the ISM approaches equilibrium if the SFH is a
+% pure exponential.
+% This timescale is analogous to the harmonic timescale
+% $\bar{\tau}_\text{[dep,sfh]}$ from~\citet{Weinberg2017b}, defined as
+% \begin{equation}
+% \bar{\tau}_\text{[dep,sfh]} \equiv \left(
+% \frac{1}{\timescale{dep}} - \frac{1}{\timescale{sfh}}
+% \right)^{-1} = \left(
+% \frac{1 + \eta - r}{\tau_\star} - \frac{1}{\timescale{sfh}}
+% \right)^{-1},
+% \end{equation}
+% where~$\tau_\text{dep}$ is the~\textit{depletion time}, which quantifies the
+% average timescale an ISM fluid element remains in the gas phase before being
+% incorporated into new stars or ejected in an outflow.
+% $\tau_\psi$ reduces to~$\bar{\tau}_\text{[dep,sfh]}$ if radial flows are
+% neglected (i.e.,~$\mu_\flow = 0$), though the depletion time has a different
+% form that depends on~$\gamma_\flow$ as opposed to~$\mu_\flow$:
+% \begin{equation}
+% \timescale{dep} \equiv
+% \frac{M_g}{\dot{M}_\star + \dot{M}_\text{out} - \dot{M}_{g,\flow} - \dot{M}_r}
+% = \frac{\tau_\star}{1 + \eta - r - \gamma_\flow}.
+% \end{equation}
 
 \end{document}
 
