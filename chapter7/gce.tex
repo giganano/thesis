@@ -27,7 +27,7 @@ change of the ISM gas mass~$M_g$ can be expressed as
 \dot{M}_r
 \\
 &\approx \dot{M}_\text{in} - \dot{M}_\star(1 + \eta - r),
-\label{outflows:eq:mdot-gas}
+\label{outflows:eq:mdot-gas-noflow}
 \end{split}\end{equation}
 where~$\dot{M}_r$ is the rate of recycling from stellar envelopes being
 returned back to the ISM.
@@ -64,7 +64,7 @@ expressed as
 \dot{M}_x = \ycc{$x$} \dot{M}_\star +
 \yia{$x$} \langle \dot{M}_\star \rangle_\text{Ia} -
 Z_x \dot{M}_\star \left(1 + \eta - r\right),
-\label{outflows:eq:mdot-element}
+\label{outflows:eq:mdot-element-noflow}
 \end{equation}
 where~$Z_x$ is the abundance by mass of~$x$ in the ISM at a given moment in
 time and~\ycc{$x$} and~\yia{$x$} are the population-averaged yields of~$x$
@@ -98,85 +98,107 @@ outflows is removed.
 \par
 To this end, we construct a parameterization for including the effects of
 radial gas flows in one-zone GCE models.
-Though the gas in any given region of the Galaxy should have a distribution of
-velocities, the bulk flow is generally directed inward (i.e.,~$v_R < 0$).
-The angular momentum of the disk gas is diluted by ongoing accretion, causing
-material to subsequently fall toward the Galactic center~\citep{Bilitewski2012}.
-In Appendix~\ref{outflows:sec:coefficients-derivation}, we consider a gas disk
-whose surface density declines exponentially with radius and whose abundance
-gradient has reached some steady-state equilibrium as suggested by our
-empirical measurements in section~\ref{outflows:sec:empirical}.
-Under the approximation that all of the gas is moving inward with the same
-velocity~$v_R$, we demonstrate that the impact of radial flows on enrichment
-rates and the gas supply can be expressed as
+We introduce the unitless coefficients~$\gamma_\flow$ and~$\mu_\text{flow}$
+defined such that the rates of change of the gas supply and an element~$x$ due
+to flows can be expressed in terms of the SFR and~$Z_x$ according to
 \begin{subequations}\begin{align}
-\begin{split}
 \dot{M}_{g,\flow} &= \dot{M}_\star \gamma_\flow
-\\
-\implies \dot{M}_g &= \dot{M}_\text{in} - \dot{M}_\star
-\left(1 + \eta - \gamma_\flow - r\right)
 \label{outflows:eq:mdot-gas-flow}
-\end{split}
 \\
-\begin{split}
-\dot{M}_{x,\flow} &= Z_x \dot{M}_\star \mu_\flow
-\\
-\implies \dot{M}_x &= \ycc{$x$} \dot{M}_\star +
-\yia{$x$} \langle \dot{M}_\star \rangle_\text{Ia} -
-Z_x \dot{M}_\star \left(1 + \eta - r - \mu_\flow\right).
+\dot{M}_{x,\flow} &= Z_x \dot{M}_\star \mu_\flow.
 \label{outflows:eq:mdot-element-flow}
-\end{split}
 \end{align}\end{subequations}
-The flow coefficients~$\gamma_\flow$ and~$\mu_\flow$ are given by
+Equations~\refp{outflows:eq:mdot-gas-noflow}
+and~\refp{outflows:eq:mdot-element-noflow} then become
 \begin{subequations}\begin{align}
-\gamma_\flow &\equiv -\tau_\star v_R
-\left(\frac{1}{R} - \frac{1}{R_g}\right)
-\label{outflows:eq:gamma-flow}
+\dot{M}_{g} &\rightarrow \dot{M}_\text{in} - \dot{M}_\star
+\left(1 + \eta - r - \gamma_\flow\right)
 \\
-\mu_\flow &\equiv -\tau_\star v_R
-\left(\frac{1}{R} - \frac{1}{R_g} - \frac{1}{R_x}\right),
-\label{outflows:eq:mu-flow}
+\dot{M}_x &\rightarrow \ycc{$x$} \dot{M}_\star +
+\yia{$x$} \langle \dot{M}_\star \rangle_\text{Ia}
+\left(1 + \eta - r - \mu_\flow\right).
 \end{align}\end{subequations}
-where~$R$ denotes Galactocentric radius,~$R_g$ is the scale radius of the gas
-disk, and~$R_x \equiv -(\grad{X}~\ln 10)^{-1}$ is the scale radius of the
-exponential metallicity gradient~$Z_x \propto e^{-R / R_x}$ implied by a linear
-gradient in [X/H].
+The most general forms of these flow coefficients are given by
+\begin{subequations}\begin{align}
+\gamma_\flow &\equiv -\tau_\star v_g \left[
+\frac{1}{R} +
+\frac{\partial \ln \Sigma_g}{\partial R} +
+\frac{\partial \ln v_g}{\partial R}
+\right]
+\label{outflows:eq:gamma-flow-general}
+\\
+\mu_\flow &\equiv -\tau_\star v_g \left[
+\frac{1}{R} + \frac{\partial \ln \Sigma_g}{\partial R} +
+\frac{\partial \ln v_g}{\partial R} +
+\frac{\partial \ln Z_x}{\partial R}
+\right],
+\label{outflows:eq:mu-flow-general}
+\end{align}\end{subequations}
+where~$v_g$ is the radial velocity of the ISM gas and~$\Sigma_g$ is its surface
+density.
+Though the gas in any given region of the Galaxy should have a distribution of
+velocities, this parameterization assumes that the entire ISM in some
+differential annulus of width~$\Delta R$ is moving at some characteristic
+velocity.
+The bulk flow is generally directed inward (i.e.,~$v_g < 0$; hence the minus
+sign in equations~\ref{outflows:eq:gamma-flow} and~\ref{outflows:eq:mu-flow}),
+which arises due to the angular momentum of the disk being diluted by freshly
+accreted material and falling toward the Galactic center
+\citep[see discussion in, e.g.,][]{Bilitewski2012}.
 \par
-We reserve the detailed derivation of~$\gamma_\flow$ and~$\mu_\flow$ for
+We reserve a detailed derivation of~$\gamma_\flow$ and~$\mu_\flow$ for
 Appendix~\ref{outflows:sec:coefficients-derivation} and provide only
-qualitative justification of their functional forms here.
-First and foremost, the linear dependence on~$v_R$ is expected -- as the flow
+qualitative discussion of their functional forms here.
+First and foremost, the linear dependence on~$v_g$ is expected -- as the flow
 velocity increases, its effect on enrichment rates and the gas supply increases
-proportionally (we remind the reader that~$v_R < 0 \implies -v_R > 0$ for an
-inward flow).
+proportionally.
 The linear dependence on~$\tau_\star$ arises because these rates are tied to
 the local gas supply.
 When multiplied by the SFR in equations~\refp{outflows:eq:mdot-gas-flow}
 and~\refp{outflows:eq:mdot-element-flow},~$\dot{M}_\star \tau_\star$ becomes
 $M_g$ by definition.
-The term~$-1 / R_g$ encodes the decrease in the surface density of gas with
-increasing~$R$.
-For centrally concentrated surface density gradients (i.e., small~$R_g$),
-the flow coefficients decrease relative to their counterparts in more extended
-disks as there is less gas at a slightly larger radius of~$R + \Delta R$.
-An additional~$-1 / R_x$ term appears in the expression for~$\mu_\flow$ for
-similar reasons -- the metal abundance is also lower at~$R + \Delta R$ due to
-the radial gradient.
-Lastly, both coefficients have a~$+1 / R$ term that arises due to the change in
-area of an annulus~$2 \pi R \Delta R$ with radius.
-This term encodes the ``pile-up'' of both gas and metals at small radii due to
-the inward flow.
+Both coefficients depend on fluctuations in the ISM surface density since any
+variation thereof will affect how much gas is exchanged between neighboring
+annuli.
+The metal flow coefficient~$\mu_\flow$ additionally depends on the abundance
+gradient for similar reasons.
+For an inward flow, any given annulus will be replenished with less gas and
+less metals from the next annulus at~$R + \Delta R$ if both decrease steeply
+with radius.
+Lastly, both coefficients have an explicit~$1 / R$ dependence on radius which
+arises due to the change in area~$2 \pi R \Delta R$.
+This term encodes the ``pile-up'' of both gas and metals at small radii.
 \par
-While our parameterizations of~$\gamma_\flow$ and~$\mu_\flow$ have an
-explicit~$1 / R$ dependence on radius, they should in principle also be
-influenced by an increase in~$\tau_\star$ with radius (i.e., inefficient star
-foramtion).
-By reparameterizing~$\tau_\star$ in terms of surface densities of gas
-$\Sigma_g$ and star formation~$\dot{\Sigma}_\star$ as opposed to masses, an
-explicit dependence of~$\tau_\star$ with~$R$ can be derived from the relation
-between the two for an exponential gas disk.
-If~$\dot{\Sigma}_\star \propto \Sigma_g^N$~\citep[e.g.,][]{delosReyes2019,
-Kennicutt2021}, then
+For a typical spiral galaxy like the Milky Way, the surface density of gas is
+often described as an exponential
+\begin{equation}
+\Sigma_g \propto e^{-R / R_g},
+\end{equation}
+where~$R_g$ is some scale radius.
+Similarly, abundance gradients are generally characterized as linear in [X/H],
+which then translates to an exponential in~$Z_x$.
+Under these conditions, equations~\refp{outflows:eq:gamma-flow-general}
+and~\refp{outflows:eq:mu-flow-general} become
+\begin{subequations}\begin{align}
+\gamma_\flow &\rightarrow -\tau_\star v_g
+\left(\frac{1}{R} - \frac{1}{R_g}\right)
+\label{outflows:eq:gamma-flow}
+\\
+\mu_\flow &\rightarrow -\tau_\star v_g
+\left(\frac{1}{R} - \frac{1}{R_g} - \frac{1}{R_x}\right),
+\label{outflows:eq:mu-flow}
+\end{align}\end{subequations}
+where~$R_x \equiv -(\grad{X}~\ln 10)^{-1}$ is the scale radius implied by the
+gradient in~$x$.
+\par
+In principle, both~$\gamma_\flow$ and~$\mu_\flow$ should be affected by changes
+in~$\tau_\star$ with radius.
+In particular, the low surface densities at large radii would imply inefficient
+star formation~\citep[i.e., higher~$\tau_\star$; e.g.,][]{delosReyes2019,
+Kennicutt2021}.
+Combining a power-law scaling between~$\Sigma_g$ and the surface density of
+star formation~$\dot{\Sigma}_\star$ with an exponential decline in~$\Sigma_g$
+yields the following scaling of~$\tau_\star$ with radius:
 \begin{equation}\begin{split}
 \Sigma_g \tau_\star^{-1} &\propto \Sigma_g^N
 \\
@@ -193,8 +215,8 @@ of the gas disk itself.
 Based on the presence of the central molecular zone in the Milky Way
 \citep[e.g.,][]{Morris1996, Dahmen1998, PiercePrice2000, Hatchfield2020} and
 \citeauthor{Leroy2008}'s~\citeyearpar{Leroy2008} measurement that
-$\tau_\star = 2$ Gyr for molecular gas, we adopt~$\tau_{\star,0} = 2$ Gyr as a
-fiducial value.
+$\tau_\star = 2$ Gyr for molecular gas,~$\tau_{\star,0} = 2$ Gyr is a
+reasonable fiducial value.
 
 \begin{figure*}
 \centering
@@ -203,7 +225,7 @@ fiducial value.
 The radial flow coefficients~$\mu_\flow$ (solid) and~$\gamma_\flow$ (dashed) as
 functions of radius for different parameter choices.
 Black lines correspond to the fiducial choice of
-($\tau_{\star,0}$,~$v_R$,~\grad{X},~$R_g$) = (2 Gyr, 1 km s$^{-1}$,
+($\tau_{\star,0}$,~$v_g$,~\grad{X},~$R_g$) = (2 Gyr, 1 km s$^{-1}$,
 $-0.06$ kpc$^{-1}$,~$4$ kpc) and are the same in all panels.
 Each panel then shows variations in one of these four parameters according to
 the legends in the lower right.
@@ -227,8 +249,8 @@ difference between~$1 / R$, which varies, and~$1 / R_g + 1 / R_x$, which is
 constant for a given parameter selection.
 Flows are however a stronger sink for metals than gas under this
 parameterization since, by definition,~$\mu_\flow = \gamma_\flow + \tau_\star
-v_R / R_x$ and~$v_r < 0$.
-Both~$\tau_{\star,0}$ and~$v_R$ are normalizing factors on the flow
+v_g / R_x$ and~$v_g < 0$.
+Both~$\tau_{\star,0}$ and~$v_g$ are normalizing factors on the flow
 coefficients, so they do not impact the radius at which~$\mu_\flow = 0$ or
 $\gamma_\flow = 0$, but increases in their values make flows a stronger sink
 where they are a sink and a stronger source where they are a source.
@@ -284,7 +306,7 @@ These timescales are defined as
 \end{align}\end{subequations}
 and both reduce to the~\citet{Weinberg2017b} form
 $\timescale{dep} = \tau_\star / (1 + \eta - r)$ in the absence of a radial
-flow (i.e.,~$v_R = 0 \implies \mu_\flow = \gamma_\flow = 0$).
+flow (i.e.,~$v_g = 0 \implies \mu_\flow = \gamma_\flow = 0$).
 In Appendix~\ref{outflows:sec:gce-supplement}, we demonstrate that their form
 of~\timescale{dep} should be replaced with the metal depletion time as opposed
 to the gas depletion time.
