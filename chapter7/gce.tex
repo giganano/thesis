@@ -115,8 +115,8 @@ and~\refp{outflows:eq:mdot-element-noflow} then become
 \left(1 + \eta - r - \gamma_\flow\right)
 \\
 \dot{M}_x &\rightarrow \ycc{$x$} \dot{M}_\star +
-\yia{$x$} \langle \dot{M}_\star \rangle_\text{Ia}
-\left(1 + \eta - r - \mu_\flow\right).
+\yia{$x$} \langle \dot{M}_\star \rangle_\text{Ia} -
+Z_x \dot{M}_\star \left(1 + \eta - r - \mu_\flow\right).
 \end{align}\end{subequations}
 The most general forms of these flow coefficients are given by
 \begin{subequations}\begin{align}
@@ -137,7 +137,7 @@ The most general forms of these flow coefficients are given by
 where~$v_g$ is the radial velocity of the ISM gas and~$\Sigma_g$ is its surface
 density.
 Though the ISM in nature has a distribution of radial velocities, this
-parameterization assumes a single, characteristic velocity.
+parameterization assumes a single characteristic velocity at a given radius.
 The bulk flow is generally directed inward (i.e.,~$v_g < 0$; hence the minus
 signs), which arises due to the angular momentum of the disk being diluted by
 freshly accreted material and falling toward the Galactic center
@@ -182,7 +182,8 @@ often described as an exponential
 \end{equation}
 where~$R_g$ is some scale radius.
 Similarly, abundance gradients are generally characterized as linear in [X/H],
-which then translates to an exponential in~$Z_x$.
+which then translates to an exponential~$Z_x \propto e^{-R / R_x}$ in the
+metal mass fraction.
 Under these conditions, equations~\refp{outflows:eq:gamma-flow-general}
 and~\refp{outflows:eq:mu-flow-general} become
 \begin{subequations}\begin{align}
@@ -194,8 +195,10 @@ and~\refp{outflows:eq:mu-flow-general} become
 \left(\frac{1}{R} - \frac{1}{R_g} - \frac{1}{R_x}\right),
 \label{outflows:eq:mu-flow}
 \end{align}\end{subequations}
-where~$R_x \equiv -(\grad{X}~\ln 10)^{-1}$ is the scale radius implied by the
-gradient in~$x$.
+where~$R_x \equiv -(\grad{X}~\ln 10)^{-1}$ is the implied scale radius of the
+abundance gradient in~$x$.
+For~$\grad{x} \approx -0.06$ dex/kpc as found
+in~\S~\ref{outflows:sec:empirical},~$R_x \approx 7.2$ kpc.
 \par
 In principle, both~$\gamma_\flow$ and~$\mu_\flow$ should be affected by changes
 in~$\tau_\star$ with radius.

@@ -1,0 +1,19 @@
+
+1. Kiel diagram of our sample
+
+2. Distributions in age, [O/H], and [Fe/H] binned by radius.
+
+3. Measurements of the median age and mode([X/H]) radial gradients.
+
+4. Measurements of mode([X/H]) radial gradients conditioned on stellar age.
+
+5. \mu_flow, \gamma_flow as a function of radius.
+
+6. Median age as a function of radius predicted by solving for \tau_sfh and
+	\tau_rise given different parameter choices.
+
+7. Gradient binned by age for a model that does not reach equilibrium within
+	the disk lifetime.
+
+8. Gradients binned by age for a model with \eta = 0 alongside a model where
+	\eta \propto e^R, each with and without radial flows.
