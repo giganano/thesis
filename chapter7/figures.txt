@@ -12,8 +12,74 @@
 6. Median age as a function of radius predicted by solving for \tau_sfh and
 	\tau_rise given different parameter choices.
 
-7. Gradient binned by age for a model that does not reach equilibrium within
-	the disk lifetime.
+	- If \eta = 0 everywhere, and we know the present-day composition of the
+		ISM as a function of radius, then we can solve directly for \tau_sfh
+		and \tau_rise as a function of radius.
+		From this we can predict the intrinsic age gradient directly.
+		More generally, without mass loading or radial gas flows, the only
+		thing that can produce variations in Z as a function of radius is the
+		shape of the SFH, which gives one a direct mapping between the
+		abundance gradient and the age gradient.
+		Within this framework, the observed abundance gradient predicts summary
+		statistics of ages that are too young compared to the data and do not
+		satisfy the result that the disk is in chemical equilibrium.
+
+
+7. Gradient binned by age for the fiducial model from the previous figure.
+
+	- A disk which is not in chemical equilibrium, such as the one presented
+		previously, predicts an upward evolution of the normalization of the
+		gradient with time.
+		This fails due to two observables: first, this is detectable in the
+		gradient binned by age, and second, this model predicts a present-day
+		gas-phase gradient whose normalization is considerably higher than the
+		stellar gradient, which is not observed.
+		We expect this result to be generic as in any system which is
+		significantly far from equilibrium, the tendency with time will always
+		be toward equilibrium; we have also explored other parameterizations of
+		the SFH to validate this expectation.
+
 
 8. Gradients binned by age for a model with \eta = 0 alongside a model where
-	\eta \propto e^R, each with and without radial flows.
+	\eta \propto e^R, each with and without radial flows. Additional panels
+	showing [O/H] in the gas-phase as a function of time at a selection of
+	radii.
+
+	- When \eta = 0 is combined with radial gas flows, there is significant
+		"reverse evolution" across a broad range of radii in the disk.
+		This ruins agreement between the predicted age-metallicity relation
+		and the data.
+		We expect this result to be generic due to our analytic result that the
+		decline in metallicity due to gas flows grows with the slope of the
+		gradient.
+		That is, as soon as the gradient begins to appear, this sink becomes
+		strong and lowers Z in the outer disk first, which steepens the local
+		gradient there. A positive-feedback loop then ensues, which propogates
+		inward and produces reverse evolution as far in as R ~ few kpc.
+
+	- when \eta \propto e^R, this same effect can occur, but a much larger
+		flow velocity is required.
+
+
+9. \dot{Z}_{x,flow} computed from the \eta = 0 model and the \eta \propto e^R
+model, both with radial flows.
+
+	- Further visualizes the difference that arises in the previous figure,
+		demonstrating that gas flows induce a strong sink if \eta = 0.
+
+
+10. Comparison of gradients binned by age in a inside-out SFH model and a
+	two-infall model, both with \eta \propto e^R, radial migration, and gas
+	flows.
+
+	- With \eta \propto e^R, one can get essentially any gradient they want by
+		specifying the scale radius of the exponential profile, and the details
+		of the SFH become a small effect. This lines up with the simulation
+		result that we should expect a diversity of SFHs in MW-like galaxies
+		and the observational result that there is not a wide range of
+		diversity in abundance gradients. We expect the qualitative results of
+		the two-infall model to hold when extended to the \eta \propto e^R
+		scenario, but quantitatively, the timescales and relative amplitudes of
+		the two infall episodes as well as the delay between them will likely
+		need revised.
+
