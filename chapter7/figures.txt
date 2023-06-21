@@ -20,8 +20,7 @@
 		Associated discussion of why the mode is a useful summary statistic of
 		choice for comparing models and data.
 
-	- For \eta \propto e^R scenario, take the Sanchez (2020) e-folding
-		timescales with \tau_rise = 2 Gyr as in Johnson++21.
+	- Take the fiducial inside-out model from Johnson++21.
 		Note that solving for \tau_sfh given the observed age gradient is an
 		attractive option, though due to the young median ages across a broad
 		range of radii, there is no solution in the \tau_sfh > 0 regime.
@@ -32,11 +31,6 @@
 		the most difficulty predicting young ages (e.g., ~2-3 Gyr as in the
 		outer disk), which are present in the catalog anyway.
 		APOGEE selection function also the principle unknown uncertainty.
-
-	solve for \tau_sfh by taking \tau_rise = 2
-		Gyr and the median age as a function of radius (the linear fit will
-		suffice for this comparison).
-		This will have to be done numerically.
 
 	- Can demonstrate that stellar migration has minimal impact on the summary
 		statistics of our models in either case.

@@ -11,8 +11,9 @@
 % gradients whose slope depend on radius. -0.087 +/- 0.002 dex/kpc in the plane
 % and outside 6 kpc. SDSS-III/APOGEE DR10
 %
-% Nordstroem+04: -0.099 +/- 0.011 dex/kpc for intermediate age populations in
-% GCS (Geneva-Copenhagen Survey; Boeche+13)
+% Nordstroem+04: -0.099 +/- 0.011 dex/kpc for intermediate age (4-6 Gyr)
+% populations in GCS (Geneva-Copenhagen Survey), -0.076 +/- 0.014 for young
+% populations (<1.5 Gyr).
 %
 % Cheng+12: -0.066 +0.030/-0.044 dex/kpc from SEGUE in the midplane.
 %
@@ -25,7 +26,9 @@
 % with asteroseismic observations availabe through CoRoT.
 %
 % Maciel & Quireza 99: extrapolate from PNe to estimate temporal flattening of
-% [O/H] gradient with age (-0.004 dex/kpc/Gyr).
+% [O/H] gradient with age (-0.004 dex/kpc/Gyr). --> constant slope in the
+% inner disk but some flattening in the outer disk --> we see the same thing
+% in our sample.
 
 
 %%% Gas gradients in the literature
@@ -33,8 +36,21 @@
 % C. Esteban, et al., 2022, ApJ, 931, 92
 % J.E. Mendez-Delgado, et al., 2022, MNRAS, 510, 4436
 % J.E. Mendez-Delgado, et al., 2023, Nature, 618, 249
+% J.P. Simspon, et al., 1995, ApJ, 444, 721 -> far infrared lines from HII
+% 	regions.
+% Afflerbach, Churchwell & Werner, 1997, ApJ, 478, 190 -> fine structure lines
+% 	compact HII regions.
+% 
 
 
+
+%%% Simulations
+%
+% Pilkington et al., 2012, A&A, 540, A56: suite of 25 disk in cosmological
+% simulation from RAMSES evolve to self-similar abundance gradients, despite
+% each evolving within the "inside-out" paradigm. Differences driven by the
+% efficiency of star formation as a function of radius --> lines up almost
+% perfectly with the equilibrium picture.
 
 
 
@@ -46,54 +62,110 @@
 \section{Introduction}
 \label{outflows:sec:intro}
 \noindent
+Radial metallicity gradients are ubiquitous in spiral galaxies.
+Within the Milky Way (hereafter MW), direct measurements are possible with
+star-by-star abundances.
+Typical results indicate slopes ranging from~$-0.06$ dex/kpc to somewhat
+steeper values of~$-0.1$ dex/kpc~\citep[e.g.,][]{Nordstroem2004, Cheng2012,
+Frinchaboy2013, Hayden2014, Weinberg2019, Myers2022}.
+% The metallicity-dependent ratio of the first overtone and fundamental periods
+% of mixed-mode Cepheids indicate slopes broadly consistent with the shallower
+% value of~$-0.06$ dex/kpc inferred from direct abundance measurements
+% \citep{Luck2011a, Luck2011b, Genovali2014, Lemasle2018}.
+The interestingly diverse range of inferred slopes arises for a variety of
+reasons, including but not limited to the selection function of the survey,
+systematics introduced by its data reduction pipeline, the age range of the
+sample, and selection criteria in radius and mid-plane
+distance~\citep[see discussion in, e.g.,~\S~5 of][]{Anders2017}.
+\par
+Measurements of metal abundances in HII regions, both in the
+MW~\citep[e.g.,][]{Simpson1995, Afflerbach1997, Esteban2022, MendezDelgado2022,
+MendezDelgado2023} and in surveys of external galaxies
+\citep[e.g.,][]{Belfiore2017, Berg2020, Franchetto2021, Boardman2022}, indicate
+similarly sloped radial gradients.
+These variations in metallicity within galaxies have classically been
+interpreted as evidence for ``inside-out'' disk formation, whereby the outer
+regions form later and on longer timescales than the inner disk (see, e.g.,
+recent review articles by~\citealt{Kewley2019, Maiolino2019}, and
+\citealt{Sanchez2020}).
+In this chapter, we demonstrate with galactic chemical evolution (GCE) models
+that the origin of the abundance gradient in the MW is closely related to the
+parameterization of mass-loaded outflows from the disk.
+
+
 % \begin{itemize}
 
 % 	\item Radial abundance gradients are ubiquitous in spiral galaxies
-% 	{\color{red} (ref some review article)}.
+% 	\citep[e.g.,][]{Simpson1995, Afflerbach1997, Molla1997, Molla1999,
+% 	Belfiore2017, Franchetto2021, Boardman2022}.
 
-% 	\item Within the MW, direct measurements made more precise in recent
-% 	years with the advent of large-scale spectroscopic surveys of the Galactic
-% 	disk.
+% 	\item Within the MW, direct measurements are possible with star-by-star
+% 	abundances, though the results in the literature are interestingly diverse
+% 	For example,~\citet{Nordstroem2004} find that young stellar populations
+% 	($<1.5$ Gyr) in the Geneva-Copenhagen Survey follow a gradient of
+% 	$\grad{Fe} = -0.076$ kpc$^{-1}$, while intermediate age stars ($4 - 6$ Gyr)
+% 	have a slightly steeper gradient of~$\grad{Fe} = -0.099$ kpc$^{-1}$.
+% 	More recently, measurements in open clusters suggest
+% 	$\grad{Fe} \approx -0.07$ dex/kpc~\citep{Frinchaboy2013, Myers2022}.
+% 	\citet{Hayden2014} find a relatively flat gradient within~$R < 6$ kpc, with
+% 	a slope of~$\grad{Fe} = -0.087$ kpc$^{-1}$ at larger radii.
+% 	Variations in the inferred slopes can arise for a number of reasons,
+% 	including but not limited to the selection criteria in radius and mid-plane
+% 	distance, the age range of the sample, the selection function of the survey,
+% 	and the systematics introduced by its data reduction pipeline (see
+% 	discussion in, e.g.,~\S~5 of~\citealt{Anders2017}).
 
+% 	\item The metallicity-dependent ratio of the first overtone and fundamental
+% 	periods of mixed-mode Cepheids provides an additional tracer of radial
+% 	abundance gradients.
+% 	In this manner,~\citet{Luck2011a},~\citet{Luck2011b},
+% 	and~\citet{Genovali2014} find slopes broadly consistent with~$-0.06$
+% 	kpc$^{-1}$, though~\citet{Lemasle2018} infer a slightly shallower slope
+% 	of~$-0.04$ kpc$^{-1}$.
 
-
+% 	\item Negatively sloped abundance gradients have classically been
+% 	interpreted as evidence for ``inside-out'' disk formation, whereby the
+% 	outer regions form later and on longer timescales than the inner disk
+% 	(see, e.g., recent review articles by~\citealt{Kewley2019, Maiolino2019},
+% 	and~\citealt{Sanchez2020}).
+	
 % \end{itemize}
 
 
-Points to hit in the introduction:
-\begin{itemize}
+% Points to hit in the introduction:
+% \begin{itemize}
 
-	\item Radial abundance gradients are ubiquitous in Milky Way-like galaxies.
-	Direct measurements from APOGEE (there are some refs in the migration
-	paper) and other abundance catalogs.
-	Can also be measured from the metallicity-dependent ratio of the first
-	overtone and fundamental periods of mixed-mode Cepheids.
-	\citet{Luck2011a},~\citet{Luck2011b}, and~\citet{Genovali2014} find slopes
-	that are broadly consistent with~$-0.06$ dex/kpc from these data, though
-	\citet{Lemasle2018} infer a slightly lower value of~$-0.04$ dex/kpc.
-	The quantitative differences in the results from different methods are
-	interesting and potentially reflect systematic uncertainties, though it is
-	well understood that stellar abundances span~$\sim$1 order of magnitude
-	over the full extent of the Galactic disk.
+% 	\item Radial abundance gradients are ubiquitous in Milky Way-like galaxies.
+% 	Direct measurements from APOGEE (there are some refs in the migration
+% 	paper) and other abundance catalogs.
+% 	Can also be measured from the metallicity-dependent ratio of the first
+% 	overtone and fundamental periods of mixed-mode Cepheids.
+% 	\citet{Luck2011a},~\citet{Luck2011b}, and~\citet{Genovali2014} find slopes
+% 	that are broadly consistent with~$-0.06$ dex/kpc from these data, though
+% 	\citet{Lemasle2018} infer a slightly lower value of~$-0.04$ dex/kpc.
+% 	The quantitative differences in the results from different methods are
+% 	interesting and potentially reflect systematic uncertainties, though it is
+% 	well understood that stellar abundances span~$\sim$1 order of magnitude
+% 	over the full extent of the Galactic disk.
 
-	\item Despite the attention that the abundance gradient has received in the
-	literature, its origin is poorly understood.
-	{\color{red} $\sim$few sentences:} Hit some of the main citations on this
-	topic and summarize their primary results -- e.g.,~\citet{Sharda2021a,
-	Sharda2021b} on gas-phase gradients and the physics thereof (accretion,
-	advection, etc.);~\citet{Minchev2013, Minchev2014} on the stellar gradient
-	and the notion of inside-out Galaxy formation being the main driver.
+% 	\item Despite the attention that the abundance gradient has received in the
+% 	literature, its origin is poorly understood.
+% 	{\color{red} $\sim$few sentences:} Hit some of the main citations on this
+% 	topic and summarize their primary results -- e.g.,~\citet{Sharda2021a,
+% 	Sharda2021b} on gas-phase gradients and the physics thereof (accretion,
+% 	advection, etc.);~\citet{Minchev2013, Minchev2014} on the stellar gradient
+% 	and the notion of inside-out Galaxy formation being the main driver.
 
-	\item Here we demonstrate with chemical evolution models that the origin
-	of the gradient and its evolution with time are closely related to the
-	strength of mass-loading in outflows from the Galactic disk.
-	Draw on some of the text from Appendix B of the dwarf galaxy archaeology
-	paper to provide an overview of some of the different prescriptions for
-	outflows and mass-loading in the literature.
+% 	\item Here we demonstrate with chemical evolution models that the origin
+% 	of the gradient and its evolution with time are closely related to the
+% 	strength of mass-loading in outflows from the Galactic disk.
+% 	Draw on some of the text from Appendix B of the dwarf galaxy archaeology
+% 	paper to provide an overview of some of the different prescriptions for
+% 	outflows and mass-loading in the literature.
 
-	\item Strength of mass-loading is strongly degenerate with the
-	normalization of elemental yields, making empirical determinations via
-	GCE models difficult.
+% 	\item Strength of mass-loading is strongly degenerate with the
+% 	normalization of elemental yields, making empirical determinations via
+% 	GCE models difficult.
 
-\end{itemize}
+% \end{itemize}
 
