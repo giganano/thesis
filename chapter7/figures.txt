@@ -11,7 +11,12 @@
 
 6. Annuli diagram
 
-7. Familiarize the reader with \eta = 0 versus \eta \propto e^R: gas-phase
+7. Familiarize the reader with \eta = 0 versus \eta \propto e^R: present the
+	SFHs of the inside-out model from Johnson++21 and a simple exponential with
+	e-folding timescales calibrated to predict mode([O/H]) as a function of
+	radius.
+
+8. Familiarize the reader with \eta = 0 versus \eta \propto e^R: gas-phase
 	gradients, MDFs, and [O/H] versus time at a selection of radii for a simple
 	exponential SFH under both scenarios.
 
@@ -36,15 +41,16 @@
 		statistics of our models in either case.
 
 
-8. Take the observed abundance gradient in O and solve for \tau_sfh and
+9. Take the observed abundance gradient in O and solve for \tau_sfh and
 	\tau_rise as a function of radius, then map that onto the median age and
 	compare against APOGEE measurements.
 	Explore parameter variations.
 
 
-9. For the fiducial parameter choice from the previous figure, plot the
+!!!
+10. For the fiducial parameter choice from the previous figure, plot the
 	gradient binned by age to demonstrate that this model does not predict
-	chemical equilibrium.
+	a steady normalization in the stellar gradient.
 
 	- For this parameterization of the SFH, the normalization of the gradient
 		grows with time, which is not observed.
@@ -56,7 +62,7 @@
 		state.
 
 
-10. Take the model from Fig. 9 with \eta = 0 and the model from Fig. 7 with
+11. Take the model from Fig. 9 with \eta = 0 and the model from Fig. 7 with
 	\eta \propto e^R and apply a -1 km/s inward gas flow.
 	Show gradients conditioned on age and the age-metallicity relation in the
 	solar annulus for both models.
@@ -68,21 +74,26 @@
 
 	----- What about \eta = constant?
 
-11. \dot{Z}_{x,flow} and [O/H] as functions of time at a selection of radii
+12. \dot{Z}_{x,flow} and [O/H] as functions of time at a selection of radii
 	from Fig. 10.
 	Hit the reader over the head with the idea that when \eta = 0 models are
 	confronted with radial gas flows, the ensuing reverse evolution has
 	considerably strong effects that are not observed.
 
 
-12. mode of [O/H], [Fe/H], or both as a function of radius for flow velocities
+13. \mu_flow and its components for an inside-out SFH and \eta = 0 model both
+	with flow velocities of -1 km/s.
+
+
+13. mode of [O/H], [Fe/H], or both as a function of radius for flow velocities
 	of 0, -1, -2, and -3 km/s, demonstrating that in the presence of
 	mass-loading that grows with radius, the effect of a radial flow is to
 	lower the metallicity globally and flatten the gradient if the flow is
 	directed inward and the abundance gradient declines monotonically.
 
 
-13. Gradients binned by age for the inside-out SFH, the lateburst SFH, and a
+!!!
+14. Gradients binned by age for the inside-out SFH, the lateburst SFH, and a
 	realization of the two-infall model, both with \eta \propto e^R, stellar
 	migration, and a -1 km/s inward gas flow.
 
@@ -103,4 +114,19 @@
 		In particular, the young ages at large radii are difficult to explain
 		unless there was recent star formation at these radii, which could
 		potentially be explained by the recent starburst model?
+
+	- Does the lateburst model fix the ages of stars? Does it explain the
+		marginal upward evolution in abundances in the outer disk over the past
+		~6 Gyr? Or does the relative constancy of the gradient with time place
+		relatively strict limits on the variability in the Galactic SFH? Is the
+		timescale of the lateburst model simply too recent to explain this
+		observe result? Does it indicate a longer timescale, and that the
+		outerburst model may be more accurate? In the case of the latter, best
+		to swap out the lateburst model for the outerburst model in the figure
+		if this turns out to be the case.
+
+
+!!! Double check that the \eta = 0 models with radial flows still produce
+	realistic surface density gradients in both gas and stars.
+
 
