@@ -5,6 +5,88 @@
 
 3. Measurements of the median age and mode([X/H]) radial gradients.
 
+4. Annuli diagram
+
+5. Familiarize the reader with \eta = 0 versus \eta \propto e^R: present the
+	SFHs of the inside-out model from Johnson++21 and a simple exponential with
+	e-folding timescales calibrated to predict mode([O/H]) as a function of
+	radius.
+
+6. Familiarize the reader with \eta = 0 versus \eta \propto e^R: gas-phase
+	gradients, MDFs, and [O/H] versus time at a selection of radii for a simple
+	exponential SFH under both scenarios.
+
+	- Uses analytic mode calculations to determine \tau_sfh for the \eta = 0
+		scenario.
+		Associated discussion of why the mode is a useful summary statistic of
+		choice for comparing models and data.
+
+	- Take the fiducial inside-out model from Johnson++21.
+		Note that solving for \tau_sfh given the observed age gradient is an
+		attractive option, though due to the young median ages across a broad
+		range of radii, there is no solution in the \tau_sfh > 0 regime.
+		This is a limitation of this SFH parameterization that we return to
+		in discussion of the final figure.
+		Though the M19 age catalog is known to have a dearth of old stars (>10
+		Gyr), which could bias our age gradient results, the rise-fall SFH has
+		the most difficulty predicting young ages (e.g., ~2-3 Gyr as in the
+		outer disk), which are present in the catalog anyway.
+		APOGEE selection function also the principle unknown uncertainty.
+
+	- Can demonstrate that stellar migration has minimal impact on the summary
+		statistics of our models in either case.
+
+7. Solve for \tau_sfh and \tau_rise given the observed gas-phase gradient in
+	the Galaxy assuming \eta = 0.
+
+8. Gas-phase gradients at different snapshots and stellar gradients binned by
+	age compared between \eta \propto e^R and \eta = 0.
+
+9. [O/H] versus time and gas-phase gradients at snapshots in both \eta \propto
+	e^R and \eta = 0.
+
+10. \mu_flow and \mu_flow - \gamma_flow as a function of radius.
+
+11. \dot{Z}_{O,flow} as a function of time in both the \eta = 0 and \eta \propto
+	e^R scenario, demonstrating that flows are indeed a runaway sink in the
+	absence of mass-loaded outflows.
+
+	\mu_flow for oxygen as a function of time in these two cases as well.
+
+13. mode of [O/H], [Fe/H], or both as a function of radius for flow velocities
+	of 0, -1, -2, and -3 km/s, demonstrating that in the presence of
+	mass-loading that grows with radius, the effect of a radial flow is to
+	lower the metallicity globally and flatten the gradient if the flow is
+	directed inward and the abundance gradient declines monotonically.
+
+12. Measurements of mode([X/H]) gradients conditioned on stellar age.
+
+13. slope of [O/H] and [Fe/H] as a function of age.
+
+14. [O/H] gradients at various snapshots for outerburst SFH (locus of burst
+	shifted to ~5 Gyr ago as suggested by Fig. 13) with \eta \propto
+	e^R, a two-infall model with \eta \propto e^R, and a two-infall model with
+	\eta = 0, each with a -1 km/s inward gas flow.
+
+
+
+
+
+
+
+
+
+
+
+
+#####################################
+
+1. Kiel diagram of our sample
+
+2. Distributions in age, [O/H], and [Fe/H] binned by radius.
+
+3. Measurements of the median age and mode([X/H]) radial gradients.
+
 4. Measurements of mode([X/H]) radial gradients conditioned on stellar age.
 
 5. \mu_flow, \gamma_flow as a function of radius.

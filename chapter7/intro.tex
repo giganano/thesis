@@ -43,24 +43,6 @@
 
 
 
-%%% Surveys
-%
-% Goddard et al. (2017), (MaNGA) in their abstract: "This result suggests that
-% the merger history plays a relatively small role in shaping metallicity
-% gradients of galaxies."
-
-
-
-%%% Simulations
-%
-% Pilkington et al., 2012, A&A, 540, A56: suite of 25 disk in cosmological
-% simulation from RAMSES evolve to self-similar abundance gradients, despite
-% each evolving within the "inside-out" paradigm. Differences driven by the
-% efficiency of star formation as a function of radius --> lines up almost
-% perfectly with the equilibrium picture.
-
-
-
 
 
 
@@ -68,17 +50,14 @@
 
 \section{Introduction}
 \label{outflows:sec:intro}
-\noindent
 Radial metallicity gradients are ubiquitous in spiral galaxies.
 Within the Milky Way (hereafter MW), direct measurements are possible with
 star-by-star abundances.
 Typical results indicate slopes ranging from~$\sim$$-0.06$ dex/kpc to somewhat
-steeper values of~$\sim$$-0.1$ dex/kpc~\citep[e.g.,][]{Nordstroem2004, Cheng2012,
-Frinchaboy2013, Hayden2014, Weinberg2019, Myers2022}.
-Though the interestingly diverse range of inferred slopes arises for a variety
-of reasons, such as selection criteria in radius and mid-plane distance (see
-discussion in, e.g.,~\S~5 of~\citealt{Anders2017}), characteristic abundances
-span about an order of magnitude across the full extent of the disk.
+steeper values of~$\sim$$-0.1$ dex/kpc~\citep[e.g.,][]{Nordstroem2004,
+Cheng2012, Frinchaboy2013, Hayden2014, Weinberg2019, Myers2022}.
+As a result, characteristic abundances span about an order of magnitude across
+the full extent of the disk, depending on the slope and the specific element.
 Spectroscopic surveys of low-redshift spirals indicate that the Milky Way is
 typical in this regard.
 For example,~\citet{Goddard2017} and~\citet{Parikh2021} find qualitatively
@@ -87,10 +66,9 @@ similar stellar abundance profiles in MaNGA~\citep{Bundy2015}.
 Abundance measurements in Galactic HII regions indicate that gas-phase
 metallicities also decline with radius~\citep[e.g.,][]{Simpson1995,
 Afflerbach1997, Esteban2022, MendezDelgado2022, MendezDelgado2023}.
-Once again, the MW appears to be similar to other spiral galaxies in this
-regard.
-\citep[e.g.,][]{Belfiore2017, Berg2020, Franchetto2021, Lutz2021,
-Boardman2022}.
+Once again, the interstellar medium (ISM) in the MW appears qualitatively
+similar to other spirals~\citep[e.g.,][]{Belfiore2017, Berg2020,
+Franchetto2021, Lutz2021, Boardman2022}.
 These abundance variations with radius have classically been interpreted as
 evidence for ``inside-out'' disk formation, whereby the outer regions form
 later and on longer timescales than the inner disk (see, e.g.,
@@ -109,10 +87,57 @@ i.e.,~$\dot{M}_\text{out} = \eta \dot{M}_\star$).
 \vice\space(see Chapter~\ref{bursts}) implements the same parameterization.
 However, many GCE models omit mass loading
 \citep[i.e.,~$\eta = 0$; e.g.,][]{Minchev2013, Minchev2014, Spitoni2019,
-Spitoni2020, Spitoni2021, Gjergo2023}.
-Models in both classes have their own successes and shortcomings, making it
-difficult to distinguish between the two empirically.
-
+Spitoni2020, Spitoni2021, Gjergo2023} based on the argument that metals ejected
+from the disk are re-accreted on short timescales and arrive at radii similar
+to where they formed~\citep{Melioli2008, Melioli2009, Spitoni2008, Spitoni2009}.
+\par
+Distinguishing between these classes of models is difficult, because the
+strength of mass-loading is strongly degenerate with the normalization of
+nucleosynthetic yields (see discussion in, e.g.,
+Appendix~\ref{dga:sec:degeneracy}).
+The two are the primary source and sink terms in computing enrichment rates in
+GCE models.
+Consequently, a model with high yields and strong mass loading generally
+has a counterpart model with lower yields and weak or no mass loading that
+makes similar predictions.
+Although observations of galactic winds have provided evidence of mass loading
+\citep[see, e.g., the review by][]{Veilleux2020}, with current
+instrumentation the measurements are conclusive only for relatively extreme
+starburst systems (e.g., in M82,~\citealt{Lopez2020}; in NGC 253,
+\citealt{Lopez2023}; in Mrk 1486,~\citealt{Cameron2021}).
+It remains unclear if the same arguments can be extended to the MW where the
+surface density of star formation is considerably lower.
+\par
+Pinning down the solution with stellar models is difficult as well, because the
+yields are sensitive to many poorly understood processes (e.g., rotationally
+induced mixing, convection and convective boundaries, the mass loss
+prescription; see discussion in, e.g.,~\citealt{Romano2010, Griffith2021b,
+Gil-Pons2022}, and Chapter~\ref{ohno}).
+To add to the complexity, theoretical models propose that many massive stars
+collapse directly to black holes as opposed to ending their lives as core
+collapse supernovae~\citep[CCSNe;][]{OConnor2011, Pejcha2015, Ertl2016,
+Sukhbold2016}.
+The disappearance of a~$\sim$$25$~\msun~red supergiant in NGC 6949 supports
+these models predicting failed SNe~\citep{Gerke2015, Adams2017, Basinger2021}.
+However, even with accurate stellar yields, both theoretical~\citep{Peeples2011,
+Christensen2018} and observational perspectives~\citep{Chisholm2018,
+Cameron2021} suggest that a significant portion of SN ejecta may be immediately
+lost to a hot outflow, lowering effective yields
+\citep[see also][]{Dalcanton2007}.
+\par
+Here, we demonstrate that these two classes of GCE models reach a MW-like
+abundance gradient at significantly different rates.
+As a result, changes in the normalization of the gradient with stellar age are
+a feasible empirical diagnostic.
+We first quantify the total age and stellar abundance gradients in the Galaxy
+in~\S~\ref{outflows:sec:empirical}.
+In~\S~\ref{outflows:sec:gce}, we construct GCE models incorporating the effects
+of stellar migration and radial gas flows to assess the differences
+between~$\eta = 0$ and~$\eta > 0$.
+We then quantify the differences between the two and compare their predictions
+to our observed sample in~\S~\ref{outflows:sec:results}.
+We discuss our results and their implications
+in~\S~\ref{outflows:sec:disc-conc}.
 
 % The metallicity-dependent ratio of the first overtone and fundamental periods
 % of mixed-mode Cepheids indicate slopes broadly consistent with the shallower
