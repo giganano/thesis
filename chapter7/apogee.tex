@@ -1,5 +1,5 @@
 
-\section{Empirical Age and Metallicity Gradients}
+\section{Comparison to Empirical Age and Metallicity Gradients}
 \label{outflows:sec:empirical}
 
 \subsection{The Sample}
@@ -82,7 +82,7 @@ However, we do not expect these systematic effects to impact our
 characterizations of radial age and metallicity gradients (see discussion
 in~\S~\ref{outflows:sec:empirical:caveats} below).
 
-\afterpage{
+% \afterpage{
 \clearpage
 \begin{landscape}
 \begin{figure*}
@@ -100,10 +100,164 @@ Fe.
 \end{figure*}
 \end{landscape}
 \clearpage
-}
+% }
 
-{\color{red} Discussion of Fig.~\ref{outflows:fig:age-xh-dists} and how they
-indicate the radial age and metallicity gradients.}
+Fig.~\ref{outflows:fig:age-xh-dists} shows age and abundance distributions of
+our sample in bins of Galactocentric radius.
+Stars tend to be young in the outer Galaxy, with the age distributions peaking
+around~$\sim$$2-4$ Gyr at~$R_\text{gal} \gtrsim 9$ kpc and a tail toward older
+ages.
+As radius increases, the age distribution shifts to a peak at older ages and a
+skew-negative tail.
+This result is a natural consequence of inside-out Galaxy formation, whereby
+the inner regions of the disk assemble at high redshift and the outer regions
+follow suit on longer timescales~\citep[e.g.,][]{White1991, Bird2013}.
+Abundances follow a similar pattern, shifting from a metal-rich mode and
+skew-negative tail to a metal-poor mode and skew-positive tail with increasing
+radius, a result previously found in APOGEE by~\citet{Hayden2015}.
+These shifts in the characteristic properties of stellar populations are
+indicative of radial gradients in the Galaxy, which we quantify in detail
+below.
+
+
+\subsection{Radial Gradients}
+\label{outflows:sec:empirical:gradients}
+
+\begin{figure*}
+\centering
+\includegraphics[scale = 0.51]{age_gradient.pdf}
+\includegraphics[scale = 0.5]{gradxh.pdf}
+\caption{
+Gradients in stellar age (left) and metallicity (right; red for O and blue for
+Fe).
+Stars denote the median age and mode abundance in 1-kpc bins of radius, with
+dotted lines marking the 16th and 84th percentiles of the distributions in each
+radial bin.
+Solid lines denote the lines of best fit applied to the corresponding summary
+statistics, with the fit parameters summaries in Table X.
+The black line in the right hand panel marks the O abundance gradient in
+Galactic HII regions measured by~\citet{MendezDelgado2022}.
+}
+\label{outflows:fig:gradxh-gradage}
+\end{figure*}
+% Although there is no analytic expression for the peak, given the mean~$\mu$ and
+% standard deviation~$\sigma$ of the corresponding unskewed distribution, an
+% accurate numerical approximation is given by~$\mu + m_0 \sigma$, where
+% \begin{equation}
+% m_0 \equiv \sqrt{\frac{2}{\pi}}
+% \left[
+% \delta - \left(\frac{4 - \pi}{2}\right)
+% \frac{\delta^3}{\pi - 2\delta^2}
+% \right] - \frac{\text{sign}(a)}{2} e^{-2\pi / \left|a\right|}
+% \end{equation}
+% for~$\delta \equiv a / \sqrt{1 + a^2}$ defined in terms of the skewness
+% parameter~$a$~\citep{Azzalini2014}.
+
+To quantify the gradients in our sample, we first sort stars into 1-kpc wide
+bins in Galactocentric radius.
+We then compute the median age~$\tau_{1/2}$ and the 16th and 84th percentiles
+of the distribution by simply sorting the values into ascending order.
+The left panel of Fig.~\ref{outflows:fig:gradxh-gradage} shows the results of
+this procedure.
+Our sample is large enough that bootstrap error estimates indicate statistical
+uncertainties smaller than the points in the figure.
+A linear regression on the medians suggests an age gradient
+of~$\gradage = -0.375 \pm 0.036$ Gyr/kpc with an intercept of~$8.21 \pm 0.31$
+Gyr.
+The median age closely follows this line of best fit at
+$R_\text{gal} \lesssim 9$ kpc, but flattens off in the outer disk and reverses
+sign slightly.
+\par
+Though we quantify the age gradient in terms of the median trend, the mode is
+our summary statistic of choice in quantifying metallicity gradients.
+We discuss our motivation behind this choice in~\S~{\color{red} X}.
+In short, our GCE models suggest that the mode is not significantly affected
+by stellar migration, {\color{red} except perhaps in the outermost regions of
+the disk(?).}
+Consequently, its variations should reflect the enrichment histories of
+different Galactic regions with little contamination.
+Because the mode is a noisy statistic, we fit a skewed normal distribution to
+the MDF in each radial bin and determine the mode by optimization.
+We however estimate the 16th and 84th percentiles by simply sorting the
+abundances into ascending order as we did for the age distributions.
+\par
+The right panel of Fig.~\ref{outflows:fig:gradxh-gradage} shows the resultant
+gradients in~\oh~and~\feh.
+As expected given the MDFs in Fig.~\ref{outflows:fig:age-xh-dists}, stars tend
+to decline in metallicity with increasing radius.
+Linear regressions indicate slopes of~$\grad{O} = -0.062 \pm 0.001$ kpc$^{-1}$
+and~$\grad{Fe} = -0.070 \pm 0.003$ kpc$^{-1}$, in reasonable agreement with
+previous measurements (see discussion in~\S~\ref{outflows:sec:intro} and
+references therein).
+Our GCE models {\color{red} successfully(?)} reproduce the slightly steeper
+slope in Fe; we describe the origin of this result in~\S~{\color{red} X}.
+For comparison, we plot~\citeauthor{MendezDelgado2022}'s
+\citeyearpar{MendezDelgado2022} fit to the O gradient in the ISM as traced by
+Galactic HII regions and accounting for their temperature inhomogeneities.
+
+\begin{figure*}
+\centering
+\includegraphics[scale = 0.55]{gradxh_fixedage.pdf}
+\caption{
+Radial gradients in [O/H] (left) and [Fe/H] (right) conditioned on stellar age
+in 1-Gyr bins according to the legend in the left panel.
+}
+\label{outflows:fig:gradxh-fixed-age}
+\end{figure*}
+
+\input{chapter7/regressions.tablebody.tex}
+
+\begin{figure}
+\centering
+\includegraphics[scale = 0.6]{gradxh_vs_age.pdf}
+\caption{
+The slope of the radial abundance gradient in O (red) and Fe (blue) in 1-Gyr
+bins of stellar age (see discussion
+in~\S~\ref{outflows:sec:empirical:gradients}).
+}
+\label{outflows:fig:gradxh-vs-age}
+\end{figure}
+
+As a central interest of this chapter is to quantify the evolution of the
+Galactic abundance gradient over time, we now repeat these measurements
+conditioned on stellar age.
+In conditioning on both age and radius, we fit for the mode of the MDF only in
+bins containing at least 200 stars.
+This is a sufficiently large sample in each bin such that bootstrap resampling
+indicates statistial uncertainties in the mode comparable to the width of the
+lines plotted ($\lesssim0.1\%$).
+\par
+Fig.~\ref{outflows:fig:gradxh-fixed-age} shows the gradients themselves in each
+age bin.
+We also report slopes and intercepts from linear regressions to the trend in
+each age bin in Table~\ref{outflows:tab:apogee-regression} and visualize the
+inferred gradients in Fig.~\ref{outflows:fig:gradxh-vs-age}.
+To first order, the gradient was established~$\sim$$8 - 9$ Gyr ago.
+In the oldest age bin, the abundance profile is consistent with flat in~\oh~but
+is positively sloped in~\feh.
+The gradient held relatively steady at~$\grad{O} \approx \grad{Fe} \approx
+-0.05$ kpc$^{-1}$ for~$\sim$3 Gyr, then steepened to~$\grad{O} \approx -0.07$
+kpc$^{-1}$ and~$\grad{Fe} \approx -0.09$ kpc$^{-1}$ before gradually returning
+to~$\grad{O} \approx \grad{Fe} \approx -0.05$ kpc$^{-1}$ until the present day.
+Inspection of fig.~\ref{outflows:fig:gradxh-fixed-age} indicates that the
+steepening of the gradient coincides with a decrease in metallicity
+of~$\sim$$0.2 - 0.3$ dex in O and~$\sim$$0.4 - 0.5$ dex in Fe
+at~$R_\text{gal} \gtrsim$8 kpc.
+\par
+{\color{red} Potentially move to discussion section.}
+This result is readily explained by a dilution event due to accretion of
+metal-poor gas in the outer disk.
+A decrease in metallicity indicates that the enrichment rate and by extension
+the SFR are slow relative to the infall rate.
+A burst in star formation driven by the increased resources then naturally
+ensues~\citep[e.g.,][]{Dalcanton2007}.
+The differences in both the magnitude of the dilution in
+Fig.~\ref{outflows:fig:gradxh-fixed-age} and the timescales in
+Fig.~\ref{outflows:fig:gradxh-vs-age} between O and Fe are expected under this
+scenario.
+[O/H] and [Fe/H] decrease by the same amount only the limit that the
+accretion event is instantaneous~\citep{Johnson2020}, and O re-enrichment is
+faster due to the restitution delay of SN Ia Fe yields.
 
 \subsection{Caveats}
 \label{outflows:sec:empirical:caveats}
@@ -143,4 +297,6 @@ Though the~\citet{Mackereth2019b} catalog exhibits a deficit of stars at old
 ages (i.e.,~$\gtrsim 10$ Gyr; see Fig.~\ref{outflows:fig:age-xh-dists} and Fig.
 11 of~\citealt{Leung2023}), this should not be a problem for the present
 chapter since we do not characterize the abundance gradient for such stars.
+\par
+{\color{red} APOGEE selection function.}
 

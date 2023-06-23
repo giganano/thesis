@@ -40,7 +40,14 @@
 % 	regions.
 % Afflerbach, Churchwell & Werner, 1997, ApJ, 478, 190 -> fine structure lines
 % 	compact HII regions.
-% 
+
+
+
+%%% Surveys
+%
+% Goddard et al. (2017), (MaNGA) in their abstract: "This result suggests that
+% the merger history plays a relatively small role in shaping metallicity
+% gradients of galaxies."
 
 
 
@@ -65,34 +72,34 @@
 Radial metallicity gradients are ubiquitous in spiral galaxies.
 Within the Milky Way (hereafter MW), direct measurements are possible with
 star-by-star abundances.
-Typical results indicate slopes ranging from~$-0.06$ dex/kpc to somewhat
-steeper values of~$-0.1$ dex/kpc~\citep[e.g.,][]{Nordstroem2004, Cheng2012,
+Typical results indicate slopes ranging from~$\sim$$-0.06$ dex/kpc to somewhat
+steeper values of~$\sim$$-0.1$ dex/kpc~\citep[e.g.,][]{Nordstroem2004, Cheng2012,
 Frinchaboy2013, Hayden2014, Weinberg2019, Myers2022}.
-% The metallicity-dependent ratio of the first overtone and fundamental periods
-% of mixed-mode Cepheids indicate slopes broadly consistent with the shallower
-% value of~$-0.06$ dex/kpc inferred from direct abundance measurements
-% \citep{Luck2011a, Luck2011b, Genovali2014, Lemasle2018}.
-The interestingly diverse range of inferred slopes arises for a variety of
-reasons, including but not limited to the selection function of the survey,
-systematics introduced by its data reduction pipeline, the age range of the
-sample, and selection criteria in radius and mid-plane
-distance~\citep[see discussion in, e.g.,~\S~5 of][]{Anders2017}.
+Though the interestingly diverse range of inferred slopes arises for a variety
+of reasons, such as selection criteria in radius and mid-plane distance (see
+discussion in, e.g.,~\S~5 of~\citealt{Anders2017}), characteristic abundances
+span about an order of magnitude across the full extent of the disk.
+Spectroscopic surveys of low-redshift spirals indicate that the Milky Way is
+typical in this regard.
+For example,~\citet{Goddard2017} and~\citet{Parikh2021} find qualitatively
+similar stellar abundance profiles in MaNGA~\citep{Bundy2015}.
 \par
-Measurements of metal abundances in the gas-phase, both in the MW
-\citep[e.g.,][]{Simpson1995, Afflerbach1997, Esteban2022, MendezDelgado2022,
-MendezDelgado2023} and in external galaxies~\citep[e.g.,][]{Belfiore2017,
-Berg2020, Franchetto2021, Lutz2021, Boardman2022}, indicate qualitatively
-similar results.
-In general, abundances in the MW and other spiral galaxies decrease by about
-an order of magnitude or slightly more over the full extent of their disks.
-These abundance variations within galaxies have classically been interpreted as
+Abundance measurements in Galactic HII regions indicate that gas-phase
+metallicities also decline with radius~\citep[e.g.,][]{Simpson1995,
+Afflerbach1997, Esteban2022, MendezDelgado2022, MendezDelgado2023}.
+Once again, the MW appears to be similar to other spiral galaxies in this
+regard.
+\citep[e.g.,][]{Belfiore2017, Berg2020, Franchetto2021, Lutz2021,
+Boardman2022}.
+These abundance variations with radius have classically been interpreted as
 evidence for ``inside-out'' disk formation, whereby the outer regions form
-later and on longer timescales than the inner disk (see, e.g., recent review
-articles by~\citealt{Kewley2019, Maiolino2019}, and~\citealt{Sanchez2020}).
+later and on longer timescales than the inner disk (see, e.g.,
+\citealt{Kauffmann1996} and recent review articles by~\citealt{Kewley2019,
+Maiolino2019}, and~\citealt{Sanchez2020}).
+\par
 In this chapter, we demonstrate with galactic chemical evolution (GCE) models
 that the origin and evolution of the abundance gradient in the MW is closely
 related to the strength of mass loading in outflows from the Galactic disk.
-\par
 With regard to this parameter, GCE models in the literature typically fall into
 one of two categories.
 The publicly available GCE codes~\textsc{Omega}~\citep{Cote2017} and
@@ -100,10 +107,17 @@ The publicly available GCE codes~\textsc{Omega}~\citep{Cote2017} and
 mass outflow rate and the star formation rate (SFR;
 i.e.,~$\dot{M}_\text{out} = \eta \dot{M}_\star$).
 \vice\space(see Chapter~\ref{bursts}) implements the same parameterization.
-Other GCE models omit mass loading
+However, many GCE models omit mass loading
 \citep[i.e.,~$\eta = 0$; e.g.,][]{Minchev2013, Minchev2014, Spitoni2019,
 Spitoni2020, Spitoni2021, Gjergo2023}.
+Models in both classes have their own successes and shortcomings, making it
+difficult to distinguish between the two empirically.
 
+
+% The metallicity-dependent ratio of the first overtone and fundamental periods
+% of mixed-mode Cepheids indicate slopes broadly consistent with the shallower
+% value of~$-0.06$ dex/kpc inferred from direct abundance measurements
+% \citep{Luck2011a, Luck2011b, Genovali2014, Lemasle2018}.
 
 
 % (see discussion in Appendix~\ref{dga:sec:degeneracy})
