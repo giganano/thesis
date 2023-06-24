@@ -1,27 +1,140 @@
 
 \section{Galactic Chemical Evolution Models}
 \label{outflows:sec:gce}
-We now construct GCE models to understand the origin of the radial age and
-metallicity gradients characterized in~\S~\ref{outflows:sec:empirical}.
-To this end, we construct models describing the Galaxy disk as a series of
-one-zone models like those in Chapters~\ref{bursts} and~\ref{dga} and
-multi-ring models like those in Chapters~\ref{migration} and~\ref{ohno}.
-Though similar, the former does not incorporate mixing of stellar populations
-while the latter does.
-We also extend these models to incorporate radial gas
-flows~\citep[e.g.,][]{Lacey1985, Bilitewski2012}.
-We present models with numerical solutions predicted by multi-ring GCE models
-of the Galactic disk accounting for both stellar migration and radial flows
-(see~\S~\ref{outflows:sec:gce:multizone}), alongside which we develop an
-analytic framework useful for qualitative interpretation
-(see~\S~\ref{outflows:sec:gce:onezone:analytic}).
+We use GCE models to shed light on the origin of the disk abundance gradient,
+drawing on both one-zone~\citep[e.g.,][]{Tinsley1980, Pagel2009, Matteucci2021}
+and multi-zone models~\citep[e.g.,][]{Schoenrich2009a, Minchev2013,
+Minchev2014, Chen2023}.
+The fundamental assumption of one-zone models is that newly produced metals
+mix instantaneously in the star forming ISM.
+This approximation sacrifices spatial information in exchange for a reduction
+in computational expense, reducing GCE to a system of coupled
+integro-differential equations of mass with time.
+Multi-zone models add some spatial information back to this framework by
+coupling a series of one-zone models via the exchange of gas and stars.
+We focus most of our quantitative discussion on our multi-zone models.
+Rather than detailed solutions, our one-zone models provide an analytic
+framework that is useful for qualitative interpretation.
 
-\subsection{One-Zone Models}
+% To understand the origin of the disk abundance gradient, we use the multi-ring
+% GCE models of Chapter~\ref{migration} and extend them to incorporate radial
+% gas flows~\citep[e.g.,][]{Lacey1985, Bilitewski2012}.
+% We also extend the analytic framework of~\citet{Weinberg2017b} to incorporate
+% the effects of radial gas flows.
+
+% We now construct GCE models to understand the origin of the radial age and
+% metallicity gradients characterized in~\S~\ref{outflows:sec:empirical}.
+% To this end, we construct models describing the Galaxy disk as a series of
+% one-zone models like those in Chapters~\ref{bursts} and~\ref{dga} and
+% multi-ring models like those in Chapters~\ref{migration} and~\ref{ohno}.
+% Though similar, the former does not incorporate mixing of stellar populations
+% while the latter does.
+% We also extend these models to incorporate radial gas
+% flows~\citep[e.g.,][]{Lacey1985, Bilitewski2012}.
+% We present models with numerical solutions predicted by multi-ring GCE models
+% of the Galactic disk accounting for both stellar migration and radial flows
+% (see~\S~\ref{outflows:sec:gce:multizone}), alongside which we develop an
+% analytic framework useful for qualitative interpretation
+% (see~\S~\ref{outflows:sec:gce:onezone:analytic}).
+
+\subsection{Multi-Zone Models}
+\label{outflows:sec:gce:multizone}
+
+\begin{figure}
+\centering
+\includegraphics[scale = 0.5]{chapter7/schematic.pdf}
+\caption{
+A schematic of our multi-ring models illustrating how we handle the flow of gas
+between annuli.
+At each timestep, the fraction of gas that migrates inward is determined from
+the ratio of areas between the [$R$,~$R + v_g \Delta t$) and
+[$R$,~$R + \Delta R$) annuli.
+}
+\label{outflows:fig:schematic}
+\end{figure}
+
+Our multi-ring models are adapted from Chapter~\ref{migration}.
+We describe the extensions made for the sake of this chapter, but otherwise
+refer to~\S~\ref{migration:sec:methods} for further details.
+A shorter summary of this model can also be found
+in~\S~\ref{ohno:sec:multizone}.
+\par
+First and foremost, we extend these models to incorporate the effects of radial
+gas flows.
+Fig.~\ref{outflows:fig:schematic} shows a schematic of our parameterization.
+A natural consequence of accretion, radial gas flows occur due to the specific
+angular momentum of the ISM lowering due to the infalling gas~\citep{Lacey1985,
+Bilitewski2012}.
+Consequently, each annulus generally experiences a net gain from its outer
+neighbor and a net loss to its inner neighbor.
+In the limit of a single, characteristic inward flow velocity~$v_g < 0$, all of
+the gas in the range [$R$,~$R - v_g \Delta t$) will move in one annulus over
+the course of a single~$\Delta t$ timestep.
+The ratio of areas between the [$R$,~$R - v_g \Delta t$) and
+[$R$,~$R + \Delta R$) annuli then determines the rate of loss due to flows.
+The total flow rate, including the rate of gain from an annulus's outer
+neighbor, is then given by
+\begin{equation}\begin{split}
+\dot{M}_{g,\flow} &= M_g(R + \Delta R) \frac{
+	v_g(R + \Delta R)^2 \Delta t - 2 (R + \Delta R) v_g
+}{
+	2 (R + \Delta R) \Delta R + \Delta R^2
+} -
+\\
+&\qquad M_g(R) \frac{
+	v_g(R)^2 \Delta t - 2 R v_g
+}{
+	2 R \Delta R + \Delta R^2
+},
+\label{outflows:eq:mdot-gas-flow-areafrac}
+\end{split}\end{equation}
+where we have converted from the change in mass to a rate by dividing by the
+timestep size.
+The rate of change in the metal mass then follows similarly by multiplying the
+gain term by~$Z_x(R + \Delta R)$ and the loss term by~$Z_x(R)$ for a given
+element~$x$.
+\par
+As in previous chapters, we integrate our models with the
+\textsc{Versatile Integrator for Chemical Evolution} (\vice; see
+Chapter~\ref{bursts}).
+\vice~allows users to specify the fractional rate of gas exchange between any
+pair of zones, so we simply give it the factors related to the area fraction of
+each annulus in equation~\refp{outflows:eq:mdot-gas-flow-areafrac} above.
+The effects of the gas moving between rings then arise naturally in its
+timestep integrator by simply bookkeeping the changes in mass.
+We demonstrate in Appendix~\ref{outflows:sec:coefficients-derivation} that the
+rates of change due to gas flows have mathematically well defined forms,
+which we present and discuss in~\S~\ref{outflows:sec:gce:onezone} below.
+\par
+We modify the stellar migration prescription from Chapter~\ref{migration} as
+well.
+There, we assigned each stellar population in our model an ``analogue'' from
+the~\hsim~hydrodynamical simulation~\citep{Christensen2012, Loebman2012,
+Loebman2014, Zolotov2012, Brooks2014}.
+An analogue is simply a randomly chosen star particle that was born at a
+similar radius and time.
+Here, we perturb stellar populations from their birth radius by a displacement
+randomly sampled from a normal distribution based on arguments in,
+e.g.,~\citet{Frankel2018}.
+Our model is described in more detail by Dubay et al. (2023, in prep.). 
+In short, we fit simple power-laws to the standard deviation of displacement
+as a function of radius and age to the~\hsim~star particles.
+With a stellar population's sampled orbital displacement in hand, it then
+migrates to its implied final radius with a~$\tau^{1/3}$ age dependence as
+opposed to the~$\tau^{1/2}$ dependence from Chapter~\ref{migration}.
+While we simply took the final midplane distance~$\left|z\right|$ from~\hsim~in
+Chapter~\ref{migration}, we randomly sample the midplane distances from
+a~$\text{sech}^2(z / 2h_z)$ distribution, where we also fit simple power-laws
+to~$h_z$ as a function of radius and age from~\hsim.
+
+
+\subsection{Analytic Framework}
 \label{outflows:sec:gce:onezone}
-The fundamental assumption of one-zone GCE models is instantaneous
-mixing of newly produced metals in the star-forming ISM.
-In the presence of accretion, star formation, and outflows, the rate of
-change of the ISM gas mass~$M_g$ can be expressed as
+Our analytic framework is a simple extension of~\citet{Weinberg2017b}. We
+provide an overview of the essential details and quantities involved here and
+refer to their~\S~2 for further details.
+In a one-zone model, the rate of change of the ISM mass~$M_g$ is given by a
+simple sum of source and sink terms
 \begin{equation}\begin{split}
 \dot{M}_g &= \dot{M}_\text{in} - \dot{M}_\star - \dot{M}_\text{out} +
 \dot{M}_r
@@ -29,30 +142,53 @@ change of the ISM gas mass~$M_g$ can be expressed as
 &\approx \dot{M}_\text{in} - \dot{M}_\star(1 + \eta - r),
 \label{outflows:eq:mdot-gas-noflow}
 \end{split}\end{equation}
-where~$\dot{M}_r$ is the rate of recycling from stellar envelopes being
-returned back to the ISM.
-Though this rate in detail depends on the initial mass function
-\citep[IMF; e.g.,][]{Salpeter1955, Kroupa2001, Chabrier2003}, the
-initial-final remnant mass relation~\citep[e.g.,][]{Kalirai2008}, and the
-mass-lifetime relation~\citep[e.g.,][]{Larson1974, Maeder1989, Hurley2000},
-to first order it is quite fast for young stellar populations but then
-slows considerably due to the long lifetimes of low-mass stars.
-As a result, it is sufficiently accurate for the purposes of analytic
-approximations to take a constant value~$r$ that is returned immediately
-after a stellar population forms ($r \approx +0.4$ for
-a~\citealt{Kroupa2001} IMF; see discussion in~\citealt{Weinberg2017b}).
+where~$\dot{M}_\text{in}$ is the accretion rate,~$\dot{M}_\star$ is the SFR,
+$\dot{M}_\text{out} \equiv \eta \dot{M}_\star$ is the outflow rate, and
+$\dot{M}_r \approx r\dot{M}_\star$ is the return rate of recycled stellar
+envelopes to the ISM.
+Though the recycling rate in detail is a complex function of age (see
+discussion in~\S~\ref{bursts:sec:crf}), it is sufficiently accurate for the
+sake of analytic approximations to assume a constant value ($r \approx 4$ for
+a~\citealt{Kroupa2001} IMF).
 \par
-We have also substituted the ``mass-loading factor''
-$\eta \equiv \dot{M}_\text{out} / \dot{M}_\star$ into the above expression,
-which is of central interest to this chapter.
-This parameter describes how much ambient ISM is swept up and lost to outflows
-due to feedback.
-As discussed in~\S~\ref{outflows:sec:intro}, GCE models of the Milky Way
-tend to fall into one of two categories: those with~$\eta = 0$ everywhere
-\citep[e.g.,][]{Spitoni2021}, and those in which it grows exponentially
-with radius~\citep[e.g.,][]{Johnson2021}.
+As discussed in~\S~\ref{outflows:sec:intro}, the ``mass loading factor''
+$\eta$ is of central interest to this chapter.
+This coefficient quantifies how much ambient ISM is swept up and ejected with
+an outflow due to massive star and SN feedback.
+The value of~$\eta$ sets the equilibrium abundance at which metal losses to
+outflows is balanced by production by new stars~\citep[see also][]{Larson1974}.
+A general expression for the equilibrium abundance, which is accurate up to a
+small correction factor for a specific element's delay time distribution (DTD),
+is given by
+\begin{equation}
+Z_{x,\eq} = \frac{y_x}{1 + \eta - r - \tau_\star / \tau_\text{sfh}},
+\label{outflows:eq:zx-eq}
+\end{equation}
+where~\timescale{sfh}~is the e-folding timescale of an exponential SFH,
+and~$\tau_\star \equiv \dot{M}_\star / M_g$ is the inverse of the star
+formation efficiency (SFE).
+The SFE timescale is often referred to as the ``depletion time'' in the
+observational literature on star formation in galaxies, but we retain this
+nomencature as the depletion time of the ISM in these models can be
+significantly shorter than~$\tau_\star$ in the presence of outflows (see
+discussion below).
 \par
-In the present chapter, we focus on the abundances of alpha and
+In Chapter~\ref{migration}, we set the value of~$\eta$ as a function of radius
+so that a radial abundance gradient arose as a consequence of variations in
+the equilibrium abundance.
+Specifically, it follows from equation~\refp{outflows:eq:zx-eq} that
+\begin{equation}
+\eta = \frac{y_x}{Z_{x,\odot}}
+e^{(R - R_\odot) / R_x} + r + \tau_\star / \timescale{sfh} - 1,
+\end{equation}
+where~$R_x = -(\grad{X} \ln 10)^{-1}$ is the scale radius required for a
+gradient slope~\grad{X}.
+In this scenario for the abundance gradient, the slope is~\textit{input} to the
+model as opposed to a prediction, though it can be impacted by, e.g., stellar
+migration and radial gas flows.
+\par
+{\color{red} (stopped edits here)} In the present chapter, we focus on the
+abundances of alpha and
 iron-peak elements whose production is dominated by SNe
 \citep[e.g.,][]{Johnson2019}.
 We take O and Fe as the prototypical elements from these categories, though
@@ -391,7 +527,4 @@ is defined as
 \end{equation}
 We also reserve the derivation of~$f_\text{sfh}$ for the inside-out SFH for
 Appendix~\ref{outflows:sec:gce-supplement}.
-
-\subsection{Multi-Ring Models}
-\label{outflows:sec:gce:multizone}
 
