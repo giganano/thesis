@@ -1,3 +1,84 @@
 
 \section{Results}
 \label{outflows:sec:results}
+
+\subsection{Simplified Examples}
+\label{outflows:sec:simplified-example}
+
+We begin by comparing the fiducial model from Chapter~\ref{migration} with a
+simplified model in which~$\eta = 0$ to highlight generic differences between
+models with and without mass loading.
+In Chapter~\ref{migration}, the strength of mass loading increases
+exponentially with radius according to
+\begin{equation}
+\eta = \frac{\ycc{O}}{Z_{\text{O},\odot}}
+e^{-\grad{O} (\ln 10) (R - R_\odot)} + r - 1.
+\end{equation}
+Under this parameterization, the equilibrium abundance~$Z_\text{O}$ scales with
+radius according to the specified gradient~\grad{O}.
+In the case of~$\eta = 0$, the stellar gradient instead arises out of a handful
+of effects, including less efficient star formation (i.e., higher~$\tau_\star$)
+and a more extended SFH (i.e., high~$\timescale{sfh}$) with increasing radius.
+\par
+We calibrate a model with~$\eta = 0$ everywhere such that the mode of the MDF
+scales with radius according to the gradient we measured
+in~\S~\ref{outflows:sec:empirical:gradients}.
+The distribution in~$Z$ for some element can be expressed as
+\begin{equation}
+\frac{dN}{d \ln Z} = Z \frac{dN / dt}{dZ / dt}
+\propto \frac{\dot{M}_\star}{(\dot{Z} / Z)}.
+\end{equation}
+By differentiating the above expression and making a handful of additional
+chain rule substitutions, it is straightforward to show that
+\begin{equation}
+\frac{d^2N}{d \ln Z^2} \propto \dot{M}_\star
+\left(\frac{Z}{\dot{Z}}\right)^2
+\left(
+\frac{\ddot{M}_\star}{\dot{M}_\star} + \frac{\dot{Z}}{Z} -
+\frac{\ddot{Z}}{\dot{Z}}
+\right).
+\end{equation}
+Herein lies part of the utility of the mode as the summary statistic when the
+underlying model comes from GCE.
+
+
+
+% The distribution in~$Z_\text{O}$ can be expressed as
+% \begin{equation}
+% \frac{dN}{d \ln Z_\text{O}} = Z_\text{O} \frac{dN/dt}{dZ_\text{O}/dt}
+% \propto \frac{\dot{M}_\star}{(\dot{Z}_\text{O} / Z_\text{O})}.
+% \end{equation}
+% By differentiating the above and making a handful of additional chain rule
+% substitutions, it is straightforward to show that
+% \begin{equation}
+% \frac{d^2N}{d \ln Z_\text{O}^2} = \dot{M}_\star
+% \left(\frac{Z_\text{O}}{\dotZ{}})
+% \end{equation}
+
+
+
+
+
+% The O distribution can be expressed as
+% \begin{equation}
+% \frac{dN_\star}{d \ln Z_\text{O}} = Z_\text{O} \frac{dN_\star}{dZ_\text{O}}
+% = Z_\text{O} \frac{\dot{N}_\star}{\dot{Z}_\text{O}}
+% \propto \frac{\dot{M}_\star}{(\dot{Z}_\text{O} / Z_\text{O})}.
+% \end{equation}
+% That is, the MDF can be specified as a parametric function of time given the
+% SFH and the solution to~$Z_\text{O}(t)$.
+% \begin{equation}
+% \frac{d^2N_\star}{d\ln Z_\text{O}^2} = 
+% \end{equation}
+
+
+% The MDF in~\oh~can be expressed as
+% \begin{equation}
+% \frac{dN}{d\oh} = \left(\ln 10\right)
+% Z_\text{O} \frac{dN}{dZ_\text{O}}
+% = \left(\ln 10\right) Z_\text{O} \frac{\dot{N}}{\dot{Z}_\text{O}}
+% \propto \frac{\dot{M}_\star}{\left(\dot{Z}_\text{O} / Z_\text{O}\right)}
+% \end{equation}
+
+
+
