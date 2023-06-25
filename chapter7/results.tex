@@ -38,8 +38,76 @@ chain rule substitutions, it is straightforward to show that
 \frac{\ddot{Z}}{\dot{Z}}
 \right).
 \end{equation}
-Herein lies part of the utility of the mode as the summary statistic when the
-underlying model comes from GCE.
+Herein lies a portion of our motivation for choosing the mode as our summary
+statistic in quantifying abundance gradients.
+From the above expression, it is clear that the peak of the MDF is produced
+when
+\begin{equation}
+\frac{\ddot{M}_\star}{\dot{M}_\star} = \frac{\ddot{Z}}{\dot{Z}} -
+\frac{\dot{Z}}{Z},
+\end{equation}
+allowing one to solve for the time at which the peak is produced to determine
+its position.
+For simple SFHs, such as those in~\S~\ref{outflows:sec:gce:onezone:simple-cases},
+the solution is straightforward since one can express~$Z_\text{O}(t)$
+analytically.
+\par
+In the case of a single exponential SFH, differentiating
+$\dot{M}_\star \propto e^{-t / \tau_\text{sfh}}$ and
+$f_\text{sfh} = 1 - e^{-t / \taupsi{O}}$ (see
+Table~\ref{outflows:tab:f-sfh-forms}) and solving for the time~$t_\text{max}$
+at which the turnover in the MDF is produced yields
+\begin{equation}
+t_\text{max} = -\taupsi{O} \ln \left(1 - \frac{\timescale{sfh}}{\taupsi{O}}
+\right).
+\end{equation}
+Computing~\oh~based on~$f_\text{sfh}(t_\text{max})$ indicates that the mode
+occurs at
+\begin{equation}
+\text{mode([O/H])} = \log_{10}
+\left(\frac{\ycc{O} \timescale{sfh}}{Z_{\text{O},\odot} \tau_\star}\right).
+\end{equation}
+\par
+In principle, the mode will shift due to changes in both~$\tau_\star$ and
+\timescale{sfh}.
+Since this is a deliberately simplified example, we do not use the three
+component power-law~$\dot{\Sigma}_\star - \Sigma_g$ relationship as in the
+$\eta > 0$ comparison case (see discussion below).
+We instead take a single power-law, enabling a straightforward solution
+for~$\tau_\star$ and therefore~\timescale{sfh} as a function of radius.
+By definition,
+\begin{equation}
+\begin{split}
+\Sigma_g \tau_\star^{-1} &\propto \Sigma_g^N
+\\
+\tau_\star & \propto \Sigma_g^{1 - N}
+\\
+& \propto e^{(N - 1) R / R_g},
+\end{split}
+\end{equation}
+where~$N$ is the power-law index of the~$\dot{\Sigma}_\star - \Sigma_g$
+relation and~$R_g$ is the scale radius of the gas disk.
+Combining terms, solving for~$\timescale{sfh}$, and replacing mode([O/H]) with
+the desired abundance gradient yields the following relationship between
+\timescale{sfh} and~$R$:
+\begin{equation}
+\tau_\text{sfh} = \tau_{\star,0} \frac{Z_{\text{O},\odot}}{\ycc{O}}
+\exp\left[
+(N - 1)\frac{R}{R_g} + \grad{O}(\ln 10)(R - R_\odot)
+\right],
+\end{equation}
+where~$\tau_{\star,0}$ simply sets the value of~$\tau_\star$ at~$R = 0$,
+$Z_{\text{O},\odot}$ is the O abundance in the Sun, and~$R_\odot = 8$ kpc is
+the Galactocentric radius of the Sun.
+We take~$\grad{O} = -0.06$ kpc$^{-1}$ from our measurements
+in~\S~\ref{outflows:sec:empirical:gradients}.
+We adopt~$N = 1.5$ based on the global SFRs and surface densities of
+low-redshift star forming spirals~\citep{Kennicutt1998}.
+Based on the presence of the central molecular zone in the inner few hundred
+pc of the Galaxy~\citep[e.g.,][]{Morris1996, Dahmen1998, PiercePrice2000,
+Hatchfield2020} and~\citeauthor{Leroy2008}'s~\citeyearpar{Leroy2008}
+measurement of~$\tau_\star \approx 2$ Gyr for purely molecular gas, we
+attribute this value to~$\tau_{\star,0}$.
 
 
 
