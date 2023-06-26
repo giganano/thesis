@@ -1,13 +1,217 @@
 
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\begin{doublespace}
+
 \chapter{Introduction}
 \label{main:sec:intro}
 
-Galactic Chemical Evolution!
-\citet{Johnson2020} did something cool, and then~\citet{Johnson2021} did
-something even cooler.
-Also cool is~\citet{Johnson2022b}.
-Okay call me doctor now, kthxbye.
+\textit{``We are made of star stuff.''}
+Carl Sagan meant it literally in this famous quote.
+When the universe was only a few minutes old, nuclear fusion in the hot plasma
+left behind only hydrogen, helium, and trace amounts of lithium.
+Originally proposed by the landmark work of~\citet{Alpher1948}, this process
+of~\textit{Big Bang Nucleosynthesis} produced only the lightest elements on the
+periodic table.
+Everything else, from the carbon in our bodies and the oxygen we breathe to the
+silicon in our computers and the iron in our infrastructure, was synthesized in
+stars and supernovae.
+\par
+Supported against their own gravity by nuclear fusion in their hot, dense cores,
+stars change their own chemical compositions over time.
+As stars approach the ends of their lives, they fuse progressively heavier
+nuclei before either ejecting their outer envelopes or exploding as supernovae.
+Early studies of the origin of the elements applied the principles of nuclear
+physics to the astrophysical conditions in which fusion reactions arise, a
+review of which can be found in the seminal work of~\citet*{Burbidge1957}.
+This connection became the foundation of stellar nucleosynthesis, which
+describes the origin of the remaining stable elements on the periodic table.
+\par
+Being the sites of star formation in the universe, galaxies facilitate this
+whole process.
+When a star dies and disperses its envelope back to the interstellar medium
+(ISM), the material is composed of heavier nuclei than when the star formed.
+This material then mixes with the ISM gas, and once cooled, it can be
+incorporated into new stars, which then inherit the chemical composition of
+their natal gas clouds.
+Through this so-called~\textit{baryon cycle}, galaxies are like petri dishes of
+their own nuclear reactions.
+In the same way that various microbes produce different outcomes when grown in
+a petri dish, the various evolutionary pathways traced by galaxies produce
+different chemical compositions.
+\par
+This connection between galaxies, stars, and nuclear reactions is the basis of
+galactic chemical evolution (GCE).
+The GCE ansatz combines stellar birth rates with the initial mass distribution
+of stars~\citep[e.g.,][]{Salpeter1955, Kroupa2001, Chabrier2003}, their
+lifetimes~\citep[e.g.,][]{Larson1974, Maeder1989, Hurley2000}, and elemental
+yields due to nuclear fusion~\citep[e.g.,][]{Woosley1995, Iwamoto1999,
+Karakas2016} to estimate production rates of various nuclear species over a
+galaxy's lifetime.
+The simplest GCE models are commonly referred to as~\textit{one-zone} models,
+which assume that elemental yields from stars and supernovae are instantaneously
+mixed through the ISM and are immediately available for star formation.
+This approximation reduces GCE to a system of coupled integro-differential
+equations.
+\par
+Early investigations with one-zone models described the Milky Way as a
+``closed-box,'' in which there was no ongoing accretion or ejection of material
+and all of its mass was present and available for star formation at the time of
+its initial collapse.
+These models predicted what would come to be known as the ``G-dwarf problem,''
+in which the number of stars with metal abundances greater than that of the Sun
+was drastically overpredicted.
+The solution arose by relaxing the closed-box assumption, providing an early
+indication that ongoing accretion and ejection play significant roles in
+shaping a galaxy's chemical enrichment history~\citep[e.g.,][]{Larson1972,
+Chiosi1980}.
 
-% Look into citation formatting to make sure BibTeX is doing what the
-% grad school wants formatting-wise.
+\section{Spectroscopic Surveys}
+\label{main:sec:intro:surveys}
+
+The detailed chemical compositions of stars can be measured with
+\textit{spectroscopy}, which breaks up light into its component wavelengths.
+Due to the quantized nature of electron energy levels, atoms emit and absorb
+light at specific wavelengths that can be measured in a laboratory.
+Measurements of a star's chemical composition are then feasible by comparing
+these absorption and emission lines in a star's spectrum with radiative
+transfer models of its photosphere.
+Statistical samples of stars, their abundances, and their ages then provide
+empirical tests with which to distinguish between GCE models and shed light on
+a galaxy's evolutionary history.
+\par
+Modern spectroscopic surveys, such as LAMOST\footnote{
+	Large sky Area Multi-Object fibre Spectroscopic Telescope.
+}\space\citep{Luo2015}, GALAH\footnote{
+	GALactic Archaeology with Hermes.
+}\space\citep{DeSilva2015, Martell2017},~\gaia-ESO\footnote{
+	European Southern Observatory.
+}\space\citep{Gilmore2012}, and
+APOGEE\footnote{
+	Apache Point Observatory Galaxy Evolution Experiment, conducted as part of
+	the third~\citep{Eisenstein2011} and fourth~\citep{Blanton2017} iteration
+	of the Sloan Digital Sky Survey.
+}\space\citep{Majewski2017}, have mapped the chemical abundance structure of
+the Milky Way in unprecedented detail.
+APOGEE in particular has achieved excellent coverage, with measurements of 15
+or more elemental abundances in over 650,000 stars in the Galactic disk, bulge,
+and halo in its final data release~\citep{Abdurrouf2022}.
+This depth is achieved primarily by targeting luminous red giant stars
+accessible at large distances~\citep{Zasowski2013, Zasowski2017, Beaton2021,
+Santana2021} and measuring their spectra at near-infrared wavelengths, which
+are less susceptible to dust obscuration
+($1.51 - 1.70~\mu$m;~\citealp{Wilson2019}).
+\par
+APOGEE has also measured spectra of resolved stars in the Milky Way's satellite
+dwarf galaxies, such as the Large and Small Magellanic Clouds, Fornax, and the
+Sagittarius Dwarf Galaxy~\citep[see, e.g.,][]{Hasselquist2021}.
+While some of these systems have remained mostly intact, others have been
+disrupted and now make up the Milky Way's~\textit{stellar halo}.
+This diffuse, kinematically incoherent population is comprised in small part by
+stars that formed when the Milky Way disk initially collapsed gravitationally
+(i.e., the~\textit{in-situ} halo), but mostly by these accreted populations
+from dwarf galaxies now tidally disrupted~\citep[e.g.,][]{Naidu2020}.
+In addition to APOGEE, the H3 survey\footnote{
+	Hectochelle in the Halo at High resolution.
+}\space\citep{Conroy2019}, whose science goals focus on the stellar halo
+specifically, has played a key role in shaping the community's understanding of
+this recent hierarchical assembly.
+
+\section{Stellar Yields}
+\label{main:sec:intro:yields}
+
+\section{Dwarf Galaxies and the Stellar Halo}
+\label{main:sec:intro:dwarfs}
+
+Dwarf galaxies are much more numerous than massive spirals like the Milky Way
+and Andromeda~\citep[e.g.,][]{Bell2003, Baldry2012}.
+In the local universe, their prevalence allows them to be studied in
+statistical samples with resolved stars.
+GCE models of these systems are straightforward as classical one-zone models
+are able to explain the data reasonably well~\citep[see, e.g.,][]{Kirby2011,
+delosReyes2022}.
+These systems tend to have bursty, episodic star formation histories
+\citep[e.g.,][]{Weisz2014a} that are truncated, or ``quenched'' due to cosmic
+background radiation or an interaction with a nearby, more massive galaxy like
+the Milky Way~\citep[e.g.,][]{Weisz2014b, Weisz2015, Naidu2022}.
+\par
+{\color{red}
+Something about how bursts in star formation should impact their chemical
+abundance structure.
+Then something about how the cessation in star formation should leave an
+imprint in the abundances of the stars -- where the metallicity distributions
+cut off.
+}
+
+\section{The Milky Way Disk}
+\label{main:sec:intro:mw}
+
+Our location within the Milky Way is both a blessing and a curse.
+On the one hand, the Galaxy can be studied with many more resolved stars than
+can be measured in external galaxies.
+On the other hand, dust obscuration makes it difficult to access far away stars
+in the plane of the Galaxy.
+Empirically determining the Milky Way's detailed morphology remains a topic of
+active inquiry in the literature~\citep[e.g.,][]{Nataf2013, Bovy2019,
+Shen2020}, a problem which would be solved quickly if we could simply observed
+the Galaxy from the outside.
+\par
+GCE models of the Milky Way are inherently more complicated than in dwarf
+galaxies.
+While early investigations used one-zone models to describe the Galaxy,
+dynamical interactions with the bar and spiral arms can change the orbital
+radii of stars and carry them to a region of the Galaxy far from where they
+formed, a process known as~\textit{stellar migration}
+\citep[e.g.,][]{Sellwood2002, Schoenrich2009a}.
+This effect prompted the development of so-called~\textit{multi-zone} models,
+which add spatial information back into the instantaneous mixing ansatz by
+coupling a series of one-zone models through the exchange of stars
+\citep[e.g.,][]{Matteucci1989, Wyse1989, Prantzos1995}.
+\par
+Results within this paradigm have provided conflicting results.
+Models have been able to reproduce various characteristics of the disk abundance
+structure with both continuous~\citep[e.g.,][]{Chen2023} and episodic star
+formation histories~\citep[e.g.,][]{Spitoni2021}.
+Distinguishing between these models is challenging due to their dependence on
+many uncertain processes (e.g., nucleosynthetic yields, stellar migration, the
+star formation history of the Galaxy).
+Measurement uncertainty exacerbates these difficulties; stellar ages are
+particularly uncertain~\citep[e.g.,][]{Soderblom2010, Chaplin2013}, and
+spectral synthesis is often a source of considerable systematic error
+\citep[e.g.,][]{Joensson2018, Eilers2022}.
+Suffice it to say that the evolutionary history of our own Galaxy remains an
+enigma.
+
+\section{Bridging the Gap: Trends with Galaxy Mass}
+\label{main:sec:inro:snrates}
+
+The discussion in~\S~\ref{main:sec:intro:mw} and~\S~\ref{main:sec:intro:dwarfs}
+above shed light on variations in chemical abundances between dwarf galaxies
+and the Milky Way, indicative of correlations with galaxy mass.
+In particular, the mass-metallicity relation, the mass-metallicity gradient
+relation, the mass-metallicity-$\alpha$ relation.
+SN surveys have shed light on the potential origin of some of these relations,
+finding higher specific rates at low stellar masses.
+An understanding of these rates should in principle have implications for
+enrichment histories as a function of galaxy mass.
+
+\section{The Scope of this Dissertation}
+\label{main:sec:intro:scope}
+
+The present era of large data sets provided by high-resolution spectroscopic
+surveys and increasingly powerful computational tools enables us to reveal the
+enrichment histories of galaxies in unprecedented detail.
+What are the evolutionary histories of galaxies, and how does this relate to
+their observed and intrinsic properties?
+What are the relative yields of different elements from stars and supernovae?
+GCE models contain information on all of these processes.
+\par
+In this dissertation, I combine powerful theoretical and observational tools
+to improve the understanding of galaxy evolution through abundance modeling.
+In Chapter blah I do blah blah blah, and in the next chapter blah I do a
+different blah blah blah.
+Check it out!
+
+\end{doublespace}
+\end{document}
 
