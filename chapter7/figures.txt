@@ -37,23 +37,26 @@
 		statistics of our models in either case.
 
 7. Solve for \tau_sfh and \tau_rise given the observed gas-phase gradient in
-	the Galaxy assuming \eta = 0.
+	the Galaxy assuming \eta = 0, plot median age versus radius for different
+	parameter choices.
 
-8. Gas-phase gradients at different snapshots and stellar gradients binned by
-	age compared between \eta \propto e^R and \eta = 0.
+8. For fiducial parameter choice from previous figure, plot stellar gradient
+	binned by age and overlay present-day gas-phase gradient as black dotted
+	line.
 
-9. [O/H] versus time and gas-phase gradients at snapshots in both \eta \propto
-	e^R and \eta = 0.
+9. Take the same model and apply a v_g = -1 km/s inward radial flow. Show the
+	same figure but for the \eta = 0 and \eta \propto e^R scenario from J+21.
 
-10. \mu_flow and \mu_flow - \gamma_flow as a function of radius.
+10. [O/H] versus time at a selection of radii from both models in the prevous
+	figure.
 
-11. \dot{Z}_{O,flow} as a function of time in both the \eta = 0 and \eta \propto
+	\dot{Z}_{O,flow} as a function of time in both the \eta = 0 and \eta \propto
 	e^R scenario, demonstrating that flows are indeed a runaway sink in the
 	absence of mass-loaded outflows.
 
 	\mu_flow for oxygen as a function of time in these two cases as well.
 
-13. mode of [O/H], [Fe/H], or both as a function of radius for flow velocities
+11. mode of [O/H], [Fe/H], or both as a function of radius for flow velocities
 	of 0, -1, -2, and -3 km/s, demonstrating that in the presence of
 	mass-loading that grows with radius, the effect of a radial flow is to
 	lower the metallicity globally and flatten the gradient if the flow is
