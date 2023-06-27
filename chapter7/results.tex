@@ -3,7 +3,7 @@
 \label{outflows:sec:results}
 
 \subsection{Radial Gradients}
-\label{outflows:sec:empirical:gradients}
+\label{outflows:sec:results:gradients}
 
 Fig.~\ref{outflows:fig:age-xh-dists} shows age and abundance distributions of
 our sample in bins of Galactocentric radius.
@@ -28,7 +28,7 @@ of radial gradients, which we quantify in more detail below.
 \includegraphics[scale = 0.55]{age_xh_dists.pdf}
 \caption{
 Age (left) and abundance (middle and right) distributions from our APOGEE
-sample (see discussion in~\S~\ref{outflows:sec:empirical:apogee}) at different
+sample (see discussion in~\S~\ref{outflows:sec:sample}) at different
 radii.
 Within each 2-kpc wide bin in radius, we box-car smooth the distribution with a
 width of~$\Delta \tau = 1$ Gyr in age and~$\Delta$[X/H] = 0.2 for both O and
@@ -108,7 +108,7 @@ The two O gradients are consistent within their~$1\sigma$ uncertainties.
 % against our models in~\S~\ref{outflows:sec:results}.
 
 \subsection{Evolution of the Abundance Gradient}
-\label{outflows:sec:empirical:evolution}
+\label{outflows:sec:results:evolution}
 
 \begin{figure*}
 \centering
@@ -128,7 +128,7 @@ in 1-Gyr bins according to the legend in the left panel.
 \caption{
 The slope of the radial abundance gradient in O (red) and Fe (blue) in 1-Gyr
 bins of stellar age (see discussion
-in~\S~\ref{outflows:sec:empirical:gradients}).
+in~\S~\ref{outflows:sec:results}).
 }
 \label{outflows:fig:gradxh-vs-age}
 \end{figure}
@@ -147,41 +147,33 @@ age bin.
 We also report slopes and intercepts from linear regressions to the trend in
 each age bin in Table~\ref{outflows:tab:apogee-regression} and visualize the
 inferred gradients in Fig.~\ref{outflows:fig:gradxh-vs-age}.
-To first order, the gradient was established~$\sim$$8 - 9$ Gyr ago.
-In the oldest age bin, the abundance profile is consistent with flat in~\oh~but
-is positively sloped in~\feh.
+To first order, the gradient was established~$\sim$$8 - 9$ Gyr ago, with an
+abundance profile consistent with flat in~\oh~but positively sloped
+in~\feh~immediately prior.
 The gradient held relatively steady at~$\grad{O} \approx \grad{Fe} \approx
 -0.05$ kpc$^{-1}$ for~$\sim$3 Gyr, then steepened to~$\grad{O} \approx -0.07$
 kpc$^{-1}$ and~$\grad{Fe} \approx -0.09$ kpc$^{-1}$ before gradually returning
 to~$\grad{O} \approx \grad{Fe} \approx -0.05$ kpc$^{-1}$ until the present day.
-Inspection of fig.~\ref{outflows:fig:gradxh-fixed-age} indicates that the
+Inspection of Fig.~\ref{outflows:fig:gradxh-fixed-age} indicates that the
 steepening of the gradient coincides with a decrease in metallicity
 of~$\sim$$0.2 - 0.3$ dex in O and~$\sim$$0.4 - 0.5$ dex in Fe
 at~$R_\text{gal} \gtrsim$8 kpc.
-\par
-{\color{red} Potentially move to discussion section.}
-This result is readily explained by a dilution event due to accretion of
-metal-poor gas in the outer disk.
-A decrease in metallicity indicates that the enrichment rate and by extension
-the SFR are slow relative to the infall rate.
-A burst in star formation driven by the increased resources then naturally
-ensues~\citep[e.g.,][]{Dalcanton2007}.
-The differences in both the magnitude of the dilution in
-Fig.~\ref{outflows:fig:gradxh-fixed-age} and the timescales in
-Fig.~\ref{outflows:fig:gradxh-vs-age} between O and Fe are expected under this
-scenario.
-[O/H] and [Fe/H] decrease by the same amount only the limit that the
-accretion event is instantaneous~\citep{Johnson2020}, and O re-enrichment is
-faster due to the restitution delay of SN Ia Fe yields.
+These fluctuations are readily explained by GCE models invoking chemical
+equilibrium combined with a dilution event (see discussion
+in~\S~\ref{outflows:sec:disc-conc}).
+Although infinitely small variations are theoretically possible as a
+consequence of the Milky Way's detailed SFH, the APOGEE selection function and
+the substantial uncertainties in stellar age measurements (see discussion
+in~\S~\ref{outflows:sec:results:caveats}) make it difficult to assess the
+significance.
 
 \subsection{Caveats}
-\label{outflows:sec:empirical:caveats}
+\label{outflows:sec:results:caveats}
 Since our sample was produced by training~\textsc{AstroNN}'s deep learning
 capabilities on APOGEE spectra, our ages may be biased by known correlations
 with abundances (e.g., the age-[O/Fe] relation,~\citealt{Feuillet2019}).
-To assess the impact of this decision, we have remade our measurements
-in~\S\S~\ref{outflows:sec:empirical:apogee} and~\ref{outflows:sec:results}
-with the~\citet{Leung2023} age catalog.
+To assess the impact of this decision, we have remade our measurements with
+the~\citet{Leung2023} age catalog.
 They mitigate this potential issue by compressing the spectra into lower
 dimensional representations of themselves (i.e., a~\textit{latent space}) using
 a variational encoder-decoder algorithm~\citep[e.g.,][]{LeCun2015}.
@@ -223,6 +215,9 @@ stellar properties from isochrones and an initial mass function (IMF; e.g.
 \citealt{Kroupa2001, Chabrier2003}), which then results in the selection
 fraction as a function of Galactic position, metallicity, and age
 \citep[see also][]{Mackereth2020}.
+In the case of our gradient measurements, the systematic uncertainty of the
+selection function casts doubt on the significance of the dilution event
+noted in Fig.~\ref{outflows:fig:gradxh-fixed-age}.
 
 
 % \subsection{Simplified Examples}

@@ -18,41 +18,145 @@
 \section{Discussion and Conclusions}
 \label{outflows:sec:disc-conc}
 
-The evolution of the metallicity gradient traced by APOGEE favors GCE models in
-which it arises due to a decrease in the equilibrium abundance with radius.
-In this scenario, the equilibrium is set by the mass loading factor~$\eta$,
-which describes the efficiency with which ISM gas is swept up and ejected due
-to feedback.
-We therefore expect variations in the gravitational potential with Galactic
-region to establish this connection between~$\eta$ and radius.
+We have characterized stellar age and abundance gradients in the MW as
+traced by red giants in APOGEE.
+As expected from inside-out growth in the~$\Lambda$CDM paradigm
+\citep[e.g.,][]{White1991}, inner Galaxy stars tend to be old ($\sim$$6 - 10$
+Gyr), and outer Galaxy stars tend to be young ($\sim$$2 - 6$ Gyr, see
+Fig.~\ref{outflows:fig:age-xh-dists}).
+In qualitative agreement with previous studies~\citep[e.g.,][]{Cheng2012,
+Frinchaboy2013, Hayden2015, Myers2022}, characteristic stellar metallicities
+decrease with increasing radius.
+Distributions in both quantities are skew-negative in the inner Galaxy and
+skew-positive in the outer Galaxy.
 \par
-Classically interpreted as a consequence of inside-out galaxy growth
-\citep[e.g.,][]{Kauffmann1996}, this interpretation reframes abundance
-gradients as an equilibrium phenomenon whose slope traces the density profile
-of the system.
-The first principles model of~\citet{Sharda2021b} makes similar predictions.
-Once it is near equilibrium, the ISM loses memory of its initial conditions,
-and our APOGEE sample indicates this first occurred~$\sim$$9$ Gyr ago (see
-discussion in~\S~{\color{red} X}).
-The effects of inside-out galaxy growth on the MW abundance gradient should
-therefore be locked up in age~$\gtrsim$ 10 Gyr stars and at
-redshift~$z \gtrsim$ 1.5 for external galaxies.
+The median stellar age is~$\sim$8 Gyr in the inner~$\sim$few kpc and decreases
+steadily at a slope of~$\nabla\tau_{1/2} = -0.375 \pm 0.036$ Gyr/kpc.
+At~$R \gtrsim 10$ kpc, the gradient flattens off and inverts sign slightly,
+with the youngest median ages of~$\sim$$3.5$ Gyr occurring at~$\sim$$11 - 12$
+kpc.
+Stellar abundances span nearly exactly one order of magnitude across the full
+extent of the disk.
+The O gradient at~$\grad{O} = -0.062 \pm 0.001$ kpc$^{-1}$ is slightly
+shallower than that of Fe at~$\grad{Fe} = -0.070 \pm 0.003$ kpc$^{-1}$.
+This measurement of~\grad{O} is also broadly consistent with measurements
+derived from Cepheid variables~\citep{Luck2011a, Luck2011b, Genovali2014,
+Lemasle2018}.
+Our estimates of these gradients have small statistical uncertainties due to
+the large sample size, though the APOGEE selection function introduces a
+significant source of systematic uncertainty which we have not quantified
+(see discussion in~\S~\ref{outflows:sec:results:caveats}).
 \par
-If this equilibrium model is accurate, then due to the relationship between
-a galaxy's mass and its scale radius {\color{red} (citation)}, a secondary
-correlation between mass and the slope of the metallicity gradient would be
-expected.
-Such a relationship is indeed observed, though there are indications that the
-trend with mass may be complicated~\citep{Belfiore2017, Maiolino2019}.
-However, the correlations are weak and the measurements are uncertain
-\citep{Yuan2013, Acharyya2020, Poetrodjojo2021}, though perhaps difficulties
-are not surprising if it is indeed a secondary correlation.
-From a simulations perspective,~\citet{Pilkington2012} find that 25 disk
-galaxies in cosmological simulations show similar abundance gradients, but
-each evolved to this self-similarity differently, as expected if chemical
-equilibrium quickly washes out the effects of the SFH.
-Based on full spectrual fitting of MaNGA galaxies,~\citet{Goddard2017} also
+We then conditioned stars on their ages to measure the evolution in the
+abundance gradient over time.
+We find that a gradient closely resembling that of the present day was
+established as long as~$\sim$9 Gyr ago in both \space \oh \space and \space \feh
+\space across essentially the entire disk, with a positive slope in Fe and
+flat in O immediately prior.
+This result is broadly consistent with Imig et al.'s (2023, in prep.) dissection
+of the stellar gradient with ages estimated from C/N ratios.
+Having originally made these measurements with the~\textsc{AstroNN} APOGEE DR17
+value added catalog~\citep{Mackereth2019b}, we successfully reproduced this
+result with the more recent~\citet{Leung2023} age catalog, indicating that
+systematics in the age and abundance determination do not impact this
+conclusion (see discussion in~\S~\ref{outflows:sec:results:caveats}).
+There are only small perturbations after the gradient was initially set (see
+Fig.~\ref{outflows:fig:gradxh-fixed-age} and discussion
+in~\S~\ref{outflows:sec:results}), the significance of which is unclear given
+the systematic uncertainty of the APOGEE selection function.
+If significant, the fluctuations likely reflect the detailed SFH of the disk,
+in particular indicating an accretion event in the outer disk about~$\sim$6 Gyr
+ago.
+\par
+This time evolution -- or lack thereof -- in the Galaxy's metallicity gradient
+is readily explained qualitatively by GCE models which invoke equilibrium
+abundances.
+In this scenario, solar and even super-solar abundances can be achieved within
+the first couple Gyrs of chemical enrichment, after which there is little to no
+evolution~\citep[e.g.,][]{Larson1972, Weinberg2017b}.
+The gradient itself arises in this scenario out of changes in the
+equilibrium abundance as in Chapter~\ref{migration}, though this detail of that
+model was assumed rather than deduced from data.
+GCE models in the literature in which abundances do not reach an equilibrium
+instead predict an upward evolution in the normalization of the gradient with
+time (see, e.g., Fig. 2 of~\citealt{Minchev2013}).
+\par
+The O gradient we measure is also consistent within~$1\sigma$
+with~\citet{MendezDelgado2022}'s \citet{MendezDelgado2022} measurement in the
+gas-phase, in which they carefully accounted for the temperature
+inhomogeneities within HII regions.
+This agreement is expected under the equilibrium scenario~\citep{Weinberg2017b}.
+The decrease in abundances in the outer disk~$\sim$6 Gyr ago, if significant,
+is readily explained by dilution due to accretion of metal-poor gas.
+In this scenario, the infalling gas dilutes the ISM metallicity, after which O
+and Fe re-enrich on different timescales in the ensuing burst
+in star formation (e.g., Chapter~\ref{bursts}).
+\par
+Classically interpreted as a consequence of inside-out Galaxy growth
+\citep{Kauffmann1996}, this equilibrium interpretation is a significant
+challenge to the understanding of abundance gradients.
+In the Chapter~\ref{migration} scenario, ISM gas is more readily swept up due
+to feedback and ejected in an outflow with increasing radius.
+It is also possible that a significant portion of SN ejecta is lost directly to
+an outflow~\citep{Dalcanton2007, Peeples2011, Christensen2018, Chisholm2018,
+Cameron2021}, and this fraction could in principle decrease with radius in a
+corresponding fashion.
+Under either interpretation, we expect the slope of a spiral galaxy's
+abundance gradient to trace the slope of its gravitational potential well.
+\par
+We clarify that this is not a rebuttle against inside-out galaxy growth.
+The evidence suggests that most of the Galactic disk reached an approximate
+equilibrium abundance as long as 9 Gyr ago, after which GCE models would
+suggest that it simply loses memory of its initial conditions (see discussion
+in, e.g.,~\citealt{Weinberg2017b}).
+We infer that the effects of inside-out growth are simply washed away and
+locked up in~$\gtrsim$9 Gyr old stars.
+This argument would suggest that the detailed SFH should play a minimal role
+in shaping the gradient at late times, which is both predicted from simulations
+and supported observationally.
+\citet{Pilkington2012} demonstrate that a compilation of 25 disk galaxies from
+cosmological simulations develop similar abundance gradients despite
+significantly different evolutionary histories.
+Based on full spectral fitting of MaNGA galaxies,~\citet{Goddard2017} also
 argue that a galaxy's merger history plays a relatively small role in shaping
-the metallicity gradient.
+the abundance gradient.
+
+
+% The evolution of the metallicity gradient traced by APOGEE favors GCE models in
+% which it arises due to a decrease in the equilibrium abundance with radius.
+% In this scenario, the equilibrium is set by the mass loading factor~$\eta$,
+% which describes the efficiency with which ISM gas is swept up and ejected due
+% to feedback.
+% We therefore expect variations in the gravitational potential with Galactic
+% region to establish this connection between~$\eta$ and radius.
+% \par
+% Classically interpreted as a consequence of inside-out galaxy growth
+% \citep[e.g.,][]{Kauffmann1996}, this interpretation reframes abundance
+% gradients as an equilibrium phenomenon whose slope traces the density profile
+% of the system.
+% The first principles model of~\citet{Sharda2021b} makes similar predictions.
+% Once it is near equilibrium, the ISM loses memory of its initial conditions,
+% and our APOGEE sample indicates this first occurred~$\sim$$9$ Gyr ago (see
+% discussion in~\S~{\color{red} X}).
+% The effects of inside-out galaxy growth on the MW abundance gradient should
+% therefore be locked up in age~$\gtrsim$ 10 Gyr stars and at
+% redshift~$z \gtrsim$ 1.5 for external galaxies.
+% \par
+% If this equilibrium model is accurate, then due to the relationship between
+% a galaxy's mass and its scale radius {\color{red} (citation)}, a secondary
+% correlation between mass and the slope of the metallicity gradient would be
+% expected.
+% Such a relationship is indeed observed, though there are indications that the
+% trend with mass may be complicated~\citep{Belfiore2017, Maiolino2019}.
+% However, the correlations are weak and the measurements are uncertain
+% \citep{Yuan2013, Acharyya2020, Poetrodjojo2021}, though perhaps difficulties
+% are not surprising if it is indeed a secondary correlation.
+% From a simulations perspective,~\citet{Pilkington2012} find that 25 disk
+% galaxies in cosmological simulations show similar abundance gradients, but
+% each evolved to this self-similarity differently, as expected if chemical
+% equilibrium quickly washes out the effects of the SFH.
+% Based on full spectrual fitting of MaNGA galaxies,~\citet{Goddard2017} also
+% argue that a galaxy's merger history plays a relatively small role in shaping
+% the metallicity gradient.
 
 
