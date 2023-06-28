@@ -1,0 +1,127 @@
+
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{\vice}
+\label{vice}
+
+The~\textsc{Versatile Integrator for Chemical Evolution}
+(\textsc{VICE})\footnote{
+	Install (PyPI):~\url{https://pypi.org/project/vice}
+	\\
+	Documentation:~\url{https://vice-astro.readthedocs.io}
+	\\
+	Source Code:~\url{https://github.com/giganano/VICE.git}
+}~is an open-source~\python~package available for Linux and Mac OS X developed
+as part of this dissertation.
+The original version, developed for the purposes of the work in
+Chapter~\ref{bursts}, included one-zone model integration features and the
+routines for computing population-averaged yields from stellar populations.
+\vice~has seen several updates over the course of this work, the largest of
+which is the development of multi-zone model capabilities in
+Chapter~\ref{migration}.
+\par
+The latest version (1.3.0) requires~\python~version 3.6.0 or higher and can be
+installed from the Unix command line via~\texttt{python -m pip install vice}.
+New users can launch a tutorial to familiarize themselves with~\vice~by then
+running~\texttt{python -m vice -{}-tutorial}, and online documentation can be
+launched with~\texttt{python -m vice -{}-docs}.
+The~\python~code which integrates the models and produces the figures in
+Chapters~\ref{bursts} and~\ref{migration} is available alongside~\vice's source
+code in its GitHub repository.
+\par
+With an emphasis on versatility,~\vice~allows users to specify arbitrary
+functions of time to describe various evolutionary parameters, including but
+not limited to the star formation and infall histories, star formation
+efficiency, mass-loading of outflows, the SN Ia delay-time distribution, and
+element-by-element infall metallicities.
+Yields from supernovae and asymptotic giant branch stars as well as the
+stellar initial mass function can be speicifed as user-defined functions of
+mass and metallicity.
+While providing this level of flexibility in a~\python~package,~\vice~also
+enjoys a backend implemented in C, providing it with the powerful computing
+speeds of a compiled library.
+\par
+In Chapter~\ref{migration}, I extended the features implemented for
+Chapters~\ref{bursts} and~\ref{dga} with an implementation of multi-zone
+GCE models (see discussion in~\S~\ref{migration:sec:methods}).
+Implemented with as purely generic of an algorithm as possible, these features
+simply couple a series of one-zone models via the exchange of gas and stars.
+For the sake of user-friendliness, it also includes an extension of these
+capabilities specifically catered for the multi-ring class of models discussed
+in Chapter~\ref{migration}.
+\vice~requires~$\sim$2.5 CPU-hours per chemical element to integrate the
+models in Chapter~\ref{migration}, in which it computes masses, abundances, and
+initial and final radii for~$\sim$1.6 million stellar populations spanning a
+little over 1,300 timesteps.
+This estimate was made with a 3 GHz processor.
+The outputs of these models require only~$\sim$235 MB of disc space each,
+though when integrating they can occupy up to 3 GB of RAM due to the number of
+stellar populations and timesteps used, both of which are adjustable
+parameters.
+\par
+In Chapter~\ref{ohno}, we made a handful of updates.
+They are as follows:
+\begin{enumerate}
+
+	\item While previously only a single power-law relationship between a
+	star's mass and its lifetime were used, the options were expanded as this
+	approximation underestimates the lifetimes of high-mass stars.
+	We added:
+	\begin{itemize}
+
+		\item \citet{Larson1974} (\textbf{default})
+		
+		\item \citet{Maeder1989}
+
+		\item \citet{Padovani1993}
+
+		\item \citet{Kodama1997}
+
+		\item \citet{Hurley2000}
+
+		\item \citet{Vincenzo2016b}
+
+	\end{itemize}
+	Generally, chemical evolution models make similar predictions with any of
+	these models as they are significantly different from one another.
+	The default choice from~\citet{Larson1974} is a metallicity-independent
+	parabola in~$\log \tau - \log m$ space for which we take the updated
+	coefficients from~\citet{Kobayashi2004} and~\citet{David1990}.
+
+	\item Two new sets of tables of yields from asymptotic giant branch stars
+	were added.
+	The~\karakas~and~\ventura~models were new to~\vice~(see discussion
+	in~\S~\ref{ohno:sec:yields}).
+
+	\item We added Type Ia supernova yields from sub-Chandrasekhar mass
+	carbon-oxygen white dwarf models at various metallicities from
+	\citet{Gronow2021a, Gronow2021b}.
+
+\end{enumerate}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

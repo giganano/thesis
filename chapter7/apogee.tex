@@ -86,6 +86,30 @@ skew-negative tail to a metal-poor mode and skew-positive tail with increasing
 radius (a result previously found in APOGEE by~\citealt{Hayden2015}).
 These bulk shifts in stellar population properties with radius are indicative
 of radial gradients, which we quantify in more detail below.
+\par
+To quantify the gradients in our sample, we first sort stars into 1-kpc wide
+bins in Galactocentric radius.
+We then compute the median age~$\tau_{1/2}$ and the 16th and 84th percentiles
+of the distribution by simply sorting the values into ascending order.
+The left panel of Fig.~\ref{outflows:fig:gradxh-gradage} shows the results of
+this procedure.
+Our sample is large enough that bootstrap error estimates indicate statistical
+uncertainties smaller than the points in the figure.
+A linear regression indicates a median trend of~$\gradage = -0.375 \pm 0.036$
+Gyr/kpc with an intercept of~$8.21 \pm 0.31$ Gyr.
+The median age closely follows this line of best fit at~$R \lesssim 9$ kpc, but
+flattens off in the outer disk and reverses sign slightly.
+\par
+Though we quantify the age gradient in terms of the median trend, the mode is
+our summary statistic of choice in quantifying metallicity gradients.
+We discuss our motivation behind this choice in~\S~\ref{outflows:sec:gce}.
+In short, our GCE models suggest that the mode is not significantly affected
+by stellar migration.
+Because the mode is a noisy statistic due to poisson fluctuations, we fit a
+skewed normal distribution to the MDF in each radial bin and determine the mode
+by optimization.
+We however estimate the 16th and 84th percentiles by simply sorting the
+abundances into ascending order as we did for the age distributions.
 
 % \afterpage{
 % \clearpage
@@ -107,19 +131,6 @@ Fe.
 % \clearpage
 % }
 
-To quantify the gradients in our sample, we first sort stars into 1-kpc wide
-bins in Galactocentric radius.
-We then compute the median age~$\tau_{1/2}$ and the 16th and 84th percentiles
-of the distribution by simply sorting the values into ascending order.
-The left panel of Fig.~\ref{outflows:fig:gradxh-gradage} shows the results of
-this procedure.
-Our sample is large enough that bootstrap error estimates indicate statistical
-uncertainties smaller than the points in the figure.
-A linear regression indicates a median trend of~$\gradage = -0.375 \pm 0.036$
-Gyr/kpc with an intercept of~$8.21 \pm 0.31$ Gyr.
-The median age closely follows this line of best fit at~$R \lesssim 9$ kpc, but
-flattens off in the outer disk and reverses sign slightly.
-
 \begin{figure*}
 \centering
 \includegraphics[scale = 0.51]{age_gradient.pdf}
@@ -138,17 +149,6 @@ Galactic HII regions measured by~\citet{MendezDelgado2022}.
 \label{outflows:fig:gradxh-gradage}
 \end{figure*}
 
-Though we quantify the age gradient in terms of the median trend, the mode is
-our summary statistic of choice in quantifying metallicity gradients.
-We discuss our motivation behind this choice in~\S~\ref{outflows:sec:gce}.
-In short, our GCE models suggest that the mode is not significantly affected
-by stellar migration.
-Because the mode is a noisy statistic due to poisson fluctuations, we fit a
-skewed normal distribution to the MDF in each radial bin and determine the mode
-by optimization.
-We however estimate the 16th and 84th percentiles by simply sorting the
-abundances into ascending order as we did for the age distributions.
-\par
 The right panel of Fig.~\ref{outflows:fig:gradxh-gradage} shows the resultant
 gradients in~\oh~and~\feh\footnote{
 	We follow conventional notation where
