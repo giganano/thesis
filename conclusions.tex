@@ -1,0 +1,169 @@
+
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Conclusions}
+\label{conclusions}
+
+In this dissertation, I have used GCE models to deepen our understanding of
+galaxy evolution across a broad range of stellar mass.
+Through numerical modeling, I have characterized the observational
+signatures of distinct evolutionary pathways in galaxies across a broad range
+of stellar mass and developed statistical methods with which to quantify these
+processes.
+By introducing stellar yields as free parameters, these investigations have
+the ability to deduce elemental yields alongside galaxy evolution parameters.
+The large samples of multi-element abundances provided by modern spectroscopic
+surveys have been invaluable empirical test beds.
+
+\section{Dwarf Galaxies}
+\label{conclusions:sec:dwarfs}
+\textbf{Sudden Events:} I have investigated the expected chemical signatures
+from sudden events in the evolutionary histories of dwarf galaxies.
+Due to a perturbation in the ratio of Type Ia and Type II supernova rates,
+the principle signature of a burst in star formation is a population of
+stars with super-solar [O/Fe] ratios.
+If the decay of the starburst is sufficiently fast, then the inverse effect can
+also arise, whereby a population of~\textit{sub-solar} [O/Fe] stars is left
+behind.
+Through this investigation, I also developed a high-performance GCE software,
+which was further developed in later chapters and ultimately became the
+backbone of much of this dissertation's analysis.
+\par
+\textbf{Dwarf Galaxy Archaeology:} I have applied statistical regressions to
+abundance models to provide a means with which to pin down these events and
+evolutionary timescales quantitatively.
+After a rigorous validation of the methodology, I have applied this method to
+two galaxies of considerably different masses (a factor of~$\sim$50), finding
+results consistent with known trends in galaxy mass.
+This methodology can simultaneously deduce the relative yields of different
+elements required to explain the results.
+\par
+\textbf{Type Ia Supernova Rates:} I have investigated the origin of the high
+Type Ia supernova rates observed in dwarf galaxies.
+I found that mass is simply a confounding variable, and that perhaps the more
+fundamental correlation is the metal abundance and the supernova rate.
+Low stellar mass galaxies are known empirically to host lower metallicity
+stellar populations~\citep[e.g.,][]{Gallazzi2005, Kirby2013}.
+These populations have a higher close binary fraction than their high
+metallicity counterparts~\citep[e.g.,][]{Badenes2018, Moe2019}, increasing the
+frequency of potential Type Ia supernova progenitors.
+These results have strong implications for GCE models through a significant
+increase in enrichment rates at low metallicities.
+
+\section{The Milky Way}
+\label{conclusions:sec:milkyway}
+\textbf{Stellar Migration:} I have found that inside-out Galaxy growth
+\citep[e.g.,][]{Bird2013} combined with stellar migration~\citep{Sellwood2002}
+lends a natural explanation to some but not all of the observed characteristics
+of the disk abundance structure.
+Many correlations between stellar age and chemical composition
+\citep[e.g.,][]{Feuillet2019} are naturally explained in this manner.
+Anomalies in these relationships, such as young stars with super-solar [O/Fe]
+ratios~\citep[e.g.,][]{Hekker2019} also arise as an indirect consequence of
+orbital migration.
+The most interesting failure of this model is its inability to reproduce the
+chemical dichotomy seen in disk stars~\citep[e.g.,][]{Hayden2015}, indicating
+that the Galaxy had a more episodic evolutionary history
+\citep[e.g.,][]{Chiappini1997, Spitoni2021} and rebutting models which claim
+this combination to be a sufficient explanation of the results
+\citep[e.g.,][]{Sharma2021, Chen2023}.
+In the process of this work, I significantly expanded upon the capabilities
+provided by my GCE software, catalyzing further investigations of the Milky
+Ways assembly history.
+\par
+\textbf{Nitrogen:} I have applied the GCE model of Chapter~\ref{migration} to
+the enrichment of nitrogen.
+A unique element from a nucleosynthesis perspective, theoretical predictions
+of nitrogen yields from stellar populations are significantly discrepant with
+one another.
+The differences arise because nucleosynthetic yields are sensitive to a
+variety of processes that are poorly understood, for which there are a variety
+of assumptions in published models (see discussion in,
+e.g.,~\citealt{Chieffi2001, Ventura2013}).
+In the case of N specifically, if too wide of a mass range of asymptotic giant
+branch stars experience both third dredge up and hot bottom burning, then the
+metallicity dependence of the yield inverts sign, resulting in empirically
+untenable abundance trends.
+This realization has significant implications for stellar evolution models.
+\par
+\textbf{Metallicity Gradients:} Ubiquitous in spiral galaxies like the Milky
+Way, radial metallicity gradients have classically been interpreted as a
+consequence of inside-out disk growth~\citep[e.g.,][]{Kauffmann1996}.
+I have constrained the origin of the gradient by conditioning stars on their
+ages as estimated in APOGEE~\citep{Majewski2017, Mackereth2019b}.
+I found that a gradient closely resembling that of the present day was
+established as long ago as~$\sim$9 Gyr.
+I demonstrated that this result is best explained by GCE models which invoke
+chemical equilibrium, though the detailed cause and origin of what drove the
+Galaxy to equilibrium so quickly remains unknown.
+An increase in the strength of mass loading with radius is a plausible
+explanation, though it is only one.
+An indication that inside-out growth only plays a role in the earliest epochs
+of disk formation, this comparison marks a significant shift in the discourse
+surrounding abundance gradients.
+
+\section{Future Work}
+\label{conclusions:sec:future-work}
+
+The show must go on.
+Galaxy evolution and nucleosynthesis are far from solved problems.
+The tools available now and in the near future have the power to illuminate
+answers to these questions about our place in the universe.
+I am delighted to be continuing my work as a postdoctoral fellow at The
+Observatories of the Carnegie Institution for Science in Pasadena, California.
+\par
+In collaboration with Ana Bonaca, I will expand my investigations into the
+evolutionary histories of dwarf galaxies.
+We will combine the GCE regressions of Chapter~\ref{dga} with color-magnitude
+diagram analysis~\citep[e.g.,][]{Dolphin2002, Weisz2014a} to constrain the age
+distributions of stars too distant for individual age estimates.
+I will use the combined powers of H3~\citep{Conroy2019} and the upcoming
+SDSS-V~\citep{Kollmeier2017} to model multi-element abundance ratios of a
+suite of accreted dwarf galaxies in the stellar halo.
+Also in collaboration with Josh Simon, we will apply the same analysis to
+local group dwarf galaxies where resolved stars are accessible with the
+Magellan InfraRed Multi-Object Spectrograph~\citep[MIRMOS;][]{Konidaris2022} on
+the Magellan Telescopes at Las Campanas Observatory.
+The disrupted and intact dwarf galaxy samples combined, we will have conducted
+the most detailed ``chemical census'' of local group dwarf galaxies to date.
+\par
+I will continue my investigations into the enigma that is our own Galaxy.
+I am excited to collaborate with Andrew Benson to use the large sample that
+will be provided by SDSS-V's Milky Way Mapper program to distinguish
+quantitatively between enrichment models of the Milky Way.
+I am particularly interested in understanding the origin of the chemical
+dichotomy in the disk~\citep[e.g.,][]{Hayden2015}, which is the most
+interesting failure of the models in Chapter~\ref{migration}.
+Though the sample size of large spiral galaxies with resolved stars will
+remain small, upcoming observations of red giants in the disk of Andromeda with
+the James Webb Space Telescope will provide an enightening comparison case to
+understand the ways in which the Milky Way might be unique.
+\par
+I will continue my research program empirically calibrating yields of various
+elements against abundance ratio trends using GCE models.
+I am interested in working with Andrew McWilliam to constrain the nature of
+Type Ia supernova explosions.
+Manganese has identified as a particularly useful element as its yield is
+predicted to be highly sensitive to the density, and by extension the mass,
+of the exploding white dwarf~\citep[e.g.,][]{delosReyes2020}.
+I am also excited to work with Rebecca Bernstein on identifying the
+astrophysical origins of rapid neutron capture nucleosynthesis.
+The wealth of multi-element abundance measurements that will be available
+through Milky Way Mapper will provide excellent empirical diagnostics for both
+investigations.
+\par
+In addition to these ambitious research programs, I plan to maintain my efforts
+in the mentoring of undergraduate students through the Carnegie Astrophysics
+Summer Student Internship (CASSI) program.
+Should the opportunity arise, I also look forward to expanding these efforts
+to help advise students at the graduate level.
+As a member of the leadership committee of Polaris, a student-led organization
+at Ohio State dedicated to improving the retention of students from
+disadvantaged backgrounds in physics and astronomy, I am delighted that CASSI
+sees considerable participation from underrepresented minority groups.
+I also look forward to getting involved in Carnegie Observatories' various
+outreach efforts and open houses to engage with the local community.
+
+\end{document}
+

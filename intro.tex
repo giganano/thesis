@@ -120,46 +120,55 @@ this recent hierarchical assembly.
 \section{Stellar Yields}
 \label{main:sec:intro:yields}
 
-Since they quantify the amount of any given element produced by a generation of
-stars, yields are arguably the most important parameters in GCE models.
+Yields quantify the amount of a given element produced by stars, making them
+arguably the most fundamental parameter in GCE models.
 Despite their central role, these quantities are poorly understood.
-Much of the uncertainty arises because nucleosynthesis is highly sensitive to
-stellar evolution processes that are also poorly understood, such as
-rotationally induced mixing~\citep[e.g.,][]{Frischknecht2016}, convection
+Much of the uncertainty arises as a consequence of uncertainties in stellar
+evolution.
+Nuclear reactions and their rates are highly sensitive to mixing processes
+induced by stellar rotation~\citep[e.g.,][]{Frischknecht2016}, convection
 \citep[e.g.,][]{Chieffi2001}, and the supernova explosion mechanisms
 themselves~\citep[e.g.,][]{Griffith2021b}.
 \par
-GCE models conventionally adopt a set of stellar yields and hold them fixed,
-which introduces a source of systematic uncertainty.
+Conventionally, GCE models adopt a set of stellar yields and hold them fixed.
+A source of systematic uncertainty is introduced when additional assumptions
+regarding stellar yields are not considered.
 To date, few studies have systematically investigated the impact of yield
 assumptions in GCE models to calibrate parameterizations against abundance
 trends and assess potential implications for stellar evolution
 \citep[e.g.,][]{delosReyes2022, Womack2023}.
-{\color{red} Needs a conclusion of some sort.}
-
+The trends of metal abundances with, e.g., other metals, stellar age, and
+galaxy mass contain a wealth of information on how and where various nuclear
+species are produced, which can be illuminated with GCE models.
+These empirical calibrations of elemental yields from stars could have
+powerful implications for stellar evolution.
 
 \section{Dwarf Galaxies and the Stellar Halo}
 \label{main:sec:intro:dwarfs}
 
 Dwarf galaxies are much more numerous than massive spirals like the Milky Way
 and Andromeda~\citep[e.g.,][]{Bell2003, Baldry2012}.
-In the local universe, their prevalence allows them to be studied in
-statistical samples with resolved stars.
+In the local universe, their prevalence and proximity allow them to be studied
+in statistical samples with resolved stars.
 GCE models of these systems are straightforward as classical one-zone models
 are able to explain the data reasonably well~\citep[see, e.g.,][]{Kirby2011,
 delosReyes2022}.
 These systems tend to have bursty, episodic star formation histories
-\citep[e.g.,][]{Weisz2014a} that are truncated, or ``quenched'' due to cosmic
-background radiation or an interaction with a nearby, more massive galaxy like
-the Milky Way~\citep[e.g.,][]{Weisz2014b, Weisz2015, Naidu2022}.
+\citep[e.g.,][]{Weisz2014a} that are truncated, or ``quenched'' either due to
+cosmic background radiation or interactions with a nearby, more massive galaxy
+like the Milky Way~\citep[e.g.,][]{Weisz2014b, Weisz2015, Naidu2022}.
 \par
-{\color{red}
-Something about how bursts in star formation should impact their chemical
-abundance structure.
-Then something about how the cessation in star formation should leave an
-imprint in the abundances of the stars -- where the metallicity distributions
-cut off.
-}
+As different evolutionary pathways imprint differently on the chemical
+compositions of galaxies, these mechanisms should in principle imprint on the
+chemical abundances of stars.
+Sudden events, such as bursts in star formation, are indeed predicted to leave
+distinct signatures in the elemental abundances of stellar populations by
+perturbing the number of stars producing various elements~\citep{Weinberg2017b}.
+Nonetheless, quantitative questions remain.
+What potential observational diagnostics of these events might be feasible
+given a sample of stars with elemental abundance measurements?
+Would such a sample contain information on the duration of star formation in
+these galaxies?
 
 \section{The Milky Way Disk}
 \label{main:sec:intro:mw}
@@ -203,33 +212,136 @@ enigma.
 \section{Bridging the Gap: Trends with Galaxy Mass}
 \label{main:sec:inro:snrates}
 
-The discussion in~\S~\ref{main:sec:intro:mw} and~\S~\ref{main:sec:intro:dwarfs}
-above shed light on variations in chemical abundances between dwarf galaxies
-and the Milky Way, indicative of correlations with galaxy mass.
-In particular, the mass-metallicity relation, the mass-metallicity gradient
-relation, the mass-metallicity-$\alpha$ relation.
-SN surveys have shed light on the potential origin of some of these relations,
-finding higher specific rates at low stellar masses.
-An understanding of these rates should in principle have implications for
-enrichment histories as a function of galaxy mass.
+As one might suspect given the obvious differences between galaxies like the
+Milky Way and nearby dwarf galaxies (e.g., mass, size), the two classes of
+systems assemble their mass qualitatively differently.
+Pursuing to the petri dish analogy once more, the differences in evolutionary
+pathways should leave an imprint in the chemical compositions of vastly
+different galaxies.
+Such a suspicion would indeed be confirmed by empirical investigations.
+\par
+First and foremost, more massive galaxies tend to host both gas reservoirs
+\citep{Tremonti2004, Zahid2011, Zahid2012, Andrews2013} and stellar populations
+\citep{Gallazzi2005, Kirby2013} with a higher metal content than their low-mass
+counterparts.
+Previous work has argued that metal-enriched outflows drive the slope at the
+low-mass end~\citep{Finlator2008, Peeples2011, Chisholm2018}.
+The relationship flattens off for high-mass galaxies, which~\citet{Zahid2014}
+link to the stellar-to-gas mass ratios in galaxies.
+Weaker correlations with stellar mass have recently been uncovered thanks to
+modern surveys like~\gaia~\citep{GaiaCollaboration2016} and H3
+\citep{Conroy2019}.
+For example, sufficiently large galaxies have metallicity gradients, whereby
+the inner regions are higher metallicity on average than the outer regions,
+and the slope of this radial trend seems to steepen with galaxy mass
+\citep[e.g.,][]{Goddard2017}.
+\par
+Of particular interest to GCE is the relationship between galaxy mass and
+supernova rates.
+Observationally, dwarf galaxies are observed to have considerably higher rates
+of Type Ia supernovae per unit mass than their larger counterparts
+\citep[e.g.,][]{Leaman2011, Li2011}.
+The first investigations into the origin of this result indicated that the
+variations in star formation histories with galaxy mass can explain the
+results~\citep[e.g.,][]{Graur2013, Graur2015}.
+However, a larger sample allowed~\citet{Brown2019} to push these measurements
+to lower galaxy masses than previous work ($\sim$$10^7$~\msun), revealing that
+the specific rates continued to increase over an entire order of magnitude.
+Though the exact slope of the empirically derived trend with mass is subject to
+uncertainties surrounding the stellar mass distribution of galaies (see
+discussion in, e.g.,~\citealt{Gandhi2022}), an additional effect seems to be
+required regardless of its exact strength.
+\par
+It is imperative that the ingredients and predictions of GCE models be
+consistent with the results of supernova surveys.
+As the source of a considerable fraction of the metals in the universe, these
+data constitute an additional empirical testing ground for enrichment rates
+aside from abundances themselves.
+What additional processes could impact supernova rates in dwarf galaxies?
+How strong must these effects be to explain the empirical trends?
+Additional investigations are required to make sense of
+\citet{Brown2019}'s~\citeyearpar{Brown2019} realization.
 
 \section{The Scope of this Dissertation}
 \label{main:sec:intro:scope}
 
-The present era of large data sets provided by high-resolution spectroscopic
-surveys and increasingly powerful computational tools enables us to reveal the
-enrichment histories of the Milky Way and nearby dwarf galaxies in
-unprecedented detail.
-What are the evolutionary histories of galaxies, and how does this relate to
-their observed and intrinsic properties?
-What are the relative yields of different elements from stars and supernovae?
-GCE models contain information on all of these processes.
+The present era of large data sets provided by spectroscopic surveys and
+increasingly powerful computational tools enables us to reveal the enrichment
+histories of the Milky Way and nearby dwarf galaxies in unprecedented detail.
+These measurements contain not only information on the assembly and evolutionary
+histories of galaxies, but the stellar evolution processes which formed these
+nuclei as well.
+These processes, which span many orders of magnitude in physical scale, can be
+understood through GCE models.
 \par
-In this dissertation, I combine powerful theoretical and observational tools
-to improve the understanding of galaxy evolution through abundance modeling.
-In Chapter blah I do blah blah blah, and in the next chapter blah I do a
-different blah blah blah.
-Check it out!
+In this dissertation, I will take a journey through the demographics of
+galaxies.
+I will start with dwarf galaxies, which have been described sufficiently
+accurately with classic, one-zone GCE models.
+In Chapter~\ref{bursts}, I will consider the bursty star formation histories
+of these low-mass systems~\citep[e.g.,][]{Weisz2014a}, assessing how different
+starburst mechanisms and the timing of events can leave observational clues to
+these features of galaxy evolution at the low-mass end.
+As different elements trace different nucleosynthetic pathways within stars
+\citep[e.g.,][]{Johnson2019}, I will consider a range of elements to shed light
+on as many empirical clues as possible.
+\par
+To deduce the details of galaxy evolution at the low-mass end quantitatively, I
+will then develop statistical tools with which to determine best-fit
+parameters of one-zone models in Chapter~\ref{dga}.
+I will validate this method rigorously to ensure that the methods employed do
+not introduce systematic errors in the inferred evolutionary parameters.
+To demonstrate this method in action and test our expectations based on trends
+with galaxy mass, I will apply it to two disrupted dwarf galaxies in the
+stellar halo of the Milky Way:~\gaia-Sausage Enceladus~\citep{Helmi2018,
+Belokurov2018} and Wukong/LMS-1~\citep{Naidu2020, Naidu2022, Yuan2020}.
+To demonstrate the amount of information on nucleosynthesis that can be
+elucidated from these quantitative fits, I will introduce stellar yields as
+free parameters in this framework.
+\par
+Having already zoomed out to consider a range of stellar masses in
+Chapter~\ref{dga}, I will then investigate Type Ia supernova rates across
+galaxy mass in Chapter~\ref{iarates}.
+I will combine a state-of-the-art theoretical model describing the star
+formation histories of galaxies in the cosmological context
+\citep{Behroozi2019} with standard parameterizations of the delay-time
+distributions of these events~\citep[e.g.,][]{Maoz2012a, Maoz2012b}.
+As Type Ia supernovae arise from binary systems~\citep{Whelan1973, Iben1984,
+Webbink1984}, I will take special consideration of the metallicity dependence
+of the prevalence of the progenitor systems~\citep{Badenes2018, Moe2019}.
+\par
+I will then turn my sights toward home and investigate the enrichment history
+of our own Milky Way in Chapter~\ref{migration}.
+Due to the size of the Galaxy, the models will need updated to account for the
+effects of evolving stellar orbits~\citep[e.g.,][]{Sellwood2002,
+Schoenrich2009a}.
+I will focus on assessing which empirical results can be explained by standard
+expectations of the Galaxy's evolutionary history and simple variations thereof
+combined with this process of radial migration.
+\par
+To further demonstrate the utility of galaxies as laboratories of stellar
+evolution, in Chapter~\ref{ohno} I will use these models of the Milky Way
+to place constraints on the nucleosynthesis of nitrogen, a particular
+challenging element to understand.
+Nitrogen production is extremely efficient at the base of the convective
+envelopes of asymptotic giant branch stars when proton capture reactions and
+mixing of the core material with the envelope are both active (see discussion
+in, e.g.,~\citealt{Ventura2013}).
+Accurate and reliable empirical calbirations of nitrogen nucleosynthesis could
+therefore have important implications for stellar evolution, particularly for
+rotation-induced mixing processes~\citep[e.g.,][]{Heger2010, Frischknecht2016}.
+\par
+In Chapter~\ref{outflows}, I will assess the timescales on which the
+Galaxy built up metals in the ISM by measuring the evolution of its radial
+abundance gradient conditioned on stellar age.
+I will use a large sample of reliable stellar age estimates to provide deep
+coverage of the Galactic disk.
+I will similar GCE models as in previous chapters to qualitatively interpret
+the origin of this ubiquitous feature of spiral galaxies.
+\par
+Lastly, I will summarize my conclusions from this dissertaion and discuss my
+future plans to deepen the community's understanding of galaxy evolution and
+stellar nucleosynthesis in Chapter~\ref{conclusions}.
 
 \end{doublespace}
 \end{document}
