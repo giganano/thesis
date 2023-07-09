@@ -88,11 +88,11 @@ alone.
 We clarify that the goal of this comparison is not to empirically distinguish
 between~$\eta = 0$ and~$\eta \neq 0$, but rather between models that do and do
 not reach an equilibrium abundance within the disk lifetime, which is possible
-with either choice of~$\eta$ in principle.
+in principle with either choice of~$\eta$.
 It is also possible that a significant portion of SN ejecta is lost directly to
 an outflow~\citep{Dalcanton2007, Peeples2011, Christensen2018, Chisholm2018,
-Cameron2021}, and variations in the amount lost could, in principle, produce
-much of the same effects that we describe below.
+Cameron2021}, and variations in the amount lost could potentially produce much
+of the same effects that we describe below.
 \par
 We calibrate the parameters of our non-equilibrium model such that the mode of
 the MDF predicted from a one-zone model lines up with the gradient measured
@@ -121,8 +121,8 @@ produced by setting the quantity in square brackets equal to zero.
 \par
 In the interest of a simple comparison, we take a single exponential SFH
 $\dot{M}_\star \propto e^{-t / \timescale{sfh}}$.
-For this choice of SFH, the O abundance in a one-zone model follows from
-\citet{Weinberg2017b} as 
+For this choice, the O abundance in a one-zone model follows
+from~\citet{Weinberg2017b} as 
 \begin{equation}
 Z_\text{O}(t) = \frac{\ycc{O}}{1 - r - \tau_\star / \timescale{sfh}}
 \left(1 - e^{-t / \bar{\tau}}\right),
@@ -138,6 +138,8 @@ to the ISM, and
 \right)^{-1}.
 \label{outflows:eq:taubar-def}
 \end{equation}
+Equations~\refp{outflows:eq:zo-waf17} and~\refp{outflows:eq:taubar-def}, as
+written, are both specific to~$\eta = 0$.
 Computing the necessary time derivatives, combining terms in equation
 \refp{outflows:eq:mdf-derivative}, and mapping the time the peak of the MDF is
 produced back to the O abundance via equation~\refp{outflows:eq:zo-waf17}
@@ -147,13 +149,17 @@ yields the following expression for the position of the mode
 \frac{\ycc{O} \timescale{sfh}}{Z_{\text{O},\odot} \tau_\star}
 \right).
 \end{equation}
+However, if the time~$t_\text{max}$ that optimizes the MDF according to
+equation~\refp{outflows:eq:mdf-derivative} is negative or longer than the disk
+lifetime, then the actual MDF is monotonically rising and the peak is produced
+at the present day.
 \par
 In principle, the mode will shift with radius due to changes in
 both~$\tau_\star$ and~\timescale{sfh}.
 We use a classic single power-law relating the surface densities of gas and
 star formation~$\dot{\Sigma}_\star \propto \Sigma_g^N$
 \citep[e.g.,][]{Kennicutt1998}.
-This approximation allows the SFE timescale to be expressed in terms of radiu
+This approximation allows the SFE timescale to be expressed in terms of radius
 as~$\tau_\star \propto e^{(N - 1) R / R_g}$, where~$R_g$ is the scale radius of
 the gas disk.
 We now arrive at a relationship between~\timescale{sfh} and radius, calibrated
@@ -195,14 +201,14 @@ according to the legend.
 
 Fig.~\ref{outflows:fig:simplified-examples-sfhs} shows the SFHs of these
 example models.
-The e-folding timescale~\timescale{sfh} varies only marginally with radius
+The $e$-folding timescale~\timescale{sfh} varies only marginally with radius
 ($3 - 5$ Gyr across most radii) given our parameter choices (see discussion
 at the end of~\S~\ref{outflows:sec:gce:calibration} above).
 Fig.~\ref{outflows:fig:simplified-examples} shows the predicted enrichment
 histories.
 The build up of metals in the ISM is fundamentally different between these two
 models.
-By intention, the equilibrium model predicts abundances that reach a steady
+By design, the equilibrium model predicts abundances that reach a steady
 state at all radii early in the lifetime of the Galactic disk.
 In the non-equilibrium model, the metallicity increases monotonically up to the
 present day.
@@ -242,8 +248,8 @@ Fig.~\ref{outflows:fig:age-xh-dists}) and the age-independent nature of the
 stellar abundance gradient (see Fig.~\ref{outflows:fig:gradxh-fixed-age})
 favor the equilibrium model over the non-equilibrium model.
 \par
-Lastly, we note our final for choosing the mode as our summary statistic in
-measuring the abundance gradient.
+Lastly, we note the final piece of our motivation for choosing the mode as our
+summary statistic in measuring the abundance gradient.
 Vertical dotted lines in the middle panel of
 Fig.~\ref{outflows:fig:simplified-examples} note the position of the expected
 value of~\oh~from our linear fit to the gradient
@@ -252,7 +258,7 @@ In both the equilibrium and non-equilibrium models, the MDF peaks close to its
 intended position based on our parameter calibration
 in~\S~\ref{outflows:sec:gce:calibration} (though it is less obvious in the
 non-equilibrium scenario due to the broad nature of the distributions).
-Stellar migration enhances the tails of the MDFs in these models, but is not
+Stellar migration enhances the tails of the MDFs in these models but is not
 a strong enough effect to shift the position of the peak.
 Since the mean and median are sensitive to the tails of any distribution, they
 are therefore impacted by stellar migration while the mode should be largely

@@ -41,9 +41,11 @@ We filter the sample based on the following selection criteria:
 
 \end{itemize}
 To avoid potential contamination by the main sequence, we additionally exclude
-stars with surface gravities of~$\log g > 3$ and effective temperatures of
-$T_\text{eff} < 4000$ K.
+stars that have both~$\log g > 3$ and~$T_\text{eff} < 4000$ K.
 These cuts yield a final sample of 191,173 red giant and red clump stars.
+We base our characterization of radial age and metallicity gradients
+(see~\S~\ref{outflows:sec:empirical:gradients} below) on the 96,047 of these
+stars that are within~$\left|z\right| \leq 0.5$ kpc of the disk midplane.
 
 \begin{figure}
 \centering
@@ -58,22 +60,34 @@ Within each age bin, we plot only a random subsample of~$N = 5000$ stars.
 
 Fig.~\ref{outflows:fig:kiel-diagram} shows the Kiel diagram of a subsample of
 our stars binned by age.
-Comparing the distributions of stars along the red giant branch and red clump
-between age bins indicates some systematic biases present in the sample.
+% Comparing the distributions of stars along the red giant branch and red clump
+% between age bins indicates some systematic biases present in the sample.
 The youngest stars are preferentially located in the red clump, whereas the
 oldest stars distribute themselves much more evenly along the red giant branch.
-This result is unsurprising as systematic uncertainties in APOGEE tend to
-present as spurious correlations with~$T_\text{eff}$ and~$\log g$
-\citep[e.g.,][]{Joensson2018, Eilers2022}.
-However, we do not expect these systematic effects to impact our
-characterizations of radial age and metallicity gradients (see discussion
-in~\S~\ref{outflows:sec:empirical:caveats} below).
+This effect is primarily driven by the intrinsic fraction of red clump stars as
+a function of population age.
+However, systematic uncertainties in APOGEE tend to present as spurious
+correlations with~$T_\text{eff}$ and~$\log g$~\citep[e.g.,][]{Joensson2018,
+Eilers2022}.
+Comparing our ages against the~\citet{Leung2023} catalog indicates that such
+biases may be present in our sample to some extent, though we do not expect
+the uncertainties to impact our characterizations of radial age and metallicity
+gradients (see discussion in~\S~\ref{outflows:sec:empirical:caveats}).
+% This result is unsurprising as systematic uncertainties in APOGEE tend to
+% present as spurious correlations with~$T_\text{eff}$ and~$\log g$
+% \citep[e.g.,][]{Joensson2018, Eilers2022}.
+% However, we do not expect these systematic effects to impact our
+% characterizations of radial age and metallicity gradients (see discussion
+% in~\S~\ref{outflows:sec:empirical:caveats} below).
 
 \subsection{Radial Gradients}
 \label{outflows:sec:empirical:gradients}
 
 Fig.~\ref{outflows:fig:age-xh-dists} shows age and abundance distributions of
 our sample in bins of Galactocentric radius.
+We have not made any corrections for the survey selection function, so these
+are distributions of observed APOGEE stars satisfying our selection cuts as
+opposed to mass-weighted distributions.
 Stars tend to be young in the outer Galaxy, where the age distributions have a
 peak around~$\sim$$2-4$ Gyr and a tail toward older ages.
 As radius increases, the age distribution shifts to a peak at older ages and a
@@ -86,7 +100,27 @@ skew-negative tail to a metal-poor mode and skew-positive tail with increasing
 radius (a result previously found in APOGEE by~\citealt{Hayden2015}).
 These bulk shifts in stellar population properties with radius are indicative
 of radial gradients, which we quantify in more detail below.
-\par
+
+\afterpage{
+\clearpage
+\begin{landscape}
+\begin{figure*}
+\centering
+\includegraphics[scale = 0.55]{age_xh_dists.pdf}
+\caption{
+Age (left) and abundance (middle and right) distributions for stars within
+$\left|z\right| \leq 0.5$ kpc of the disk midplane at different radii
+(see~\S~\ref{outflows:sec:empirical:sample} for discussion of our sample).
+Within each 2-kpc wide bin in radius, we box-car smooth the distribution with a
+width of~$\Delta \tau = 1$ Gyr in age and~$\Delta$[X/H] = 0.2 for both O and
+Fe.
+}
+\label{outflows:fig:age-xh-dists}
+\end{figure*}
+\end{landscape}
+\clearpage
+}
+
 To quantify the gradients in our sample, we first sort stars into 1-kpc wide
 bins in Galactocentric radius.
 We then compute the median age~$\tau_{1/2}$ and the 16th and 84th percentiles
@@ -103,46 +137,28 @@ flattens off in the outer disk and reverses sign slightly.
 Though we quantify the age gradient in terms of the median trend, the mode is
 our summary statistic of choice in quantifying metallicity gradients.
 We discuss our motivation behind this choice in~\S~\ref{outflows:sec:gce}.
-In short, our GCE models suggest that the mode is not significantly affected
-by stellar migration.
+In short, our GCE models suggest that the mode is much less affected by stellar
+migration than the mean and median.
 Because the mode is a noisy statistic due to poisson fluctuations, we fit a
 skewed normal distribution to the MDF in each radial bin and determine the mode
 by optimization.
 We however estimate the 16th and 84th percentiles by simply sorting the
 abundances into ascending order as we did for the age distributions.
 
-% \afterpage{
-% \clearpage
-\begin{landscape}
-\begin{figure*}
-\centering
-\includegraphics[scale = 0.55]{age_xh_dists.pdf}
-\caption{
-Age (left) and abundance (middle and right) distributions from our APOGEE
-sample (see discussion in~\S~\ref{outflows:sec:sample}) at different
-radii.
-Within each 2-kpc wide bin in radius, we box-car smooth the distribution with a
-width of~$\Delta \tau = 1$ Gyr in age and~$\Delta$[X/H] = 0.2 for both O and
-Fe.
-}
-\label{outflows:fig:age-xh-dists}
-\end{figure*}
-\end{landscape}
-% \clearpage
-% }
-
 \begin{figure*}
 \centering
 \includegraphics[scale = 0.51]{age_gradient.pdf}
 \includegraphics[scale = 0.5]{gradxh.pdf}
 \caption{
-Gradients in stellar age (left) and metallicity (right; red for O and blue for
-Fe).
-Stars denote the median age and mode abundance in 1-kpc bins of radius, with
+Gradients in stellar age (left) and metallicity (right; color-coded according
+to the legend) for stars within~$\left|z\right| \leq 0.5$ kpc of the disk
+midplane.
+Points denote the median age and mode abundance in 1-kpc bins of radius, with
 dotted lines marking the 16th and 84th percentiles of the distributions in each
 radial bin.
 Solid lines denote the lines of best fit applied to the corresponding summary
-statistics, with the fit parameters summaries in Table X.
+statistics, with the fit parameters summarized in
+Table~\ref{outflows:tab:apogee-regressions}.
 The black line in the right hand panel marks the O abundance gradient in
 Galactic HII regions measured by~\citet{MendezDelgado2022}.
 }
@@ -152,7 +168,7 @@ Galactic HII regions measured by~\citet{MendezDelgado2022}.
 The right panel of Fig.~\ref{outflows:fig:gradxh-gradage} shows the resultant
 gradients in~\oh~and~\feh\footnote{
 	We follow conventional notation where
-	[X/Y]~$\equiv \log_{10} (N_x / N_y) - \log_{10} (N_x / N_y)_\odot$
+	[X/Y]~$\equiv \log_{10} (N_x / N_y) - \log_{10} (N_x / N_y)_\odot$.
 }.
 As expected given the MDFs in Fig.~\ref{outflows:fig:age-xh-dists}, stars tend
 to decline in metallicity with increasing radius.
@@ -164,7 +180,8 @@ references therein).
 % slope in Fe; we describe the origin of this result in~\S~{\color{red} X}.
 For comparison, we additionally plot~\citeauthor{MendezDelgado2022}'s
 \citeyearpar{MendezDelgado2022} fit to the gas-phase O gradient traced by
-Galactic HII regions accounting for their temperature inhomogeneities.
+Galactic HII regions including their estimated correction for temperature
+inhomogeneities.
 The two O gradients are consistent within their~$1\sigma$ uncertainties.
 % \par
 % We use these measurements to calibrate our GCE models
@@ -181,6 +198,8 @@ The two O gradients are consistent within their~$1\sigma$ uncertainties.
 \caption{
 Radial gradients in [O/H] (left) and [Fe/H] (right) conditioned on stellar age
 in 1-Gyr bins according to the legend in the left panel.
+Statistical uncertainties, estimated from bootstrap resampling individual stars,
+are comparable to the width of the lines.
 }
 \label{outflows:fig:gradxh-fixed-age}
 \end{figure*}
@@ -210,11 +229,11 @@ lines plotted ($\lesssim0.1\%$).
 Fig.~\ref{outflows:fig:gradxh-fixed-age} shows the gradients themselves in each
 age bin.
 We also report slopes and intercepts from linear regressions to the trend in
-each age bin in Table~\ref{outflows:tab:apogee-regression} and visualize the
+each bin in Table~\ref{outflows:tab:apogee-regressions} and visualize the
 inferred gradients in Fig.~\ref{outflows:fig:gradxh-vs-age}.
-To first order, the gradient was established~$\sim$$8 - 9$ Gyr ago, with an
-abundance profile consistent with flat in~\oh~but positively sloped
-in~\feh~immediately prior.
+To first order, the gradient was established~$\sim$$8 - 9$ Gyr ago, with
+the~$9 - 10$ Gyr old stars showing an abundance profile consistent with flat
+in~\oh~but positively sloped in~\feh.
 The gradient held relatively steady at~$\grad{O} \approx \grad{Fe} \approx
 -0.05$ kpc$^{-1}$ for~$\sim$3 Gyr, then steepened to~$\grad{O} \approx -0.07$
 kpc$^{-1}$ and~$\grad{Fe} \approx -0.09$ kpc$^{-1}$ before gradually returning
@@ -222,15 +241,23 @@ to~$\grad{O} \approx \grad{Fe} \approx -0.05$ kpc$^{-1}$ until the present day.
 Inspection of Fig.~\ref{outflows:fig:gradxh-fixed-age} indicates that the
 steepening of the gradient coincides with a decrease in metallicity
 of~$\sim$$0.2 - 0.3$ dex in O and~$\sim$$0.4 - 0.5$ dex in Fe
-at~$R_\text{gal} \gtrsim$8 kpc.
-These fluctuations are readily explained by GCE models invoking chemical
-equilibrium combined with a dilution event (see discussion
-in~\S~\ref{outflows:sec:disc-conc}).
-Although infinitely small variations are theoretically possible as a
-consequence of the Milky Way's detailed SFH, the APOGEE selection function and
-the substantial uncertainties in stellar age measurements (see discussion
-in~\S~\ref{outflows:sec:empirical:caveats}) make it difficult to assess the
-significance.
+at~$R_\text{gal} \gtrsim 8$ kpc.
+\par
+These results are readily explained by GCE models invoking chemical
+equilibrium combined with a dilution event followed by re-enrichment (e.g.,
+\citealt{Dalcanton2007}; Chapter~\ref{bursts}).
+However, due to the APOGEE selection function and the uncertainties in stellar
+age measurements, it is difficult to assess the significance of the steepening
+of the gradient~$\sim$6 Gyr ago.
+Although there are variations in the oldest age bin and at large~\rgal, the
+most important finding from Fig.~\ref{outflows:fig:gradxh-fixed-age} is that
+the slope and, more importantly, the normalization of the stellar metallicity
+gradient exhibits minimal evolution over the past~$\sim$9 Gyr.
+% Although infinitely small variations are theoretically possible as a
+% consequence of the Milky Way's detailed SFH, the APOGEE selection function and
+% the substantial uncertainties in stellar age measurements (see discussion
+% in~\S~\ref{outflows:sec:empirical:caveats}) make it difficult to assess the
+% significance.
 
 \subsection{Caveats}
 \label{outflows:sec:empirical:caveats}
@@ -258,31 +285,38 @@ Though the value added catalog exhibits a dearth of very old stars
 \citealt{Leung2023}), this should not be a problem for this chapter since we
 are primarily interested in~$\lesssim$$10$ Gyr old populations anyway.
 The main advantage of the value added catalog over~\citet{Leung2023} is that
-their ages are available only for stars with surface gravities
-of~$\log g = 2.5 - 3.6$ due to their training sample.
-As a result, the value added catalog is a factor of~$\sim$$2.5$ large, yielding
-much more precise summary statistics.
-This decision also provides better coverage of the Galactic disk as we are able
+the latter ages are available only for stars with surface gravities
+of~$\log g = 2.5 - 3.6$ due to the training sample.
+As a result, the value added catalog is a factor of~$\sim$$2.5$ larger,
+yielding much more precise summary statistics.
+This choice  also provides better coverage of the Galactic disk as we are able
 to use luminous, low-surface gravity stars on the upper red giant branch.
 \par
 Particularly with regard to our measurement of the age gradient, the APOGEE
 selection function is a significant source of systematic uncertainty.
 APOGEE primarily targets stars with 2MASS~\citep{Skrutskie2006} magnitudes
-of~$7 < H < 13.8$ on a grid of sightlines at Galactic latitudes
+of~$7 < H < 13.8$ on a grid of sightlines at Galactic latitudes of
 $b = 0$,~$\pm 4^\circ$, and~$\pm 8^\circ$ (targeting is described in detail
-by~\citealt{Zasowski2013, Zasowski2017, Beaton2021}, and~\citealt{Santana2021}).
+by~\citealt{Zasowski2013, Zasowski2017},~\citealt{Beaton2021},
+and~\citealt{Santana2021}).
 Quantifying the impact of this sampling bias in APOGEE first requires relating
 a star's apparent magnitude and color to a selection fraction based on its
 location on the 2-D sky~\citep{Bovy2016c, Mackereth2017, Lian2022}.
 One must then combine this mapping with a 3-D dust map to account for reddening
 and some model of the intrinsic number density of potential targets based on
-stellar properties from isochrones and an initial mass function (IMF; e.g.
+stellar properties from isochrones and an initial mass function (IMF; e.g.,
 \citealt{Kroupa2001, Chabrier2003}), which then results in the selection
 fraction as a function of Galactic position, metallicity, and age
 \citep[see also][]{Mackereth2020}.
 In the case of our gradient measurements, the systematic uncertainty of the
 selection function casts doubt on the significance of the dilution event
 noted in Fig.~\ref{outflows:fig:gradxh-fixed-age}.
+We note, however, that while selection may alter the distribution of ages at a
+given location and metallicity, it should have little impact on the
+distribution of metallicity at a given age since red giant luminosities and
+lifetimes have little metallicity dependence over this range.
+Thus, a representation such as Fig.~\ref{outflows:fig:gradxh-fixed-age} is
+relatively robust.
 
 % Although there is no analytic expression for the peak, given the mean~$\mu$ and
 % standard deviation~$\sigma$ of the corresponding unskewed distribution, an
